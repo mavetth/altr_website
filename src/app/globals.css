@@ -1,0 +1,1056 @@
+/* ==========================================================================
+   altr — tema sistemi
+   Karanlık (varsayılan): siyah zemin + sarı vurgu  (marka kimliği)
+   Aydınlık: beyaz/eflatun zemin + mor/mor vurgu
+   Tüm tasarım renkleri değişkenlere bağlandı; tek yapılan data-theme'i çevirmek.
+   ========================================================================== */
+
+:root,
+:root[data-theme="dark"] {
+  --grn: oklch(0.86 0.16 96);        /* vurgu: sarı */
+  --on-accent: #050505;              /* vurgu üstündeki metin */
+
+  --bg: #000000;                     /* sayfa zemini */
+  --bg2: #050505;                    /* modal / panel zemini */
+  --bg3: #0b0b0d;                    /* slider vb. iç kutu */
+  --chip-bg: #131318;                /* beden kutusu dolu */
+
+  --fg: #e6e6e0;                     /* ana metin */
+  --fg-bright: #f2f2ec;              /* parlak metin / kalın kenar */
+  --muted: #8a8a83;
+  --muted2: #6a6a63;
+  --muted3: #5a5a55;
+  --faint: #4a4a46;
+  --faint2: #33332f;                 /* placeholder metni */
+
+  --line: #26262a;                   /* kenar */
+  --line2: #2a2a2e;                  /* ayraç noktalar */
+  --line3: #1c1c20;                  /* ince kenar */
+  --line4: #16161a;                  /* çok ince ayraç */
+
+  --tex: repeating-linear-gradient(135deg, #0e0e12 0 10px, #08080b 10px 20px);
+  --modal-flash-blend: screen;
+  --btn-glass: rgba(5, 5, 5, 0.72);      /* görsel üstü buton zemini */
+  /* Beden baloncukları ürün FOTOĞRAFININ üstünde duruyor; şeffaf zeminde açık renkli
+     bir görselin üstünde tamamen kayboluyorlardı. Opak-ish bir zemin okunurluğu
+     fotoğraftan bağımsız hale getirir. */
+  --chip-bg-on: rgba(5, 5, 5, 0.82);     /* üründe VAR olan beden */
+  --chip-bg-off: rgba(5, 5, 5, 0.55);    /* olmayan beden (sönük) */
+  /* Admin istatistiklerinin iki kategorik serisi (görüntülenme / çıkış).
+     Vurgu renginin (--grn) kendisi KULLANILMADI: L 0.86 karanlık zeminde grafik
+     için fazla parlak ve ikinci seriye ayrım payı bırakmıyordu. Bu iki adım
+     ölçülerek seçildi — L 0.48–0.67 bandında, renk körlüğü ayrımı ΔE 17.8+
+     (protan/tritan), zemine karşı kontrast ≥3:1. Kimlik yine de yalnız renge
+     bırakılmaz: panelde her zaman bir açıklama şeridi ve sayı etiketi var. */
+  --stat-1: #ab9104;                     /* görüntülenme (sıcak — marka sarısının koyu adımı) */
+  --stat-2: #0a8fd1;                     /* çıkış (soğuk) */
+  --scan: rgba(255, 255, 255, 0.04);     /* modal scanline çizgileri */
+  --reminder-glass: rgba(242, 242, 236, 0.62);  /* vitrin hatırlatıcısı: yarı şeffaf buzlu cam */
+}
+
+:root[data-theme="light"] {
+  --grn: oklch(0.52 0.22 295);       /* vurgu: mor/eflatun */
+  --on-accent: #ffffff;
+
+  --bg: #f4f1ec;                     /* kırık beyaz */
+  --bg2: #ffffff;
+  --bg3: #efe9f2;                    /* hafif eflatun */
+  --chip-bg: #efe7f5;
+
+  --fg: #211d28;
+  --fg-bright: #17131c;
+  --muted: #6b6577;
+  --muted2: #837d8f;
+  --muted3: #938da0;
+  --faint: #b3aec0;
+  --faint2: #cfc8da;
+
+  --line: #ddd5e6;
+  --line2: #e2dbec;
+  --line3: #e7e1ef;
+  --line4: #efeaf4;
+
+  --tex: repeating-linear-gradient(135deg, #efe9f3 0 10px, #e7dff0 10px 20px);
+  --modal-flash-blend: multiply;
+  --btn-glass: rgba(255, 255, 255, 0.72);
+  --chip-bg-on: rgba(255, 255, 255, 0.86);
+  --chip-bg-off: rgba(255, 255, 255, 0.6);
+  /* Aydınlık modun kendi adımları — karanlık moddan çevrilmedi, beyaz zemine karşı
+     ayrıca ölçüldü (L 0.43–0.77 bandı, ΔE 24.2+ CVD, kontrast ≥3:1). */
+  --stat-1: #773cd6;                     /* görüntülenme (marka moru) */
+  --stat-2: #c84f00;                     /* çıkış (sıcak karşıtı) */
+  --scan: rgba(30, 20, 45, 0.05);
+  --reminder-glass: rgba(23, 19, 28, 0.62);
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+/* Sticky üst şeridin yüksekliği — TEK KAYNAK. Hem .topbar'ın kendi boyu hem de
+   sidebar'ın yapışma eşiği buradan okur.
+   Neden değişken: ikisi ayrı yerlerde sabit sayı olarak duruyordu (topbar doğal
+   olarak 61px, sidebar `top: 50px`) ve aralarındaki 11px fark yüzünden sayfa
+   başında sidebar kayıp topbar'ın altına giriyordu. Boy artık örtük değil, açık:
+   .topbar bunu height olarak alıyor, yani ikisi bir daha ayrışamaz.
+   Mobilde geçersiz — orada topbar static ve arama kutusu gizli, boyu tamamen
+   farklı (bkz. ≤820px bloğundaki `height: auto`). */
+:root { --topbar-h: 61px; }
+.topbar { height: var(--topbar-h); }
+
+/* Arama kutusu, öneri listesini (position:absolute) taşıyabilmek için konumlandırılmış
+   olmak zorunda. Kural BİLEREK stylesheet'te: satır içi stil olduğunda mobildeki
+   `position: sticky` kuralını eziyordu (bkz. SearchBox.tsx). Mobil kural bu dosyada
+   DAHA SONRA geldiği için — aynı özgüllükte — kazanır. */
+.search-anchor { position: relative; }
+
+/* Sayfa içi bağ hedefinin (ör. MARKALAR harf şeridi → #harf-H) üstünde bırakılacak pay.
+   Vitrinde üst şerit YAPIŞIK: hedef kendi kendine 24px'e oturunca başlığın üstü barın
+   altında kalıyordu. Değer bara bağlı, artı bir nefes payı. Kalıcı sayfalarda
+   (PageChrome) başlık akışta durduğu için `scroll-margin-top`un kendi varsayılanı
+   (24px) geçerli — bu değişken orada hiç tanımlanmaz. */
+.app-shell { --anchor-offset: calc(var(--topbar-h) + 22px); }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "IBM Plex Mono", monospace;
+  /* tema geçişi: yumuşak değil, ani/sert kimliğe uygun -> kısa kes */
+}
+::selection { background: var(--grn); color: var(--on-accent); }
+input::placeholder { color: var(--faint); }
+a { color: inherit; }
+
+/* --- tasarımdaki animasyon ve hover sınıfları --- */
+/* "canlı" noktası: KESİNTİSİZ nefes alır.
+   Eskiden `steps(2)` ile iki kare arasında zıplıyordu; sayfanın geri kalanı sert/adımlı
+   olduğu için bilinçli bir tercihti ama 6px'lik bir noktada sertlik okunmuyor, takılan
+   bir GIF gibi görünüyordu. Tek istisna bu: nokta yanıp sönmüyor, sürekli soluyor. */
+@keyframes dpulse { 0%,100%{opacity:1} 50%{opacity:.22} }
+.live { animation: dpulse 1.9s cubic-bezier(.45,0,.55,1) infinite; }
+@media (prefers-reduced-motion: reduce) { .live { animation: none; opacity: .8; } }
+
+/* Çıkış ekranı (bkz. ExitScreen.tsx): dolan süre çubuğu + dönen halka. İkisi de
+   KESİNTİSİZ — bekleme ekranında adımlı hareket "donmuş" diye okunuyor. */
+@keyframes exitbar { from { width: 0 } to { width: 100% } }
+@keyframes exitspin { to { transform: rotate(360deg) } }
+.exit-bar { width: 0; animation-name: exitbar; animation-timing-function: linear; animation-fill-mode: forwards; }
+.exit-spin { animation: exitspin 900ms linear infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .exit-spin { animation-duration: 2.4s; }
+  /* tam ekran flaş: hareket hassasiyeti açıkken hiç patlamasın */
+  .exit-flash-wrap { display: none; }
+}
+
+.nav-item { transition: none; cursor: pointer; user-select: none; -webkit-user-select: none; }
+.nav-item:hover { color: var(--grn) !important; }
+/* az önce kapatılan kategori: fare ayrılmadan tekrar sarıya dönmesin (bkz. CategoryNav.tsx) */
+.nav-item.cat-suppress-hover:hover { color: var(--muted) !important; }
+.prod { transition: none; cursor: pointer; }
+.prod:hover .prod-img { border-color: var(--grn) !important; }
+.logo-chip { transition: none; cursor: pointer; }
+.logo-chip:hover { border-color: var(--grn) !important; color: var(--grn) !important; }
+.fbox { transition: none; cursor: pointer; }
+.fbox:hover { border-color: var(--grn) !important; color: var(--grn) !important; }
+.add-btn { transition: none; cursor: pointer; }
+.add-btn:hover { border-color: var(--grn) !important; color: var(--grn) !important; }
+.det-nav { transition: none; }
+.det-nav:hover { border-color: var(--grn) !important; color: var(--grn) !important; }
+.modal-close { transition: none; cursor: pointer; }
+.modal-close:hover { border-color: var(--grn) !important; color: var(--grn) !important; }
+.vit-rm { transition: none; cursor: pointer; }
+.vit-rm:hover { border-color: var(--grn) !important; color: var(--grn) !important; }
+.vit-img:hover { border-color: var(--grn) !important; }
+.slide-handle { cursor: grab; touch-action: none; }
+.slide-handle:active { cursor: grabbing; }
+.prod-src { cursor: pointer; }
+
+/* vitrin hatırlatıcısı: kaydırmaya bağlı yüzen rozet — sert/adımlı giriş, masaüstünde gizli */
+.vitrin-reminder { display: none; }
+@keyframes reminderup {
+  0% { transform: translate(-50%, 20px); opacity: 0; }
+  55% { transform: translate(-50%, -3px); opacity: 1; }
+  100% { transform: translate(-50%, 0); opacity: 1; }
+}
+
+/* vitrine ekleme uçuşu: hedefin (VİTRİNİM / yüzen reminder) varışta yumuşak "pop"u.
+   Bu efekt bilinçli olarak yumuşak — sitenin genel sert/glitch dilinden ayrılır. */
+@keyframes vitrinpop {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.2); }
+  70%  { transform: scale(.96); }
+  100% { transform: scale(1); }
+}
+.vf-hit { animation: vitrinpop .5s cubic-bezier(.3,.9,.3,1); transform-origin: center center; }
+
+/* toast */
+@keyframes toastin {
+  0%{opacity:0;transform:translate(-50%,14px)}
+  12%{opacity:1;transform:translate(-50%,0)}
+  86%{opacity:1;transform:translate(-50%,0)}
+  100%{opacity:0;transform:translate(-50%,8px)}
+}
+.toast-anim { animation: toastin 1.5s ease forwards; }
+
+/* vitrin yatay scroll bar */
+.vit-scroll::-webkit-scrollbar { height: 6px; }
+.vit-scroll::-webkit-scrollbar-thumb { background: var(--line2); border-radius: 999px; }
+.vit-scroll::-webkit-scrollbar-track { background: transparent; }
+
+/* --- sert/glitch geçişler (marka kimliği: yumuşak easing YOK) --- */
+@keyframes glitchflash {
+  0% { opacity: 0; }
+  10% { opacity: .9; transform: translate(-2px, 0); }
+  30% { opacity: .2; transform: translate(2px, -1px); }
+  55% { opacity: .7; transform: translate(-1px, 1px); }
+  100% { opacity: 0; transform: translate(0, 0); }
+}
+.mg-flash.go { animation: glitchflash .5s steps(3) forwards; }
+
+@keyframes panelcut {
+  0% { clip-path: inset(0 0 100% 0); }
+  40% { clip-path: inset(0 0 8% 0); }
+  60% { clip-path: inset(0 55% 8% 0); }
+  100% { clip-path: inset(0 0 0 0); }
+}
+.panel-anim { animation: panelcut .22s steps(2) forwards; }
+/* Ürün modalı: clip-path tabanlı kademeli (glitch) açılış, overflow:auto +
+   border-radius'lu bir elemanda WebKit'te köşe/kenar titremesine (render
+   glitch) yol açıyordu — kaldırıldı, modal artık animasyonsuz açılıyor. */
+
+/* Ürün görseli yükleme iskeleti — SESSİZ.
+   Eskiden `animation: skel 1.2s steps(2) infinite` idi: `steps(2)` yumuşak bir nabız
+   değil SERT bir yanıp sönme üretiyor ve bir kategoriye geçildiğinde ekrandaki 40 kart
+   birbirinden bağımsız fazlarda aynı anda yanıp sönüyordu ("yanıp sönen ışıklar").
+   Bekleme hissini azaltmıyor, artırıyordu. Yerine hareketsiz, düşük kontrastlı bir
+   zemin: kart yerini belli eder, göze vurmaz. Görselin kendisi geldiğinde
+   ProductImage'teki kısa çapraz geçişle yerleşir. */
+.img-skel { background: var(--tex); opacity: .55; }
+
+/* --- 3B logo (Logo3D.tsx) -------------------------------------------------
+   Katmanlar ortak bir `preserve-3d` bağlamında DEĞİL, tek tek yansıtılıyor: sticky
+   sidebar'ın altında sürekli açık bir 3B bağlam Firefox'ta kaydırırken lekelenmeye
+   yol açıyordu (gerekçenin tamamı Logo3D.tsx başlığında).
+
+   Düz bağlamda boyama sırası DOM sırasına düşer, yani derinlik sıralaması bize kalır:
+   --lz katmanın önden arkaya sırası (ön = en büyük), --logo-dir ise blok arkası
+   ekrana bakacak kadar döndüğünde -1 olup sırayı tersine çevirir. */
+.logo3d-layer { z-index: calc(var(--logo-dir, 1) * var(--lz, 0)); }
+
+/* --- marka logoları -------------------------------------------------------
+   Logolar markaların kendi sitelerinden bir kez indirilip /brand-logos altında
+   duruyor. Renk/kontrast işi tamamen burada:
+
+   data-inv="1" -> logo KOYU işaretli (açık zeminde okunur). Karanlık sayfada
+   ters çevrilmeli. data-inv="0" -> tersi. Kural tek satır: zemin koyuysa
+   data-inv="1" olanlar, zemin açıksa data-inv="0" olanlar invert edilir.
+
+   Duruşta grayscale: 100+ markanın kendi renkleri yan yana dizilince sayfa
+   karnavala dönüyor ve sarı vurguyla çakışıyordu. Etkileşimde (hover / açık
+   çip) markanın gerçek rengi ortaya çıkıyor. */
+.brand-logo {
+  --li: 0;
+  display: block;
+  object-fit: contain;
+  flex: none;
+  filter: grayscale(1) invert(var(--li));
+  -webkit-user-drag: none;
+  user-select: none;
+}
+:root[data-theme="dark"] .brand-logo[data-inv="1"] { --li: 1; }
+:root[data-theme="light"] .brand-logo[data-inv="0"] { --li: 1; }
+/* seçili marka çipinin zemini vurgu rengine döner — okunurluk kuralı tersine işler */
+:root[data-theme="dark"] .logo-chip.is-on .brand-logo[data-inv="1"] { --li: 0; }
+:root[data-theme="dark"] .logo-chip.is-on .brand-logo[data-inv="0"] { --li: 1; }
+:root[data-theme="light"] .logo-chip.is-on .brand-logo[data-inv="0"] { --li: 0; }
+:root[data-theme="light"] .logo-chip.is-on .brand-logo[data-inv="1"] { --li: 1; }
+.logo-chip:hover .brand-logo,
+.prod-src:hover .brand-logo { filter: invert(var(--li)); }
+.prod-src:hover .brand-mark { border-bottom-color: var(--grn) !important; }
+
+/* Karttaki marka şeridi: TIKLANMAZ (bkz. ProductCard). Yine de kartın üstüne
+   gelindiğinde markanın gerçek rengi açılır — kartın hangi markaya ait olduğu
+   o an okunması gereken şey. */
+.prod-brand { cursor: inherit; }
+.prod:hover .prod-brand .brand-logo { filter: invert(var(--li)); }
+
+/* Karttaki logo ŞERİDİ kartın enine uyar.
+   Logolar farklı en/boy oranlarında (kare amblemden 13:1 wordmark'a) geliyor ve
+   `BrandLogo` piksel genişliği önceden hesaplıyor. Dar bir kartta o genişlik kartı
+   taşırıp satırı kaydırıyordu; `max-width` ile logo kutuya sığar, oran korunur.
+   Yanındaki marka adı da taşarsa kırpılır — logo her zaman öncelikli. */
+/* `!important`: satır içi `height` (BrandLogo'ın hesapladığı piksel) yoksa max-width
+   devreye girdiğinde genişlik kısalır ama yükseklik kalır, logo YATAY EZİLİRDİ.
+   `height:auto` en/boy oranından türetilir — kısalan genişlikle birlikte küçülür. */
+.prod-brand .brand-logo { max-width: 100% !important; height: auto !important; }
+.prod-brand .brand-logo-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+/* --- renk seçici ----------------------------------------------------------
+   Seçim, noktanın rengini bozmamak için ETRAFINDAKİ halkayla gösterilir
+   (siyah varyantın seçili hâli de siyah kalmalı). Geçiş yok: anlık. */
+.swatch { transition: none; }
+.swatch:hover { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--muted2) !important; }
+.swatch.is-on:hover { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--grn) !important; }
+
+/* --- modal redesign: sert/adımlı efektler (yumuşak easing YOK) --- */
+
+/* CRT scanline dokusu (marka modalı) */
+.scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;
+  background: repeating-linear-gradient(0deg, transparent 0 3px, var(--scan) 3px 4px);
+}
+
+/* modal başlığı: glitch gölgesi */
+.glitch-head { text-shadow: 2px 0 var(--bg2), -2px 0 var(--grn); }
+
+/* CTA: efektsiz, sadece tıklanabilir */
+.cta-btn { transition: none; cursor: pointer; }
+
+/* ray etiketi: aralıklı glitch kırpması */
+@keyframes lblglitch {
+  0%, 88% { transform: translateX(0); opacity: 1; }
+  90% { transform: translateX(2px); opacity: .5; }
+  93% { transform: translateX(-2px); opacity: .85; }
+  96% { transform: translateX(1px); opacity: .45; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+.slide-label { animation: lblglitch 2.8s steps(1) infinite; }
+
+/* ray oku dizisi: sırayla yanıp sönen ›'ler */
+@keyframes chevpulse { 0%, 100% { opacity: .18; } 50% { opacity: .85; } }
+.chev-i { font-style: normal; animation: chevpulse .9s steps(2) infinite; }
+
+/* tutamak: hover'da adımlı sarsıntı */
+@keyframes handlejit {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(1px, -1px); }
+  100% { transform: translate(-1px, 1px); }
+}
+.slide-handle:hover { animation: handlejit .22s steps(2) infinite; }
+
+/* küçük görsel (thumbnail) kutuları */
+.thumb { transition: none; cursor: pointer; }
+.thumb:hover { border-color: var(--grn) !important; }
+
+/* üst bar tema anahtarı: masaüstünde gizli, mobilde görünür */
+.topbar-theme { display: none; }
+/* üst bar dil anahtarı: tema anahtarıyla aynı kural — masaüstünde sidebar'da durur */
+.topbar-lang { display: none; }
+
+/* --- dil anahtarı (TR/EN) ------------------------------------------------
+   Tema anahtarının hemen altında durur: ikisi de "site nasıl görünsün" ayarı.
+   Seçili olmayan bayrak RENKSİZ — seçili olan ekrandaki tek renkli işaret. */
+.lang-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+.lang-btn {
+  appearance: none;
+  background: none;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 9px;
+  border: 1px solid var(--line);
+  color: var(--muted3);
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .18em;
+  cursor: pointer;
+  /* arayüz sert: geçiş yok */
+  transition: none;
+}
+.lang-btn svg { filter: grayscale(1); opacity: .5; }
+.lang-btn:hover svg,
+.lang-btn[aria-pressed="true"] svg { filter: none; opacity: 1; }
+.lang-btn[aria-pressed="true"] { border-color: var(--grn); color: var(--grn); }
+.lang-btn:focus-visible { outline: 1px solid var(--grn); outline-offset: 2px; }
+/* mobilde sayfanın tamamı boyunca sabit kalan bağımsız arama satırı (arama + GİRİŞ):
+   masaüstünde gizli (masaüstünde arama zaten .topbar'ın içinde, sticky header'ın
+   parçası olarak duruyor; hesap düğmesi de aynı şeritte).
+   !important şart: SearchBox kendi inline display:flex'ini taşıyor, normal bir class
+   kuralı onu ezemez. */
+.mobile-search-sticky { display: none !important; }
+/* mobil sabit kategori şeridi: masaüstünde gizli (kategoriler sidebar'da) */
+.topbar-cats-fixed { display: none; }
+/* mobildeki kadın/erkek kopyası: masaüstünde gizli (o zaten sidebar'da) */
+.mobile-gender-row { display: none; }
+/* logo/vitrin arası dikey ayraç: sadece mobil üst şeritte görünür */
+.side-divider { display: none; }
+/* kadın/erkek arası dikey ayraç: hem masaüstü hem mobilde, yatay DOTLINE'larla aynı dil */
+.side-gender-divider {
+  display: block;
+  flex: none;
+  width: 1px;
+  height: 22px;
+  background: repeating-linear-gradient(180deg, var(--line2) 0 6px, transparent 6px 12px);
+}
+/* --- KATLANABİLİR ÇİP BÖLÜMÜ (.chip-sec) --------------------------------
+   MARKA ve TARZ şeritlerinin ORTAK kalıbı: başlık + çip ızgarası, mobilde
+   artı/eksi dairesiyle katlanır (bkz. BrandChips / StyleRow). Ölçüler tek yerde
+   duruyor ki iki şerit zamanla birbirinden ayrışmasın — eskiden yalnız marka
+   şeridi katlanıyordu ve aynı işi yapan iki blok farklı davranıyordu. */
+.chip-sec-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  letter-spacing: .24em;
+  color: var(--faint);
+  margin-bottom: 13px;
+}
+/* açma/kapama göstergesi: sadece mobilde görünür (masaüstünde her zaman açık) */
+.chip-sec-toggle { display: none; }
+/* TARZ masaüstünde TEK SATIR: başlık çiplerin solunda kalır — yani orada görüntü
+   katlanabilirlikten önceki hâliyle aynı. Mobilde bu kural media query'de bozulup
+   başlık kendi satırına çıkıyor. */
+.style-sec { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; margin-bottom: 20px; }
+.style-sec .chip-sec-head { margin-bottom: 0; margin-right: 4px; font-size: 11px; letter-spacing: .26em; }
+/* tarz sayısı masaüstünde gizli — çipler zaten görünüyor (bkz. StyleRow) */
+.style-sec .chip-sec-count { display: none; }
+/* GÖRÜNÜM/STOK/SIRALA sarmalayıcısı masaüstünde YOK SAYILIR: `display: contents` ile
+   aradan çekilince `.sort-row` yine ızgara başlığının doğrudan çocuğu olur, yani satır
+   eskisi gibi sayacın karşısında durur. Başlık da orada çizilmez — kontroller zaten
+   görünürken üstlerine bir ad yazmak boş satır demekti. */
+.sort-sec { display: contents; }
+.sort-sec > .chip-sec-head { display: none; }
+/* sol menü bölüm ayracı — barda YEDİ kez tekrar eder, yani dikey boşluğu tek başına
+   ~280px yer yiyor. Kısa ekranlarda (1366×768 gibi) kategori listesine hiç yer
+   kalmıyordu; bu yüzden aralık ekran boyuna göre kısalır. */
+.dotline {
+  width: 100%;
+  height: 1px;
+  margin: 20px 0;
+  background: repeating-linear-gradient(90deg, var(--line2) 0 6px, transparent 6px 12px);
+}
+@media (max-height: 920px) { .dotline { margin: 12px 0; } }
+@media (max-height: 800px) { .dotline { margin: 7px 0; } }
+
+/* sol menünün üç kapısını (MİSYON · MARKALAR · VİTRİNİM) taşıyan sarmalayıcı:
+   masaüstünde düz bir sütun, mobilde tek ızgara hücresinde yatay şerit */
+.side-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+/* vitrin sayı rozeti: masaüstünde alt yazı zaten sayıyı gösterdiği için gizli,
+   mobilde dar sütuna alt yazı sığmadığından ikonun köşesinde rozet olarak çıkar */
+.vit-badge { display: none; }
+
+/* tema switch */
+.theme-switch {
+  position: relative; width: 52px; height: 26px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--bg3); cursor: pointer; flex: none;
+  transition: none;
+}
+.theme-switch .knob {
+  position: absolute; top: 2px; left: 2px; width: 20px; height: 20px; border-radius: 50%;
+  background: var(--grn); display: flex; align-items: center; justify-content: center;
+  font-size: 13px; color: var(--on-accent);
+}
+:root[data-theme="light"] .theme-switch .knob { left: 28px; }
+
+/* kategori listesi: BOYU İÇERİĞİ KADAR (flex-grow YOK). Hiçbir çatı açık değilken
+   liste kısalır ve alttaki bölümler (misyon/markalar/vitrinim/sayaç) yukarı gelir —
+   arada ölü boşluk kalmaz. Çatı açıldıkça liste büyüyüp alttakileri aşağı iter;
+   kalan dikey alan bitince (flex-shrink) yalnız bu liste kısalır ve kendi içinde
+   kaymaya başlar. Kaydırma çubuğu sitenin diline uygun ince ve sessiz. */
+.side-cats {
+  flex: 0 1 auto;
+  /* dikey alan çok daraldığında liste sıfıra inip görünmez olmasın (720p'de oluyordu) */
+  min-height: 132px;
+  width: 100%;
+  overflow-y: auto;
+  /* YATAY kaydırma yok: içerik daima sütuna sığar, taşarsa alt satıra sarar */
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  padding-right: 4px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line2) transparent;
+}
+/* Dikey alan daralınca YALNIZ kategori listesi kısalsın: diğer bölümler sıkışırsa
+   (tema/dil/kadın-erkek/üç kapı) satırları üst üste biner. Kategori listesi zaten
+   kendi içinde kayabildiği için daralmayı taşıyabilecek tek bölüm o. */
+.sidebar:not(.sidebar-collapsed) > * { flex: none; }
+.sidebar:not(.sidebar-collapsed) > .side-cats { flex: 0 1 auto; }
+.side-cats::-webkit-scrollbar { width: 5px; }
+.side-cats::-webkit-scrollbar-thumb { background: var(--line2); border-radius: 999px; }
+.side-cats::-webkit-scrollbar-track { background: transparent; }
+.side-cats span { flex: none; }
+/* mobil şeritte sayı fazla yer kaplıyor, sadece masaüstü listede gösterilir */
+.topbar-cats-fixed .cat-count { display: none; }
+
+/* --- çatı kategoriler (ÜST GİYİM / ALT GİYİM / …) --- */
+.cat-group { display: flex; flex-direction: column; align-items: center; gap: 9px; width: 100%; }
+.cat-group-head {
+  font-weight: 700;
+  letter-spacing: .16em;
+  white-space: nowrap;
+  gap: 6px;
+}
+/* sayı: punto CSS'te, çünkü sol menüdeki kopya sütuna sığmak için küçültüyor */
+.cat-count { font-size: .82em; }
+/* SOL MENÜDEKİ liste TEK TİPOGRAFİ: çatı başlığı, kategori ve alt kategori aynı
+   punto, aynı harf aralığı, aynı kalınlık. Önceden başlık 700 kalın + .16em, alt
+   kalemler .95em idi — mono bir yazıda kalın kesit ayrı bir font gibi okunuyordu.
+   Hiyerarşiyi artık ok işareti, girinti ve kılavuz çizgisi taşıyor.
+   Ölçüler listenin kendisinden (Sidebar.tsx) miras alınır; buradaki kurallar yalnız
+   .cat-group-head'in kendi sınıf değerlerini (kalınlık/aralık/nowrap) geri alır.
+   Dil değişince en uzun satır yine de taşarsa alt satıra sarar — yatay kaydırma yok.
+   Mobil şerit (.topbar-cats-fixed) bu kurallardan etkilenmez. */
+.side-cats .cat-group-head {
+  font-size: 1em;
+  font-weight: 400;
+  letter-spacing: inherit;
+  gap: 5px;
+  white-space: normal;
+  flex-wrap: wrap;
+}
+.side-cats .cat-group-body .cat-sub { font-size: 1em; }
+.side-cats .cat-count { font-size: .78em; }
+.side-cats .nav-item { max-width: 100%; }
+/* açık çatının altındaki kalemler: hafif girinti + sol kılavuz çizgisi, böylece
+   hangi başlığa ait oldukları listeyi okumadan görünür */
+.cat-group-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 0 4px;
+  border-left: 1px solid var(--line3);
+  margin-bottom: 2px;
+}
+.cat-group-body .cat-sub { font-size: .95em; }
+/* katlanmış sol bar: dar şerit, sağında ince ayraç */
+.sidebar-collapsed { border-right: 1px solid var(--line3); }
+.side-toggle { cursor: pointer; }
+.side-toggle:hover { color: var(--grn) !important; border-color: var(--grn) !important; }
+
+/* responsive: grid daralması (minmax(0,1fr): min-content taşmasını engeller).
+   Kurallar gösterim biçimine göre ayrı: "İRİ" zaten 2 sütun, onu 3'e ÇIKARMAK
+   dar ekranda tersine bir etki olurdu; "LİSTE" geniş ekranda 2 sütun, dar ekranda
+   tek — satırın kendisi zaten yatay (220px görsel + yanında bilgi bloğu), iki satır
+   yan yana ancak geniş ekranda nefes alıyor. */
+@media (max-width: 1400px) {
+  .grid-inner[data-layout="sik"] { grid-template-columns: repeat(5,minmax(0,1fr)) !important; }
+}
+@media (max-width: 1100px) {
+  .grid-inner[data-layout="izgara"] { grid-template-columns: repeat(3,minmax(0,1fr)) !important; }
+  .grid-inner[data-layout="sik"] { grid-template-columns: repeat(4,minmax(0,1fr)) !important; }
+  .grid-inner[data-layout="liste"] { grid-template-columns: minmax(0,1fr) !important; }
+}
+
+/* --- tablet/mobil (≤820px): sidebar kompakt üst şeride dönüşür --- */
+@media (max-width: 820px) {
+  .layout-grid { grid-template-columns: minmax(0,1fr) !important; }
+  .grid-inner[data-layout="izgara"] { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+  .grid-inner[data-layout="sik"] { grid-template-columns: repeat(3,minmax(0,1fr)) !important; }
+  .grid-inner[data-layout="buyuk"] { grid-template-columns: minmax(0,1fr) !important; }
+
+  .sidebar {
+    position: static !important;
+    height: auto !important;
+    display: grid !important;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center !important;
+    padding: 14px 16px 10px !important;
+    column-gap: 16px;
+    row-gap: 14px;
+  }
+  .dotline { display: none !important; }
+  /* logo | kesikli ayraç | vitrinim — üçü de 1. satırda, kendi hücresinde ortalanır.
+     grid-row'u elle sabitliyoruz: side-cats DOM'da vitrinim'den önce geldiği ve tam
+     genişlik kapladığı için otomatik yerleşim vitrinim'i 3. satıra itiyordu. */
+  .side-logo { grid-column: 1; grid-row: 1; justify-self: center; width: 96px !important; height: 54px !important; }
+  /* logo mobilde ESKİ boyunda kalır: masaüstü 55px'e çıktı, buradaki şerit zaten dar.
+     --logo-fs bütün 3B kurulumu birlikte ölçekler (bkz. Logo3D.tsx), tek kol yeter.
+     !important şart: değişken bileşende inline style ile yazılıyor, inline aksi halde kazanır. */
+  .side-logo .logo3d { --logo-fs: 50px !important; }
+  .side-logo .logo-main { font-size: 24px !important; }
+  .side-logo .logo-sub { font-size: 8px !important; }
+  .side-divider {
+    /* yatay DOTLINE'larla aynı dil: ince kesikli, ayraç rengi (vurgu değil) */
+    display: block;
+    grid-column: 2;
+    grid-row: 1;
+    width: 1px;
+    align-self: stretch;
+    background: repeating-linear-gradient(180deg, var(--line2) 0 6px, transparent 6px 12px);
+  }
+  /* tema anahtarı mobilde üst bara taşınır; sidebar'daki gizlenir */
+  .topbar-theme { display: flex; }
+  .sidebar > .theme-row { display: none !important; }
+  .theme-row { width: auto !important; }
+  .theme-row .t-label { display: none !important; }
+  /* dil anahtarı da tema anahtarıyla birlikte üst şeride taşınır; dar ekranda
+     yalnız bayrak kalır, TR/EN yazısı düşer */
+  .topbar-lang { display: flex; }
+  .sidebar > .lang-row { display: none !important; }
+  .lang-row { width: auto !important; }
+  .lang-btn span { display: none; }
+  .lang-btn { padding: 5px 7px; }
+
+  /* DİL + TEMA mobilde: %20 küçük ve şeridin SAĞ ucunda tek blok halinde.
+     `margin-left: auto` ikisini birden sağa iter (FİLTRE solda kalır) — .topbar'ın
+     space-between'i üç eleman arasında eşit boşluk bırakıyordu, GİRİŞ satırdan
+     çıkınca bu dağınık duruyordu. Aradaki nefes şeridin gap'inden değil kendi
+     margin'inden gelsin diye .topbar-theme'e küçük bir sol boşluk verildi.
+
+     Ölçüler elle küçültüldü, transform:scale() ile değil: scale görsel boyutu
+     küçültür ama eleman eski yerini kaplamaya devam eder, sağ kenarda boşluk kalırdı.
+     Bayrak ve ikon boyları bileşende SVG width/height ÖZNİTELİĞİ olarak yazılıyor;
+     CSS'teki width/height bunları ezer. */
+  .topbar-lang .lang-row { gap: 6px; }
+  .topbar-lang .lang-btn { padding: 4px 6px; }
+  .topbar-lang .lang-btn svg { width: 18px; height: 12px; }
+  .topbar-lang { margin-left: auto; }
+  .topbar-theme { margin-left: 4px; }
+  /* 52×26 → 42×21; topuz 20 → 16 (ikon 13 → 10) */
+  .topbar-theme .theme-switch { width: 42px; height: 21px; }
+  .topbar-theme .theme-switch .knob { width: 16px; height: 16px; top: 1.5px; left: 1.5px; }
+  .topbar-theme .theme-switch .knob svg { width: 10px; height: 10px; }
+  /* gündüz konumu: küçülen genişliğe göre yeniden hesaplandı (40 − 16 − 1.5).
+     Seçici masaüstündeki `:root[data-theme=...]` kuralından daha ağır olmak zorunda. */
+  :root[data-theme="light"] .topbar-theme .theme-switch .knob { left: 22.5px; }
+  /* Üç kapı (MİSYON · MARKALAR · VİTRİNİM) TEK hücreye giriyor ve içeride yan yana
+     diziliyor. Eskiden üçü de doğrudan `.side-vitrin` olarak aynı hücreye yerleşiyor,
+     yani ÜST ÜSTE biniyorlardı. */
+  .side-nav {
+    grid-column: 3;
+    grid-row: 1;
+    /* Logo 1. sütunun ORTASINDA duruyor; kapılar da 3. sütunun ortasında dursun ki
+       aradaki dikey kesikli ayracın iki yanı dengelensin (eskiden `end` idi, blok
+       ekranın sağ kenarına yapışıyordu). */
+    justify-self: center;
+    /* Kapılar alt alta ve HER BİRİ KENDİ İÇİNDE ORTALI (kullanıcı kararı, 2026-08-01).
+       İkon hizası denendi ve bırakıldı: ikonlar tek sütuna oturuyordu ama kısa yazılar
+       (MİSYON) sağda büyük bir boşluk bırakıyordu. Blok dar olduğu için ortalama daha
+       dengeli duruyor; kesikli çizgiler zaten bloğun enini alıp ortak sınırı çiziyor. */
+    flex-direction: column !important;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    width: auto !important;
+    min-width: 0;
+  }
+  /* Aralarındaki kesikli ayraç: `.dotline` mobilde genelde kapalı (dikey boşluk pahalı),
+     ama üç kapının arasında AÇIK — bloğu tek bir menü gibi okutan şey bu. Boşluğu
+     masaüstündekinin dörtte biri: burada satır aralığı değil, ayrım isteniyor. */
+  .side-nav .dotline { display: block !important; margin: 5px 0; }
+  /* Satırların kendi içindeki hizası bileşenden geliyor (Sidebar.tsx: `center`) —
+     burada geçersiz kılınmıyor, kapı yazısı ikonuyla birlikte ortalı kalıyor.
+
+     ROZET DE AKIŞTA (kullanıcı kararı, 2026-08-01): satırın bir parçası, yani VİTRİNİM
+     ikon + yazı + rozet olarak bir bütün hâlinde ortalanıyor. Rozeti akıştan çıkarıp
+     yalnız yazıyı ortalamak denendi ve bırakıldı — vitrin boşken rozet zaten çizilmiyor,
+     yani ortalama farkı sadece vitrinde ürün varken ortaya çıkan bir durum. */
+  /* Üç kapı dar ekranda tek satıra sığmalı: yazı küçülür, harf aralığı daralır.
+     375px'te ölçüldü — varsayılan 14px/.14em ile şerit sidebar'ın sağ kenarını
+     17px taşıyordu. */
+  .side-nav .nav-item {
+    font-size: 12px !important;
+    letter-spacing: .06em !important;
+    gap: 5px !important;
+  }
+  .side-vitrin { justify-self: center; }
+  .side-vitrin .vit-sub { display: none !important; }
+  /* .vit-badge içindeki rakamı ortalamak flex gerektiriyor (NumberBadge, icons.tsx) */
+  .vit-badge { display: inline-flex; }
+  .side-meta { display: none !important; }
+  /* eski logo-altı kategori satırı: yerini aşağıdaki native sticky şerit aldı */
+  .side-cats { display: none !important; }
+  /* Katlama işareti mobilde gereksiz — sidebar zaten kompakt bir üst şerit.
+     AMA katlanmış hâldeyken gizlenmemeli: katlama tercihi cihazda saklanıyor,
+     masaüstünde katlayıp telefondan açan kişi işareti bulamazsa geri açamaz. */
+  .sidebar:not(.sidebar-collapsed) .side-toggle { display: none !important; }
+  /* katlanmış bar mobilde de yatay bir şerit olarak durur */
+  .sidebar-collapsed {
+    /* .sidebar mobil kuralı display:grid !important yazıyor; katlanmış şerit ise
+       tek satırlık bir flex — bu yüzden burada da !important şart. */
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center;
+    height: auto !important;
+    padding: 12px 16px !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--line3);
+  }
+
+  /* kategori şeridi: native position:sticky — sayfa başında normal akışta (logo/vitrinim
+     satırının hemen altında) durur, yukarı kaydırılınca arama çubuğunun altında kilitlenir.
+     Eskiden bu, scroll-listener ile ölçülüp JS'in DOM'a klonladığı ayrı bir bileşendi
+     (StickyCategoryBar.tsx); notch'lu ekranlarda / mobil Safari'de adres çubuğu
+     gizlenip-gösterildiğinde piksel eşiği kayıp titreme riski taşıyordu. Tek elemanlı
+     native sticky bu sınıfın hatalarından tamamen bağışık. */
+  .topbar-cats-fixed {
+    display: flex;
+    /* İKİ SATIR (bkz. CategoryNav `ikiSatir`): üstte çatılar, açık çatının kalemleri
+       altta. Kaydırma artık şeridin kendisinde DEĞİL, her satırın içinde — yoksa iki
+       satır tek bir yatay kaydırma alanında birbirini sürüklerdi. */
+    flex-direction: column;
+    align-items: stretch;
+    position: sticky;
+    /* Arama çubuğunun GERÇEK boyu (bkz. --msearch-h). Eskiden 41px yazıyordu ve çubuk
+       53px: aradaki 12px yüzünden şerit çubuğun altını örtüyordu — ama bu hiç
+       görülmedi, çünkü çubuk zaten yapışmıyordu (satır içi `position: relative`
+       stylesheet'i eziyordu). Çubuk yapışınca fark ortaya çıktı. */
+    top: var(--msearch-h, 53px);
+    z-index: 39;
+    background: var(--bg);
+    padding: 0;
+  }
+  .topbar-cats-fixed span { flex: none; white-space: nowrap; }
+
+  /* Bir satır = bir seviye. İkisi de kendi içinde yatay kayar; sarma YOK, çünkü 6 çatı
+     başlığı 375px'te üç satıra çıkıp yapışkan şeridi ekranın altıda birine çıkarıyordu. */
+  .cats-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 16px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .cats-row::-webkit-scrollbar { display: none; }
+  /* Kalemler ne büzülür ne sarar — satır zaten yatay kayıyor. `> *` şart: eski kural
+     yalnız `span`ı kapsıyordu, MARKALAR bir `<a>` ve nowrap satırda büzülebiliyordu. */
+  .cats-row > * { flex: none; white-space: nowrap; }
+
+  /* İkinci satır (açık çatının kalemleri). "Bu satır yukarıdaki başlığın İÇİ" bilgisini
+     üç şey taşıyor: ince ayraç çizgisi, bir tık küçük punto ve satır 1'de açık başlığın
+     beyaz kalması (kapalılar sönük). Zemin AYRI DEĞİL — karanlık temada --bg2 (#050505)
+     ile --bg (#000) arasındaki fark ekranda okunmuyor, boşuna bir kural olurdu. */
+  .cats-row-alt {
+    gap: 16px;
+    padding-top: 8px;
+    padding-bottom: 9px;
+    border-top: 1px solid var(--line3);
+  }
+  .cats-row-alt .cat-sub { font-size: .95em; }
+  /* Açık başlık satır 1'de SOLA YAPIŞIR: şeridi sağa kaydırınca hangi çatının içinde
+     olduğun kaybolmasın. Zemin ve negatif margin şeridin 16px'lik iç boşluğunu örtüyor,
+     böylece altından geçen başlıklar kenardan görünmez. */
+  .cats-row .cat-group-head.open {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    background: var(--bg);
+    margin-left: -16px;
+    padding: 0 10px 0 16px;
+  }
+
+  /* MARKA ve TARZ çipleri: varsayılan kapalı, başlığa dokununca açılır.
+     İkisi de aynı `.chip-sec` kalıbından geliyor — tek kural, iki şerit. */
+  .chip-sec-head { cursor: pointer; }
+  /* 25 → 24: TEK sayı olan kutuda merkez 12,5'e düşüyordu, yani içindeki artı yarım
+     piksel kayık rasterleşiyor ve dairenin içinde simetrik durmuyordu. Çift kutu +
+     16px ikon → her yönde tam 3px boşluk, çizgiler tam piksele oturuyor. */
+  .chip-sec-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    color: var(--muted2);
+    flex: none;
+  }
+  .chip-sec-grid { display: none !important; }
+  .chip-sec-grid.is-open { display: flex !important; }
+  /* kapalıyken içerik gizli ama dış kapsayıcının kenarlığı/boşluğu kalıyordu — kaldır */
+  .chip-sec:not(.is-open) {
+    margin-bottom: 8px !important;
+    padding-bottom: 0 !important;
+    border-bottom: none !important;
+  }
+  /* TARZ mobilde tek satır DEĞİL: başlık kendi satırında (marka başlığıyla aynı
+     ölçüde), çipler onun altında açılır. Artı/eksi dairesi başlığın sağ ucuna
+     yaslansın diye başlık tam genişlik alır. */
+  .style-sec { display: block; }
+  .style-sec .chip-sec-head {
+    margin-bottom: 13px;
+    margin-right: 0;
+    font-size: 12px;
+    letter-spacing: .24em;
+  }
+  .style-sec .chip-sec-count { display: inline; }
+
+  /* GÖRÜNÜM + STOK + SIRALA mobilde katlanır: başlık kendi satırında (marka/tarz
+     başlıklarıyla aynı ölçüde), kontroller altında açılır. Sarmalayıcı burada gerçek
+     bir kutu — masaüstündeki `display: contents` geçersiz. */
+  .sort-sec { display: block; width: 100%; }
+  .sort-sec > .chip-sec-head { display: flex; }
+  /* Başlığın altındaki 13px yalnız bölüm AÇIKKEN gerekli. Marka/tarz bölümlerinde bu
+     boşluk kapalıyken kendiliğinden eriyor (blok kenar boşluğu kapsayıcıyla birleşir);
+     bu bölüm ızgara başlığının flex ÇOCUĞU olduğu için orada birleşme yok, elle
+     sıfırlanıyor — yoksa kapalı şerit diğer ikisinden 13px uzun duruyordu. */
+  .sort-sec:not(.is-open) > .chip-sec-head { margin-bottom: 0; }
+  /* Mobilde SIRA DEĞİŞİR: üç katlanabilir başlık (MARKALAR · TARZ · SIRALA & GÖRÜNÜM)
+     alt alta bitişik dursun, sayaç da tam ızgaranın üstüne insin — orada bir kontrol
+     değil, altındaki ürünlerin künyesi olarak okunuyor. Masaüstünde sıra DOM'daki
+     hâliyle kalır (sayaç solda, kontroller sağda, tek satır). */
+  .grid-head > .sort-sec { order: 1; }
+  .grid-head > :not(.sort-sec) { order: 2; }
+  /* Künye kendi satırının tamamını alır ki yenileme düğmesi sayacın peşine değil
+     ekranın SAĞ ucuna otursun — parmağın olduğu taraf, ve göz onu ızgaranın
+     köşesinde arıyor. Masaüstünde bu kural yok: orada düğme sayacın hemen yanında
+     kalır, sağ uçta zaten sıralama satırı duruyor. */
+  .grid-count { width: 100%; justify-content: space-between; }
+  /* açık hâldeki sarma davranışı aşağıdaki genel `.sort-row` kuralından geliyor */
+
+  /* eski kadın/erkek satırı: yerini kategori şeridinin altındaki .mobile-gender-row aldı */
+  .side-gender-row { display: none !important; }
+  .mobile-gender-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 4px 16px 12px;
+  }
+
+  /* mobilde bağımsız arama çubuğu her yerde sabit kalır — .topbar artık sticky değil,
+     içindeki search-box da (yerini bu bağımsız çubuk aldığı için) gizlenir. FİLTRE ve
+     tema anahtarı normal akışta kalır: sadece sayfa başında görünür, kaydırınca kaybolur.
+
+     Boy SABİTLENDİ (--msearch-h): kategori şeridi bu çubuğun altına kilitleniyor, yani
+     iki sayı birbirini tutmak zorunda. İçeriğe bırakılırsa (padding + input) fontla
+     birlikte oynar ve şerit ya çubuğun üstünü örter ya arada boşluk bırakır. */
+  .app-shell { --msearch-h: 53px; }
+  .mobile-search-sticky {
+    display: flex !important;
+    align-items: center;
+    gap: 16px;
+    position: sticky;
+    top: 0;
+    height: var(--msearch-h);
+    z-index: 40;
+    background: var(--bg);
+    padding: 12px 16px;
+  }
+  /* arama kutusu kalan genişliği alır; min-width:0 olmazsa input'un iç genişliği
+     satırı taşırır ve GİRİŞ ekranın dışına kayar */
+  .mobile-search-sticky .search-anchor { flex: 1; min-width: 0; }
+  /* GİRİŞ / nick: aramanın sağında, üst şerittekiyle aynı yazı dili.
+     Boyut sınırı dar ekran için: uzun nick arama kutusunu ezmesin. */
+  .msearch-account {
+    flex: none;
+    font-family: "Space Mono", monospace;
+    font-size: 13px;
+    max-width: 42vw;
+  }
+  /* üst şeritteki hesap kopyası mobilde gizli — yerini yukarıdaki satır aldı */
+  .topbar-account { display: none !important; }
+  .topbar {
+    position: static !important;
+    /* masaüstündeki sabit boy burada geçersiz: arama kutusu gizli, içerik sarabiliyor */
+    height: auto !important;
+    padding: 4px 16px 12px !important;
+    gap: 14px !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+  }
+  .topbar .search-box { display: none !important; }
+
+  /* Telefonda yapışan şerit .topbar değil: arama çubuğu (--msearch-h) ve onun altına
+     kilitlenen kategori şeridi. Bağ hedefinin payı ikisinin toplamı + nefes.
+     Şerit açık bir çatı varken iki satır (`is-acik`), o yüzden pay da büyür. */
+  .app-shell { --anchor-offset: calc(var(--msearch-h) + var(--cats-h, 41px) + 14px); }
+  .app-shell:has(.topbar-cats-fixed.is-acik) { --cats-h: 81px; }
+
+  .main-col { padding: 8px 16px 80px !important; }
+
+  /* sıralama satırı (STOKTAKİLER · SIRALA · FİYAT/TARİH/MARKA): dar ekranda tek
+     satıra sığmayıp yatay taşmaya (dolayısıyla mobil tarayıcının tüm sayfayı
+     uzaklaştırmasına — sabit konumlu elemanların kaymış görünmesine) yol açıyordu.
+     Satır kırılsın diye izin ver. */
+  .sort-row { flex-wrap: wrap; row-gap: 8px; }
+
+  /* filtre paneli: her şey tek ekrana, kaydırmadan sığsın diye sıkıştırılmış boşluklar */
+  .filter-panel { padding: 16px 18px 20px !important; }
+  .fp-head-row { margin-bottom: 14px !important; }
+  .fp-title { font-size: 24px !important; }
+  .fp-section { margin-bottom: 12px !important; }
+  .fp-head { font-size: 10px !important; letter-spacing: .2em !important; margin-bottom: 7px !important; }
+  .filter-panel .fbox {
+    padding: 6px 9px !important;
+    font-size: 11px !important;
+    min-width: 36px !important;
+  }
+  .fp-actions span { padding: 10px 0 !important; font-size: 12px !important; }
+
+  /* sayfalama: dokunma hedefleri 36px'e çıkınca dar ekranda taşabiliyor —
+     boşluğu daraltıp gerekirse yatay kaydırmaya izin ver */
+  .pagination-row { gap: 4px !important; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  /* ALT KÖŞEDE YÜZEN İKİ ROZET TEK EKSENDE (2026-08-01).
+     Vitrin hatırlatıcısı (ortada) ve BİZE ULAŞIN dairesi (sağda) farklı boyda; ikisi
+     de kendi boyunun yarısı kadar aşağıdan başlayınca ORTALARI aynı çizgiye düşer.
+     Eksen tek kaynak: değeri değiştirince ikisi birlikte kayar, bir daha ayrışmazlar.
+     Eksen = 34px: hatırlatıcı 36px boyunda ve ekranın altından 16px'te durmalı. */
+  :root { --float-axis: 34px; }
+
+  /* vitrin hatırlatıcısı: sayfa başında sidebar zaten VİTRİNİM'i gösterdiği için gizli;
+     aşağı inilince belirir (bkz. VitrinReminder.tsx) */
+  .vitrin-reminder {
+    display: flex;
+    position: fixed;
+    left: 50%;
+    /* 36px = 2×8 dolgu + 2×2 kenar + 16 satır kutusu */
+    bottom: calc(var(--float-axis) - 18px);
+    z-index: 55;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 13px;
+    border-radius: 999px;
+    /* yarı şeffaf buzlu cam: arkadaki içerik hafif bulanık görünür */
+    background: var(--reminder-glass);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    color: var(--bg);
+    border: 2px solid var(--grn);
+    font-family: "Space Mono", monospace;
+    font-size: 10px;
+    letter-spacing: .08em;
+    box-shadow: 0 6px 18px rgba(0,0,0,.4);
+    cursor: pointer;
+    animation: reminderup .3s steps(5) forwards;
+  }
+  .vitrin-reminder b { color: var(--grn); font-size: 11px; }
+
+  /* Bize Ulaşın: mobilde yazı düşer, sadece zarf kalır — tam metin dokunma hedefini
+     gereksiz genişletiyor. Kalan daire 40px (2×12 dolgu + 14 ikon + 2 kenar), yani
+     ekseni yakalamak için altı 34 − 20 = 14px'ten başlar.
+
+     ESKİDEN hatırlatıcının 52px ÜSTÜNDEYDİ (bottom: 68px): "dar ekranda yan yana
+     sıkışırlar" varsayımıyla. Ölçüldü, sıkışmıyorlar — 375px'te hatırlatıcı 136–240,
+     daire 321–361 arasında; 320px'lik ekranda bile aralarında ~45px kalıyor. İki ayrı
+     çizgide durmaları ekranın altını ikiye bölüyordu. */
+  .contact-fab {
+    right: 14px !important;
+    bottom: calc(var(--float-axis) - 20px) !important;
+    padding: 12px !important;
+  }
+  .contact-fab-label { display: none; }
+
+  /* ürün modalı: tek kolon, dikeyde sıkışık — tek bakışta sığsın diye */
+  .pm-grid { grid-template-columns: minmax(0,1fr) !important; padding: 18px 16px !important; gap: 14px !important; }
+  .pm-imgcol { gap: 8px !important; }
+  .pm-img { min-height: 0 !important; aspect-ratio: 1/1 !important; }
+  .pm-thumbs { gap: 6px !important; }
+  .pm-thumbs .thumb { width: 40px !important; height: 40px !important; border-radius: 10px !important; }
+  .pm-title { font-size: 22px !important; margin-top: 6px !important; }
+  .pm-meta { font-size: 11px !important; }
+  .pm-grid .prod-src { margin-top: 6px !important; font-size: 11px !important; }
+  .pm-dot { margin: 10px 0 !important; }
+  .pm-price { font-size: 20px !important; }
+  .pm-colorblock > div:first-child { margin-top: 14px !important; }
+  .pm-sizeblock { margin-top: 4px !important; }
+  .pm-sizeblock > div:first-child { margin-top: 12px !important; margin-bottom: 7px !important; }
+  .pm-sizeblock .size-chip { min-width: 32px !important; height: 32px !important; padding: 0 9px !important; font-size: 11px !important; }
+  .pm-grid .cta-btn { margin-top: 14px !important; padding: 12px 0 !important; }
+  /* oklar: dikeyde görselin ortasına denk gelir (kare görsel, tam genişlik) */
+  .det-nav { top: 47vw !important; }
+}
+
+/* --- telefon (≤600px): kart ve modal ayrıntıları küçülür --- */
+@media (max-width: 600px) {
+  .grid-inner { gap: 20px 12px !important; }
+  .grid-inner[data-layout="sik"] { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+  /* Köşe kavisi kart küçülünce oransal kalmalı: 88px'lik kavis 46vw'lik bir kartta
+     görselin yarısını yiyor. */
+  .grid-inner[data-layout="izgara"] .prod-img { border-radius: 34px !important; }
+  .grid-inner[data-layout="buyuk"] .prod-img { border-radius: 54px !important; }
+  .grid-inner[data-layout="sik"] .prod-img { border-radius: 20px !important; }
+  /* Liste satırı telefonda: görsel sabit 220px yerine sütunun üçte biri kadar. */
+  .prod-row .prod-img { width: 38vw !important; }
+  /* Bilgi bloğunun masaüstündeki SABİT genişliği (330px) telefonda satırdan taşıyor
+     — görsel + boşluk + 330 ekrandan geniş. Hizalama burada kaybolmaz: liste zaten
+     tek sütun, bütün satırlar aynı genişlikte, dolayısıyla esneyen blok da hep aynı
+     yere düşer. */
+  .prod-row .prod-info { width: auto !important; flex: 1 1 auto !important; }
+  .add-btn { top: 12px !important; right: 12px !important; width: 30px !important; height: 30px !important; }
+  .size-row { gap: 4px !important; }
+  /* min-width (width DEĞİL): baloncuğa artık "30", "41", "9-10" gibi çok karakterli
+     bedenler de yazılıyor, sabit genişlik onları kırpardı. */
+  .size-row .size-chip { min-width: 23px !important; height: 23px !important; padding: 0 5px !important; font-size: 10px !important; }
+  /* Telefonda ad yine küçülür ki fotoğraf ekranın hâkimi kalsın. Taban 0.0.6'nın
+     telefon kuralıydı (14px, ızgara 2 sütun) ve ondan da %10 alındı — masaüstündeki
+     `AD_KUCULT` ile aynı oran, bkz. ProductCard. Sık biçim daha yoğun olduğu için
+     ızgaranın altında tutuluyor. Bu satırlar `!important`: kaldırılırsa
+     ProductCard'ın satır içi ölçüsü (masaüstü) geçerli olur ve telefonda ad taşar. */
+  .grid-inner[data-layout="izgara"] .prod-name { font-size: 12.5px !important; }
+  .grid-inner[data-layout="sik"] .prod-name { font-size: 11px !important; }
+  .empty-big { font-size: 36px !important; }
+  .logo-chip { font-size: 12px !important; padding: 5px 10px !important; }
+
+  /* dar ekranda çip yüksekliği düşünce logo da küçülür (oran korunur: width auto) */
+  /* Tavanlar yükseltildi (108/104 → 190/180): "logo inceldi, yanına adı da yaz"
+     kuralı kaldırıldı (bkz. BrandLogo), yani geniş wordmark'ların okunmasının tek
+     güvencesi artık bu tavan. 14px yükseklikte oran 13,6'lık bir logo 190px ister. */
+  .brand-chips .brand-logo { height: 14px !important; width: auto !important; max-width: 190px; }
+  .prod-src .brand-logo { height: 13px !important; width: auto !important; max-width: 180px; }
+
+  /* Amblem/monogram logolar (ad logonun içinde okunmuyor) yazı logolarla aynı
+     yüksekliğe indirilirse tanınmaz bir leke oluyor — kareye yakın oldukları için
+     14px'te tek bir nokta gibi duruyorlar. Onlara daha çok yükseklik ver; yanlarındaki
+     marka adı zaten okunaklılığı taşıyor, bu yüzden metin de bir tık küçülür. */
+  .brand-chips .brand-logo[data-kind="sembol"] { height: 21px !important; max-width: 40px; }
+  .prod-src .brand-logo[data-kind="sembol"] { height: 19px !important; max-width: 38px; }
+  .brand-logo-name { font-size: 11px !important; letter-spacing: .06em !important; }
+
+  .bm-pad { padding: 26px 20px 24px !important; }
+
+  .vit-title { font-size: 32px !important; }
+  .vit-intro { font-size: 12px !important; }
+  .vit-item { flex: 0 0 74% !important; min-width: 0 !important; }
+}
+
+/* ==========================================================================
+   Kalıcı sayfalar (markalar rehberi + marka sayfası) — bkz. PageChrome.tsx
+   Bunlar tek-sayfalık vitrinden ayrı, sunucuda çizilen sayfalar; kendi düzenleri var.
+   ========================================================================== */
+
+.brand-index-card { transition: none; }
+.brand-index-card:hover { border-color: var(--grn) !important; }
+.brand-index-card:hover .brand-logo { filter: invert(var(--li)); }
+/* Logo genişliği piksel olarak önceden hesaplanıyor (bkz. BrandLogo) ve en dar karta
+   göre seçiliyor. Kart bundan da darsa (telefonda ızgara 190px'e düşüyor) logo kutuyu
+   taşırırdı: burada kutuya sığar, `height:auto` oranı korur. */
+.brand-index-card .brand-logo { max-width: 100% !important; height: auto !important; }
+
+/* Marka sayfası ürün ızgarasında kart görseli — vitrindeki .prod:hover kuralının
+   karşılığı; burada kart bir <article> değil doğrudan <a>. */
+.brand-grid a:hover .prod-img { border-color: var(--grn) !important; }
+
+@media (max-width: 820px) {
+  /* Marka künyesi: logo kutusu üstte, künye altında. Yan yana 300px + metin
+     telefonda ikisini de eziyordu. */
+  .brand-hero { grid-template-columns: minmax(0,1fr) !important; gap: 22px !important; }
+  .brand-grid { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+  .brand-index-grid { grid-template-columns: repeat(auto-fill,minmax(190px,1fr)) !important; }
+  /* PageChrome'un yatay boşluğu masaüstü için (40px); dar ekranda içeriği daraltıyor. */
+  .page-pad { padding-left: 18px !important; padding-right: 18px !important; }
+}
+
+@media (max-width: 600px) {
+  /* Kombin görünümü: görsel sütunu daralır, metin altına sarmaz. */
+  .kombin-col > div { grid-template-columns: 92px minmax(0,1fr) !important; gap: 14px !important; }
+}

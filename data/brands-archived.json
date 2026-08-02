@@ -1,0 +1,7 @@
+{
+  "_comment": "Vitrinde GÖSTERİLMEYEN markalar. Site ölü olduğu için değil, çekilebilir bir ürün katalogları olmadığı için buradalar — sebebi her satırda yazıyor. Buradan çıkarmak için satırı sil ve `npm run scrape -- --only <slug>` ile dene. src/lib/brands.ts bu listeyi okuyup markayı BRANDS dizisinden eler.",
+  "doomster": "Wix mağazası; ürün sayfaları sitemap'te yayınlanmıyor (yalnız kategori sayfaları var), tarayıcı olmadan ürün listesi çıkarılamıyor. 2026-07-25",
+  "end-clothing": "END. — Türk alternatif markası değil, çok uluslu perakendeci; ayrıca bot korumalı. Vitrinin kapsamı dışında. 2026-07-25",
+  "selsil": "Giyim markası DEĞİL — silikon, yapıştırıcı ve epoksi üreticisi (selsil.com). Kataloğa 131 ürünü girmişti: 'Genel Amaçlı Silikon 280gr', 'Ninja Süper Japon Yapıştırıcı', 'Akvaryum Silikonu'. 130'u DİĞER kategorisine düşüyordu. 2026-07-29",
+  "_not_shopier": "fadeback-studio ve manic-sellout 2026-07-30'da arşivden ÇIKARILDI: Shopier adaptörü yazıldı, artık çekilebiliyorlar."
+}

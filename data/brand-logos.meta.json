@@ -1,0 +1,1266 @@
+{
+  "aperith": {
+    "w": 215,
+    "h": 95,
+    "inv": true,
+    "solid": false,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/b64d6688-c2f9-4fc9-a40e-d6669d8d47af/bdd8c05e-8b8e-4ce5-9866-af55b6e66755/image_1080.webp"
+  },
+  "ate-studio": {
+    "w": 244,
+    "h": 120,
+    "inv": false,
+    "solid": false,
+    "via": "img",
+    "from": "https://atestudiostr.com/cdn/shop/files/s_Kopyasi_1_2bd38559-21b8-46fc-8d17-3a27477d0bfc.png?v=1722792362&width=120"
+  },
+  "abluka": {
+    "w": 640,
+    "h": 52,
+    "inv": true,
+    "solid": true,
+    "via": "override",
+    "from": "https://static.ticimax.cloud/52816/uploads/editoruploads/logo_social_main.png"
+  },
+  "amuse-bouche": {
+    "w": 640,
+    "h": 91,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://amuse-bouche.store/cdn/shop/files/KIRMIZI_LOGO.png?v=1763909454&width=200"
+  },
+  "balina-butik": {
+    "w": 284,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://static.ticimax.cloud/61320/uploads/images/veritas/memberslogo.png"
+  },
+  "cervus-wear": {
+    "w": 282,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://cervuswear.com/cdn/shop/files/CERVUS_LOGO.png?v=1754396846&width=3840"
+  },
+  "canned-clothing-studio": {
+    "w": 183,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://cannedclothingstudio.com/cdn/shop/files/logo-transparan.png?v=1768655901&width=500"
+  },
+  "cucire": {
+    "w": 314,
+    "h": 120,
+    "inv": true,
+    "solid": true,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/4525af41-b2c5-45e6-a196-8c6e9a9007ba/a04a02e0-bf5a-4a1a-bdc8-f76c19ada5b7/image_1080.webp"
+  },
+  "catch": {
+    "w": 474,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://catch.com.tr/cdn/shop/files/Catch_Black_Logo.png?v=1759346425&width=640"
+  },
+  "deer-wear": {
+    "w": 120,
+    "h": 120,
+    "inv": true,
+    "solid": true,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/da03e626-aa88-4861-837e-23eab79d79cb/66c8e7c6-d36b-4921-9ae5-baa91dc91a91/image_1080.webp"
+  },
+  "damned-cult": {
+    "w": 640,
+    "h": 114,
+    "inv": false,
+    "solid": false,
+    "via": "img",
+    "from": "https://damnedcult.com/cdn/shop/files/logo_grunge_new.png?v=1775291925&width=500"
+  },
+  "efex-wear": {
+    "w": 356,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/e886e3be-ff79-483b-b3bb-59b2f3126185/44c203b8-9976-4c57-be45-aee89e33ab92/image_1080.webp"
+  },
+  "after-6": {
+    "w": 100,
+    "h": 60,
+    "inv": false,
+    "solid": false,
+    "via": "og",
+    "from": "http://after6.co/cdn/shop/files/PP.png?v=1768642050"
+  },
+  "emorpi": {
+    "w": 173,
+    "h": 58,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://emorpi.com.tr/cdn/shop/files/Ekran_Resmi_2025-08-24_12.50.56.png?v=1756029062&width=180"
+  },
+  "doomster": {
+    "w": 281,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://doomster.me/images/doomster-logo.webp"
+  },
+  "expose-sports": {
+    "w": 193,
+    "h": 120,
+    "inv": true,
+    "solid": true,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/171826d3-e147-4fc1-8885-644e085c3f6a/9b196088-4e97-4317-b110-6c88947dae43/image_1080.webp"
+  },
+  "fadeback-studio": {
+    "w": 117,
+    "h": 117,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://cdn.shopier.app/logo_468/fadebackstudio_d9837ef48957a4ae41760c53975e20f5.jpeg"
+  },
+  "fake-mood": {
+    "w": 640,
+    "h": 114,
+    "inv": false,
+    "solid": false,
+    "via": "img",
+    "from": "https://www.fakemood.com/cdn/shop/files/FM_MAINS-13.png?v=1764682971&width=140"
+  },
+  "diddy-studios": {
+    "w": 233,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://static.ticimax.cloud/75067/Uploads/HeaderTasarim/Header1/e2279a99-025b-4d06-bfa9-ffab1c338697.jpg"
+  },
+  "fleak": {
+    "w": 162,
+    "h": 120,
+    "inv": false,
+    "solid": false,
+    "via": "icon",
+    "from": "https://cdn.myikas.com/images/theme-images/6c1bae45-5445-43d1-ae69-e4eb090f4256/image_180.webp"
+  },
+  "estatico-design": {
+    "w": 308,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "override",
+    "from": "https://estaticodesign.com/cdn/shop/files/Varlik_1-80.jpg?v=1697626495&width=544"
+  },
+  "fless-wear": {
+    "w": 216,
+    "h": 120,
+    "inv": true,
+    "solid": true,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/81e954e8-89ef-45b3-ac0f-585586abc454/c680a87f-4caf-430e-b86d-f58e2042016c/image_1080.webp"
+  },
+  "for-fun-wear": {
+    "w": 99,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://forfunwear.com/cdn/shop/files/ff_logo_a30be541-26be-42b1-b23e-a1058481c2ce.svg?v=1681127081&width=100"
+  },
+  "forza-core": {
+    "w": 91,
+    "h": 74,
+    "inv": false,
+    "solid": false,
+    "via": "img",
+    "from": "https://theforzacore.com/cdn/shop/files/pp.jpg?v=1784478941&width=260"
+  },
+  "flaw-wears": {
+    "w": 283,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://static.ticimax.cloud/41607/uploads/editoruploads/flawlogogo.png"
+  },
+  "end-clothing": {
+    "w": 333,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://www.endclothing.com/static/images/end-logo.svg"
+  },
+  "gang-own": {
+    "w": 110,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/b52090e9-bbc0-4247-9af9-90b69a5bee82/88055ee6-b8ab-4df3-a5e2-b6c62d3d44bb/image_1080.webp"
+  },
+  "from-cult": {
+    "w": 120,
+    "h": 120,
+    "inv": true,
+    "solid": true,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/5bf8fe04-cde3-47c2-9f5a-6ac3372c6aac/9ee67995-91b6-4e33-a135-07e753deca1c/image_1080.webp"
+  },
+  "god-heals": {
+    "w": 95,
+    "h": 18,
+    "inv": true,
+    "solid": false,
+    "via": "icon",
+    "from": "https://cdn.myikas.com/images/theme-images/f7e6608f-18d5-4a92-96e3-aa5219ad0862/image_180.webp"
+  },
+  "glix": {
+    "w": 297,
+    "h": 120,
+    "inv": true,
+    "solid": true,
+    "via": "override",
+    "from": "https://tr.glix.shop/cdn/shop/files/logo-2.png?v=1774832516&width=500"
+  },
+  "gotham": {
+    "w": 89,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "icon",
+    "from": "https://www.gotham.com.tr/Uploads/Images/favicon.ico"
+  },
+  "gatso": {
+    "w": 229,
+    "h": 60,
+    "inv": true,
+    "solid": false,
+    "via": "og",
+    "from": "https://cdn.shopify.com/s/files/1/0984/2586/4508/files/gatso.png?height=628&pad_color=fff&v=1780332158&width=1200"
+  },
+  "gymrey": {
+    "w": 154,
+    "h": 120,
+    "inv": false,
+    "solid": false,
+    "via": "img",
+    "from": "https://gymrey.com/cdn/shop/files/GYMREY_1.psd_3_-Photoroom.png?v=1739095619&width=500"
+  },
+  "hermanios-studio": {
+    "w": 70,
+    "h": 81,
+    "inv": false,
+    "solid": false,
+    "via": "icon",
+    "from": "https://cdn.myikas.com/images/theme-images/aa0c3f2e-55ce-493e-b30e-e30529a55159/image_180.webp"
+  },
+  "fo4rbs": {
+    "w": 413,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://static.ticimax.cloud/74227/Uploads/HeaderTasarim/Header2/3ce49ccf-e62f-4a0e-af31-b2a4dd51276d.jpg"
+  },
+  "hoghheim": {
+    "w": 466,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://hoghheim.com/cdn/shop/files/hoghheim-logo-2026_420x.png?v=1781187332"
+  },
+  "hollow-gallery": {
+    "w": 640,
+    "h": 80,
+    "inv": false,
+    "solid": false,
+    "via": "img",
+    "from": "https://hollowgallery.com/cdn/shop/files/logobyr.png?v=1703444697&width=400"
+  },
+  "hype-tr": {
+    "w": 423,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/45cf1d92-19fb-4955-871e-36793acf1331/c8a71ad8-01ce-42e8-a492-4102f1e3db4f/image_1080.webp"
+  },
+  "i-am-not-basic": {
+    "w": 640,
+    "h": 69,
+    "inv": true,
+    "solid": false,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/8669d1e1-8da6-4def-9cf2-b74b349ea397/22d12882-f0c2-4bb0-a10c-5819ea4b0405/image_1080.webp"
+  },
+  "hype-of-steps": {
+    "w": 640,
+    "h": 60,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://hypeofsteps.com/cdn/shop/files/hypeofsteps_logo_black_copy.png?v=1757669905&width=1100"
+  },
+  "junior-crime": {
+    "w": 640,
+    "h": 60,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://juniorcrime.com/cdn/shop/files/1000x100.png?v=1782510873&width=700"
+  },
+  "interim-collective": {
+    "w": 250,
+    "h": 120,
+    "inv": false,
+    "solid": false,
+    "via": "img",
+    "from": "https://interimcollective.co/cdn/shop/files/Adsiz_tasarim_3_c2efeb8e-73e6-4eb3-ac34-7ef513c1ad2d.png?height=36&v=1780959146"
+  },
+  "jumos-wear": {
+    "w": 596,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/1fb44712-2bab-40d2-8f44-9fa1fa2239a9/33e9d36d-a5e3-4ede-98ea-9c0d0b92463a/image_1080.webp"
+  },
+  "kaft": {
+    "w": 120,
+    "h": 120,
+    "inv": true,
+    "solid": true,
+    "via": "icon",
+    "from": "https://cdn.kaft.com/resources-3.0.33/images/touch-icon-iphone4.png"
+  },
+  "kozmosize": {
+    "w": 123,
+    "h": 120,
+    "inv": false,
+    "solid": true,
+    "via": "icon",
+    "from": "https://static.wixstatic.com/media/76faa5_e1be5568bb624ffe88cad054628cfe53%7Emv2.png/v1/fill/w_180%2Ch_180%2Clg_1%2Cusm_0.66_1.00_0.01/76faa5_e1be5568bb624ffe88cad054628cfe53%7Emv2.png"
+  },
+  "kostebek": {
+    "w": 640,
+    "h": 117,
+    "inv": false,
+    "solid": false,
+    "via": "img",
+    "from": "https://static.ticimax.cloud/65795/Uploads/HeaderTasarim/Header5/78c33c54-dba7-4124-88d4-50695a3b74be.jpg"
+  },
+  "keit": {
+    "w": 640,
+    "h": 107,
+    "inv": false,
+    "solid": false,
+    "via": "img",
+    "from": "https://www.keit.com.tr/cdn/shop/files/keit_beyaz.png?height=36&v=1742294276"
+  },
+  "guerra-butik": {
+    "w": 120,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://cdn.qukasoft.com/f/709308/cG96YWFtNG0vcUp3ZUdFOVU1NG5hQT09/l/logo-6a1db660ef20f-42694863-sw640sh640.png"
+  },
+  "lethe-studios": {
+    "w": 640,
+    "h": 100,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://lethestudios.co/cdn/shop/files/lethe_studios.png?v=1778868777&width=3840"
+  },
+  "manic-sellout": {
+    "w": 201,
+    "h": 120,
+    "inv": true,
+    "solid": true,
+    "via": "img",
+    "from": "https://cdn.shopier.app/logo_468/manicsellout_9d8bcaa479915d6d737665033d722bc1.jpeg"
+  },
+  "metafang": {
+    "w": 640,
+    "h": 105,
+    "inv": false,
+    "solid": false,
+    "via": "override",
+    "from": "https://metafang.com/cdn/shop/files/metafang-logo-beyaz.png?v=1766356118&width=600"
+  },
+  "machinist": {
+    "w": 640,
+    "h": 101,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://www.machinist.com.tr/cdn/shop/files/Machinist_siyah_logo.png?v=1761814912&width=410"
+  },
+  "matt-wear": {
+    "w": 634,
+    "h": 67,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://static.ticimax.cloud/55886/uploads/editoruploads/logo.jpg"
+  },
+  "monday-kick": {
+    "w": 120,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/3b91aa47-a7b5-44a7-8975-c85bf8f6ff50/fcb99ab2-3339-4b6f-bbce-7e57dd04e0ec/image_1080.webp"
+  },
+  "modax-wear": {
+    "w": 523,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://cdn.qukasoft.com/f/888441/cG96YWFtNG0vcUp3ZUdFOVU1NG5hQT09/l/logo-6a4178aeb934a-32776656-sw1774sh887.png"
+  },
+  "mahluque": {
+    "w": 346,
+    "h": 120,
+    "inv": false,
+    "solid": false,
+    "via": "jsonld",
+    "from": "https://mahluque.com/cdn/shop/files/3dgifmaker42428.gif?v=1737146462&width=304"
+  },
+  "noble-mess": {
+    "w": 243,
+    "h": 120,
+    "inv": false,
+    "solid": false,
+    "via": "img",
+    "from": "https://noblemess.co/cdn/shop/files/logo-white.png?v=1738254624"
+  },
+  "only-trend-wear": {
+    "w": 273,
+    "h": 100,
+    "inv": true,
+    "solid": false,
+    "via": "icon",
+    "from": "https://cdn.myikas.com/images/theme-images/8278aa27-a835-48aa-a325-bd471992b7c0/image_180.webp"
+  },
+  "oath-istanbul": {
+    "w": 316,
+    "h": 120,
+    "inv": true,
+    "solid": true,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/bc98f0bf-9088-4cc5-8dde-0dd2aca5a64a/cf633321-d86e-40fa-8b1e-c0cd20a229cb/image_1080.webp"
+  },
+  "orient-x": {
+    "w": 97,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://orientx.shop/cdn/shop/files/OX.png?v=1776616961&width=140"
+  },
+  "nuugg": {
+    "w": 494,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://lofux.com/assets/front/images/logo.svg"
+  },
+  "overdrive-rock": {
+    "w": 640,
+    "h": 110,
+    "inv": true,
+    "solid": false,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/cb5eff6d-33c1-4356-8f22-2bea801e7b79/cb1d74c9-1cfa-479d-97c6-604bc76a56b9/image_1080.webp"
+  },
+  "quite-often": {
+    "w": 640,
+    "h": 109,
+    "inv": false,
+    "solid": false,
+    "via": "img",
+    "from": "https://quiteoften.store/cdn/shop/files/katman_1.png?v=1773357011&width=800"
+  },
+  "punk-design": {
+    "w": 488,
+    "h": 120,
+    "inv": false,
+    "solid": false,
+    "via": "img",
+    "from": "https://punkdesign.shop/cdn/shop/files/punk_design11_260100.png?v=1781173750&width=260"
+  },
+  "reflect-studio": {
+    "w": 640,
+    "h": 79,
+    "inv": false,
+    "solid": false,
+    "via": "img",
+    "from": "https://reflectstudio.com/cdn/shop/files/foot-logo.png?v=1710926521&width=1100"
+  },
+  "offender": {
+    "w": 193,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/4e301b05-8bb4-45f6-943e-a7d5b9407db1/b0ea7123-9b9b-4ad3-9ec4-c6bcb26f0212/image_1080.webp"
+  },
+  "shout": {
+    "w": 120,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/1fb67cff-54d2-4340-99ff-a69f1e99cfd0/7253b18b-fe02-420b-903b-212d9ff8c3a1/image_1080.webp"
+  },
+  "poison-fashion": {
+    "w": 148,
+    "h": 120,
+    "inv": false,
+    "solid": false,
+    "via": "override",
+    "from": "https://poisonfashion.com/wp-content/uploads/2025/08/poison-modo-logo-1.png"
+  },
+  "hermu-clo": {
+    "w": 292,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "icon",
+    "from": "https://cdn.myikas.com/images/theme-images/00b87b37-8faa-4243-bf7c-1f84e7c1fe4a/image_180.webp"
+  },
+  "nomarc": {
+    "w": 640,
+    "h": 102,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://static.ticimax.cloud/64453/Uploads/HeaderTasarim/Header2/92e66500-69e5-4ba0-afd6-e9c67deab81a.jpg"
+  },
+  "restruct": {
+    "w": 586,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://restruct.co/cdn/shop/files/wordmark_1.svg?v=1775549165&width=600"
+  },
+  "seize-society": {
+    "w": 120,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/05ff8d95-cfce-4e9e-b2c7-cf3c51d48f86/ff55a399-6f90-4190-8b4b-e9892682b0ea/image_1080.webp"
+  },
+  "slatra": {
+    "w": 640,
+    "h": 69,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://static.ticimax.cloud/53661/uploads/images/logo/slatra-logo.png"
+  },
+  "spook-project": {
+    "w": 90,
+    "h": 50,
+    "inv": false,
+    "solid": false,
+    "via": "icon",
+    "from": "https://cdn.myikas.com/images/theme-images/09d53401-3496-42bf-a4c7-63944c92ed41/image_180.webp"
+  },
+  "stray-dogs": {
+    "w": 227,
+    "h": 120,
+    "inv": true,
+    "solid": true,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/35f37bd7-5dd2-4aea-a7a3-e413907a63ee/bf563a42-d83c-4416-b0ab-c40262bd94ef/image_1080.webp"
+  },
+  "snowshade": {
+    "w": 86,
+    "h": 86,
+    "inv": false,
+    "solid": false,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/bf11f29d-d8c3-4a26-bd2a-279dd61f4ebb/92684fd4-24ba-4e2f-9776-03b9f375e135/image_1080.webp"
+  },
+  "solid-bruises": {
+    "w": 83,
+    "h": 78,
+    "inv": false,
+    "solid": false,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/d8196005-920e-459b-844b-7cb411fcc5c2/487a4acc-eb84-4787-a2a9-e3df9067b19e/image_1080.webp"
+  },
+  "sokak-butik": {
+    "w": 640,
+    "h": 103,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://cdn.qukasoft.com/f/368946/bzR6YWFtNG0vcUp3ZUdFOVU1NG5hQT09/l/logo-58073439-sw1534sh246.png"
+  },
+  "starlight": {
+    "w": 112,
+    "h": 120,
+    "inv": false,
+    "solid": false,
+    "via": "override",
+    "from": "https://starlightww.com/cdn/shop/files/Starlight_logo_beyaz.png?v=1769167035&width=500"
+  },
+  "tato-wear": {
+    "w": 75,
+    "h": 21,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://cdn.myikas.com/images/theme-images/7487b8a7-39f0-4120-9ef4-3630acc689f7/image_180.webp"
+  },
+  "stren-clo": {
+    "w": 397,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/df4327cc-6115-40a5-8219-b7730972c38a/78b59771-5600-40a2-8d1a-c58b22ac0822/image_1080.webp"
+  },
+  "sold-out-clo": {
+    "w": 640,
+    "h": 113,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://soldoutclo.com/Data/EditorFiles/soldout-logoq.png"
+  },
+  "stray-united": {
+    "w": 303,
+    "h": 120,
+    "inv": false,
+    "solid": true,
+    "via": "img",
+    "from": "https://strayunited.com/cdn/shop/files/Stray_United_Logo.svg?v=1777500189&width=180"
+  },
+  "that-way": {
+    "w": 88,
+    "h": 58,
+    "inv": false,
+    "solid": false,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/89679ea3-6bd6-4fe1-a551-b4ba702164ce/62e11f94-e4fe-492a-a7fa-e53b2565b28a/image_1080.webp"
+  },
+  "the-dad": {
+    "w": 478,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/ce328a2a-c8e7-43a3-abc2-3b02e7f907f7/a05a42f1-e31d-4f59-9eac-860a5d1a066c/image_1080.webp"
+  },
+  "the-lood": {
+    "w": 640,
+    "h": 104,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://www.thelood.com.tr/cdn/shop/files/image_720.webp?v=1770899799&width=320"
+  },
+  "the-loyka": {
+    "w": 91,
+    "h": 104,
+    "inv": false,
+    "solid": false,
+    "via": "img",
+    "from": "https://cdn.myikas.com/images/theme-images/6e0347be-2d8c-4217-9d2e-92445f94eb78/image_3840.webp"
+  },
+  "the-mets-co": {
+    "w": 131,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "icon",
+    "from": "https://static.wixstatic.com/media/72ac54_dae5e308ad424a93af0ff8a9c130d746%7Emv2.png/v1/fill/w_180%2Ch_180%2Clg_1%2Cusm_0.66_1.00_0.01/72ac54_dae5e308ad424a93af0ff8a9c130d746%7Emv2.png"
+  },
+  "the-lucid-lab": {
+    "w": 474,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://thelucidlab.com.tr/cdn/shop/files/thelucidlab_yeni_logo.svg?v=1772458858&width=240"
+  },
+  "void": {
+    "w": 528,
+    "h": 120,
+    "inv": true,
+    "solid": true,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/47c96b96-e7c0-4e88-bb4e-114530182c4e/6d639ed7-aaa3-4aaa-9564-d6b9b13858af/image_1080.webp"
+  },
+  "under-bros": {
+    "w": 640,
+    "h": 117,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://underbros.co/cdn/shop/files/Calisma_Yuzeyi_4_kopya-8.png?v=1762594387&width=690"
+  },
+  "touz-moda": {
+    "w": 384,
+    "h": 120,
+    "inv": false,
+    "solid": false,
+    "via": "img",
+    "from": "https://touzmoda.com/cdn/shop/files/Touz_Moda_Logo_0622100c-4dd6-4baa-88c1-5fb86fdf7ec8_190x.png?v=1771222033"
+  },
+  "wes-wear": {
+    "w": 92,
+    "h": 24,
+    "inv": true,
+    "solid": false,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/32a2027d-ce04-4c60-b24d-0cd6baa03de1/44f8d6a0-f830-4daf-818b-fcdf70fe0698/image_1080.webp"
+  },
+  "voyant": {
+    "w": 229,
+    "h": 120,
+    "inv": false,
+    "solid": true,
+    "via": "img",
+    "from": "https://shopvoyant.com/cdn/shop/files/horizon-newlogo2.png?height=64&v=1767166969"
+  },
+  "vamos-clo": {
+    "w": 430,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://vamosclo.com/cdn/shop/files/vamos_logo.svg?v=1781605900&width=240"
+  },
+  "zaee-giyim": {
+    "w": 82,
+    "h": 19,
+    "inv": true,
+    "solid": false,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/4887cc85-9c1f-4bd9-af8a-241434f6bd09/90659228-cf8f-4c81-9505-4e378bb694cf/image_1080.webp"
+  },
+  "wezzy-wear": {
+    "w": 72,
+    "h": 81,
+    "inv": false,
+    "solid": false,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/562f7d06-5dd3-4e32-ac29-06bccaf01f9d/f7937d1a-57d0-4433-9f9c-071b8058c274/image_1080.webp"
+  },
+  "zincir-wear": {
+    "w": 318,
+    "h": 120,
+    "inv": true,
+    "solid": true,
+    "via": "icon",
+    "from": "https://cdn.myikas.com/images/theme-images/2fbc5d46-f3f6-4dd0-ad30-bbb639ea8a07/image_180.webp"
+  },
+  "wheraver": {
+    "w": 537,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://wheraver.com/brand/wheraver-logo.svg"
+  },
+  "wise-wear": {
+    "w": 157,
+    "h": 120,
+    "inv": true,
+    "solid": true,
+    "via": "img",
+    "from": "https://wisewear.com.tr/wp-content/uploads/2024/09/wise-logo-black.svg"
+  },
+  "point-2124": {
+    "w": 610,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "override",
+    "from": "https://point2124.com/cdn/shop/files/WhatsApp_Gorsel_2025-11-28_saat_02.55.10_e360e6ce-Photoroom.png?v=1764289005&width=500"
+  },
+  "hotel-471": {
+    "w": 267,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "override",
+    "from": "https://cdn.myikas.com/images/theme-images/ad29ffb8-4c8b-4b49-b00c-e9c89a9570c3/image_3840.webp"
+  },
+  "pretend-it": {
+    "w": 387,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://www.pretend-it.com/cdn/shop/files/black_logo_03.png?v=1780329565&width=330"
+  },
+  "soonpiera": {
+    "w": 135,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/9fb63b6b-0495-4e93-804d-e64628ee6a80/8b8f9418-3084-4f48-a6a3-638d9d17143e/image_1080.webp"
+  },
+  "2downstreet": {
+    "w": 150,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/d9650f4e-40d7-4222-a93a-3a7d2505584a/a12ea493-12b2-4f7a-9e55-6a81c484539d/image_1080.webp"
+  },
+  "aspera-clo": {
+    "w": 69,
+    "h": 79,
+    "inv": false,
+    "solid": false,
+    "via": "img",
+    "from": "https://cdn.shopier.app/logo_468/asperaclo_28a1cf9b2ae238faf1451979b2b85495.jpeg"
+  },
+  "alt-kultur-store": {
+    "w": 133,
+    "h": 120,
+    "inv": false,
+    "solid": false,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/205512ea-fb00-4fc5-9cbd-244c91b2508a/d3b1decb-8223-41c9-a9a2-1bc1d7eb1db5/image_1080.webp"
+  },
+  "by-london-butik": {
+    "w": 223,
+    "h": 64,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://cdn.qukasoft.com/f/308321/cG96YWFtNG0vcUp3ZUdFOVU1NG5hQT09/l/logo-69df93aaa0d72-28895062-sw150sh73.png"
+  },
+  "cartel-wind": {
+    "w": 251,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://cdn.qukasoft.com/f/848052/cG96YWFtNG0vcUp3ZUdFOVU1NG5hQT09/l/logo-79427649-sw424sh124.png"
+  },
+  "barikat": {
+    "w": 88,
+    "h": 120,
+    "inv": true,
+    "solid": true,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/0d64a6a6-b826-400a-be3b-7f91c62a8e47/b67849ac-9ca7-45ac-b008-a588ce55a640/image_1080.webp"
+  },
+  "cordelia-butik": {
+    "w": 578,
+    "h": 120,
+    "inv": true,
+    "solid": true,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/171e82d1-9100-4722-b1e2-9eb99f3577b3/e6f42014-b2ef-451a-88f5-d772892e2c38/image_1080.webp"
+  },
+  "cherry-kitten": {
+    "w": 278,
+    "h": 120,
+    "inv": false,
+    "solid": false,
+    "via": "img",
+    "from": "https://www.cherrykitten.com/cdn/shop/files/PNG_57aa8ba0-2ddc-4246-8a1a-f7ac9b6951a9.png?v=1766734287&width=240"
+  },
+  "cos-weirdos": {
+    "w": 640,
+    "h": 108,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://cosweirdos.com/cdn/shop/files/logo-type-siyah.png?v=1697275904&width=559"
+  },
+  "cayren": {
+    "w": 600,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://static.ticimax.cloud/75511/Uploads/HeaderTasarim/Header24/5bb5c573-07ad-4837-9d97-f6764632b83f.jpg"
+  },
+  "cravers": {
+    "w": 211,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://craverstr.com/cdn/shop/files/craverslogo.png?v=1781522858&width=600"
+  },
+  "212-atelier": {
+    "w": 640,
+    "h": 83,
+    "inv": true,
+    "solid": false,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/0ea53d63-3cc9-4b19-ac4a-17c04d4be7dc/8859bab5-b677-4c41-a799-474e52e7d60b/image_1080.webp"
+  },
+  "drip-house": {
+    "w": 368,
+    "h": 120,
+    "inv": true,
+    "solid": true,
+    "via": "override",
+    "from": "https://cdn.myikas.com/images/theme-images/ee816700-71f8-42f5-a3c2-2c55c13d8f94/image_180.webp"
+  },
+  "eilul-archives": {
+    "w": 247,
+    "h": 120,
+    "inv": true,
+    "solid": true,
+    "via": "img",
+    "from": "https://cdn.shopier.app/logo_468/eilularchives_7fe24f77c33adf8380412e2e2617dc87.png"
+  },
+  "d-verge-studio": {
+    "w": 640,
+    "h": 102,
+    "inv": true,
+    "solid": false,
+    "via": "icon",
+    "from": "https://static.wixstatic.com/media/342e88_e4f218ba0a914058a1f40e6284d5d3a2%7Emv2.png/v1/fill/w_180%2Ch_180%2Clg_1%2Cusm_0.66_1.00_0.01/342e88_e4f218ba0a914058a1f40e6284d5d3a2%7Emv2.png"
+  },
+  "fer-valiant": {
+    "w": 175,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "icon",
+    "from": "https://cdn.myikas.com/images/theme-images/7a53d23b-9136-40b0-87cc-20de3bb0743e/image_180.webp"
+  },
+  "dharma-studios": {
+    "w": 299,
+    "h": 120,
+    "inv": false,
+    "solid": false,
+    "via": "img",
+    "from": "https://dharmasstudios.com/cdn/shop/files/Adsiz_tasarim_24.jpg?height=36&v=1778148895"
+  },
+  "giowear": {
+    "w": 640,
+    "h": 94,
+    "inv": true,
+    "solid": true,
+    "via": "img",
+    "from": "https://cdn.shopier.app/logo_468/giowearshop2920_Giowear_9812a719b3cecf933cfdacae2bbf3258.png"
+  },
+  "hype-cult": {
+    "w": 56,
+    "h": 31,
+    "inv": true,
+    "solid": false,
+    "via": "icon",
+    "from": "https://cdn.myikas.com/images/theme-images/b1c1b734-0c67-499f-9366-81ab06952d34/image_180.webp"
+  },
+  "la-mort-studios": {
+    "w": 59,
+    "h": 58,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://cdn.shopier.app/logo_468/LaMortStudios_46418f2a6d276106ef212be7487118a6.jpg"
+  },
+  "infectious-moda": {
+    "w": 434,
+    "h": 48,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://infectiousmoda.com/cdn/shop/files/Ekran_Resmi_2026-03-01_05.53.04.png?height=45&v=1772333613"
+  },
+  "kevclo": {
+    "w": 378,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "override",
+    "from": "http://kevclo.com/cdn/shop/files/Element_1_ecb314fb-3c95-4b36-82b3-4d431a5220a6.png?v=1769291566"
+  },
+  "le-tual": {
+    "w": 120,
+    "h": 27,
+    "inv": false,
+    "solid": false,
+    "via": "img",
+    "from": "https://letualstore.com/cdn/shop/files/Le_Tual-7.png?height=65&v=1767877152"
+  },
+  "leontiere": {
+    "w": 48,
+    "h": 53,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://cdn.shopier.app/logo_468/leontiereofficial_c8a8bc190b1f31d06ab380c9ca23e608.jpeg"
+  },
+  "loftpace": {
+    "w": 170,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/0ce6bbe3-82ba-40b9-9c22-31ad25fccd2a/08277e79-3106-4ec0-a7fd-8463ffc1d412/image_1080.webp"
+  },
+  "lost-mind-studios": {
+    "w": 87,
+    "h": 33,
+    "inv": true,
+    "solid": false,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/c96b2df0-fbcd-4b1b-8184-2e95b6529078/684476c9-e37b-4f3d-8a5b-8fa53af4238f/image_1080.webp"
+  },
+  "lorinfo": {
+    "w": 312,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/52269aa4-a461-4d89-9543-9bd17fe9c73f/41a5269e-341d-444c-a7db-9807ddf4e69b/image_1080.webp"
+  },
+  "luvion": {
+    "w": 473,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://cdn.myikas.com/images/theme-images/9c731723-0623-4dbd-b75f-98f3856f23cf/image_3840.webp"
+  },
+  "norv": {
+    "w": 72,
+    "h": 18,
+    "inv": true,
+    "solid": false,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/b14aec6d-5b65-4c8e-9d3f-4090c8d46950/1945bafd-28f8-48c6-978c-46d88ba06960/image_1080.webp"
+  },
+  "looza-style": {
+    "w": 285,
+    "h": 120,
+    "inv": true,
+    "solid": true,
+    "via": "img",
+    "from": "https://static.ticimax.cloud/76199/Uploads/HeaderTasarim/Header2/9b1e1726-340c-4fa2-93d8-82504454fdff.jpg"
+  },
+  "od-sportswear": {
+    "w": 296,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://odsportswear.co/cdn/shop/files/Yeni_Proje_7.png?v=1736601555"
+  },
+  "oniki-studio": {
+    "w": 420,
+    "h": 120,
+    "inv": false,
+    "solid": false,
+    "via": "override",
+    "from": "https://cdn.myikas.com/images/theme-images/29ce74c4-6b1f-4cc1-830a-da3286c9b6ca/image_3840.webp"
+  },
+  "pale-archive": {
+    "w": 120,
+    "h": 120,
+    "inv": true,
+    "solid": true,
+    "via": "img",
+    "from": "https://cdn.shopier.app/logo_468/palearchivexnorandombatch_e2da6472361c0808cbaddb1114b40110.png"
+  },
+  "peace-hunter": {
+    "w": 81,
+    "h": 32,
+    "inv": false,
+    "solid": false,
+    "via": "img",
+    "from": "https://cdn.shopier.app/logo_468/Kai42_979964b24fa4a4d387592e8398a68e9d.jpg"
+  },
+  "prev": {
+    "w": 416,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://tr.prev.shop/cdn/shop/files/prevlogo_1.png?v=1670536743"
+  },
+  "revion-savera": {
+    "w": 640,
+    "h": 112,
+    "inv": true,
+    "solid": true,
+    "via": "img",
+    "from": "https://revionsavera.com/cdn/shop/files/ChatGPT_Image_16_Tem_2026_03_52_25_c894594a-acf9-40e3-bcd9-401c45252647.png?v=1784164545&width=500"
+  },
+  "rybe": {
+    "w": 120,
+    "h": 120,
+    "inv": true,
+    "solid": true,
+    "via": "icon",
+    "from": "https://rybewear.com/wp-content/uploads/2025/04/cropped-rybewearfav-180x180.png"
+  },
+  "rpg-studio": {
+    "w": 188,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "icon",
+    "from": "https://static.wixstatic.com/media/4a1290_595e2e55929d40998a91dd9ff6a4808c%7Emv2.png/v1/fill/w_180%2Ch_180%2Clg_1%2Cusm_0.66_1.00_0.01/4a1290_595e2e55929d40998a91dd9ff6a4808c%7Emv2.png"
+  },
+  "fly-flaners": {
+    "w": 640,
+    "h": 113,
+    "inv": true,
+    "solid": false,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/6e38c3b3-423e-48c3-9485-6613b10f2c86/aa59f12b-0519-400b-91e4-cf98a3c5e0ec/image_1080.webp"
+  },
+  "saintora-atelier": {
+    "w": 640,
+    "h": 53,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://saintoraatelier.com/cdn/shop/files/yatay_logo.png?v=1779131435"
+  },
+  "saram": {
+    "w": 103,
+    "h": 120,
+    "inv": true,
+    "solid": true,
+    "via": "img",
+    "from": "https://cdn.shopier.app/logo_468/saramistanbul_880cdedfc67b931090d236f1fba6d197.jpg"
+  },
+  "podyem": {
+    "w": 252,
+    "h": 43,
+    "inv": false,
+    "solid": false,
+    "via": "img",
+    "from": "https://podyem.com.tr/wp-content/uploads/2026/02/gif-podyem-logo.gif"
+  },
+  "solane": {
+    "w": 107,
+    "h": 120,
+    "inv": true,
+    "solid": true,
+    "via": "img",
+    "from": "https://cdn.shopier.app/logo_468/solanetr_d4b41a8c66e73c739b84bb656fa95794.png"
+  },
+  "songs-and-the-spirits": {
+    "w": 91,
+    "h": 120,
+    "inv": false,
+    "solid": false,
+    "via": "img",
+    "from": "https://songsandthespirits.com/cdn/shop/files/sitelogo3.png?v=1773919283&width=400"
+  },
+  "soon-to-be-announced": {
+    "w": 640,
+    "h": 41,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://soontobeannounced.com/cdn/shop/files/520x200-logo.png?v=1784542465&width=370"
+  },
+  "svamp-studios": {
+    "w": 112,
+    "h": 30,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://cdn.shopier.app/logo_468/svampstudio_4b6b62e5e21961e3c28bc3ab875e4605.png"
+  },
+  "serline": {
+    "w": 584,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "jsonld",
+    "from": "https://cdn.myikas.com/images/75428841-c1d0-4932-8572-984e50d19a76/f50f37b3-32ec-4ebf-89cc-16b416dcdea3/image_1080.webp"
+  },
+  "rzg-moda": {
+    "w": 120,
+    "h": 27,
+    "inv": true,
+    "solid": false,
+    "via": "icon",
+    "from": "https://www.rzgmoda.com/Uploads/Images/favicon.ico"
+  },
+  "tarmac-studios": {
+    "w": 585,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "override",
+    "from": "https://tarmacstudios.com/cdn/shop/files/Untitled-1-01.png?v=1779612388&width=500"
+  },
+  "taxim-man-fashion": {
+    "w": 230,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://www.taximmanfashion.com/cdn/shop/files/logo_4x_2729a105-feeb-457a-b23b-fa5edc3ea9cb.webp?v=1768822932&width=180"
+  },
+  "zeph-culture": {
+    "w": 96,
+    "h": 57,
+    "inv": false,
+    "solid": false,
+    "via": "img",
+    "from": "https://cdn.shopier.app/logo_468/ZephCulture_dbf5c4bb5f1feb8d95d4af6219058ca0.png"
+  },
+  "zero-wear": {
+    "w": 81,
+    "h": 64,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://cdn.shopier.app/logo_468/zero_wearr_5f4326c36df8825923fc7d4a6febedc6.jpg"
+  },
+  "respire": {
+    "w": 604,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "img",
+    "from": "https://static.ticimax.cloud/69313/Uploads/HeaderTasarim/Header3/6b762957-82d3-4e30-b114-65441d9b9050.jpg"
+  },
+  "mahalle-boy": {
+    "w": 122,
+    "h": 120,
+    "inv": true,
+    "solid": false,
+    "via": "override",
+    "from": "https://mahalleboy.com/_next/image?url=%2Fassets%2Flogo%2Flogo1.png&w=256&q=75"
+  }
+}

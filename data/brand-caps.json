@@ -1,0 +1,8 @@
+{
+  "_aciklama": "MARKA BAŞINA ÜRÜN TAVANI — yalnız gerekli olan markalar için. run.mjs varsayılan tavanı (9000) kullanır; buradaki satır onu EZER.",
+  "_neden": "abluka üç kez `exit 134` (V8 heap) ile ölmüştü ve 4/8 GB heap çözmüyordu; makinenin RAM'ini 0,9 GB'a indiriyordu. Sebep ölçüldü: sitemap'te ~2.800 ürün var ama varsayılan 9000'lik tavanla tarama listesi şişiyor ve Ticimax'in 0,7 MB'lık ürün sayfaları biriktiğinde heap taşıyor. Tavan gerçek ürün sayısına çekildiğinde 2026-07-30'da SORUNSUZ çekildi: 2.697 kayıt, %98 bedenli, 1.577 sn.",
+  "_kullanim": "slug -> tavan. Yeni bir marka heap ile ölüyorsa önce buraya gerçek ürün sayısına yakın bir tavan yaz; heap büyütmek çözmüyor.",
+  "tavanlar": {
+    "abluka": 2700
+  }
+}

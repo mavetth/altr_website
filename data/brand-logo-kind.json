@@ -1,0 +1,654 @@
+{
+  "_aciklama": "LOGO TÜRÜ — markanın adı logonun İÇİNDE okunuyor mu? Kutucuklarda (marka çipi, ürün kartı altı) logoyu nasıl ölçekleyeceğimizi ve yanına adı yazıp yazmayacağımızı bu belirler.",
+  "_neden_elle": "En/boy oranı bu işi çözmüyor: 'the-loyka' 0.89 oranında bir YAZI logosu, 'wes-wear' 1.38'de yine yazı, ama 'fleak' 1.35'te sadece bir 'FW' monogramı. Dosyalar tek tek görsel olarak elden geçirildi. Listede olmayan marka için oran kuralı yedek olarak çalışır (< 1.35 ise sembol sayılır) — ama 2026-07-30'dan beri DİSKTEKİ 157 LOGONUN TAMAMI burada, yani yedek kural yalnız yeni eklenen bir marka için devreye girer. Tabloyu eksik bırakmak artık daha pahalı: 'yanına adını da yaz' kararının tek dayanağı bu dosya (bkz. src/components/BrandLogo.tsx).",
+  "_tipler": "sembol = ad okunmuyor (amblem/monogram) → logo büyük çizilir VE yanına marka adı yazılır · yazi = ad logonun içinde okunuyor → sadece logo, ad tekrarlanmaz",
+  "_olcek": "MARKAYA ÖZEL BÜYÜKLÜK ÇARPANI (0.8–1.4, yoksa 1). Geometri iki logoyu aynı kutuya oturtur ama aynı AĞIRLIKTA göstermez: 'abluka' baştan sona dolu bir blok, 'amuse-bouche' ince bir el yazısı — aynı ölçüde çizilince biri bağırıyor, öbürü kayboluyor. Çarpan bu farkı kapatır. Değerler her logonun koyu zeminde GÖRÜNEN mürekkep kütlesi ölçülerek üretildi (kütlenin karekökü ortancaya yaklaştırılır, düzeltmenin yarısı uygulanır), sonra kutucuk sayfası gözle taranıp kendi beyaz kutusu içinde küçük kalan logolar elle yükseltildi. Yeni bir markanın çarpanı yoksa 1 kabul edilir; kutucuğa bakıp 0.05 adımlarla ayarlanabilir — dosyanın kendisi kaynaktır, üreten betik yok.",
+  "_yazi_fontlari": "anton = ağır/sıkışık display (sert, siyah, agresif amblemler) · space = Space Mono 700, geniş harf aralığı (monogram/teknik/geometrik amblemler) · plex = IBM Plex Mono (nötr). Marka kendi logosunda başka bir font kullanıyor olabilir; buradaki seçim, o logonun KARAKTERİNE en yakın duran yüklü fonttur (sayfada yalnız bu üç font var).",
+  "markalar": {
+    "212-atelier": {
+      "tip": "yazi",
+      "olcek": 0.8
+    },
+    "2downstreet": {
+      "tip": "sembol",
+      "yazi": "anton",
+      "olcek": 1.05
+    },
+    "abluka": {
+      "tip": "yazi",
+      "olcek": 0.8
+    },
+    "after-6": {
+      "tip": "yazi",
+      "olcek": 1.2
+    },
+    "alt-kultur-store": {
+      "tip": "yazi",
+      "olcek": 1.1
+    },
+    "amuse-bouche": {
+      "tip": "yazi"
+    },
+    "aperith": {
+      "tip": "yazi",
+      "olcek": 1.15
+    },
+    "aspera-clo": {
+      "tip": "sembol",
+      "yazi": "plex",
+      "olcek": 1.2
+    },
+    "ate-studio": {
+      "tip": "yazi",
+      "olcek": 0.95
+    },
+    "balina-butik": {
+      "tip": "yazi"
+    },
+    "barikat": {
+      "tip": "sembol",
+      "yazi": "anton",
+      "olcek": 1.1
+    },
+    "by-london-butik": {
+      "tip": "yazi",
+      "olcek": 0.95
+    },
+    "canned-clothing-studio": {
+      "tip": "yazi",
+      "olcek": 1.05
+    },
+    "cartel-wind": {
+      "tip": "yazi"
+    },
+    "catch": {
+      "tip": "yazi",
+      "olcek": 0.95
+    },
+    "cayren": {
+      "tip": "yazi",
+      "olcek": 1.05
+    },
+    "cervus-wear": {
+      "tip": "yazi"
+    },
+    "cherry-kitten": {
+      "tip": "yazi",
+      "olcek": 0.95
+    },
+    "cordelia-butik": {
+      "tip": "yazi",
+      "olcek": 0.85
+    },
+    "cos-weirdos": {
+      "tip": "yazi"
+    },
+    "cravers": {
+      "tip": "yazi",
+      "olcek": 1.2
+    },
+    "cucire": {
+      "tip": "yazi"
+    },
+    "d-verge-studio": {
+      "tip": "yazi",
+      "olcek": 0.85
+    },
+    "damned-cult": {
+      "tip": "yazi",
+      "olcek": 1.4
+    },
+    "deer-wear": {
+      "tip": "sembol",
+      "yazi": "space",
+      "olcek": 1.4
+    },
+    "dharma-studios": {
+      "tip": "yazi"
+    },
+    "diddy-studios": {
+      "tip": "yazi",
+      "olcek": 1.15
+    },
+    "doomster": {
+      "tip": "yazi"
+    },
+    "drip-house": {
+      "tip": "yazi",
+      "olcek": 1.25
+    },
+    "efex-wear": {
+      "tip": "yazi",
+      "olcek": 0.9
+    },
+    "eilul-archives": {
+      "tip": "yazi",
+      "olcek": 1.25
+    },
+    "emorpi": {
+      "tip": "yazi",
+      "olcek": 0.85
+    },
+    "end-clothing": {
+      "tip": "yazi",
+      "olcek": 0.9
+    },
+    "estatico-design": {
+      "tip": "yazi",
+      "olcek": 1.2
+    },
+    "expose-sports": {
+      "tip": "yazi",
+      "olcek": 1.4
+    },
+    "fadeback-studio": {
+      "tip": "sembol",
+      "yazi": "anton",
+      "olcek": 1.1
+    },
+    "fake-mood": {
+      "tip": "yazi",
+      "olcek": 0.95
+    },
+    "fer-valiant": {
+      "tip": "sembol",
+      "yazi": "anton"
+    },
+    "flaw-wears": {
+      "tip": "yazi",
+      "olcek": 0.9
+    },
+    "fleak": {
+      "tip": "sembol",
+      "yazi": "anton",
+      "olcek": 1.1
+    },
+    "fless-wear": {
+      "tip": "yazi",
+      "olcek": 1.1
+    },
+    "fly-flaners": {
+      "tip": "yazi",
+      "olcek": 0.9
+    },
+    "fo4rbs": {
+      "tip": "yazi",
+      "olcek": 0.9
+    },
+    "for-fun-wear": {
+      "tip": "sembol",
+      "yazi": "anton"
+    },
+    "forza-core": {
+      "tip": "yazi",
+      "olcek": 1.3
+    },
+    "from-cult": {
+      "tip": "sembol",
+      "yazi": "space",
+      "olcek": 1.25
+    },
+    "gang-own": {
+      "tip": "sembol",
+      "yazi": "anton",
+      "olcek": 1.1
+    },
+    "gatso": {
+      "tip": "yazi",
+      "olcek": 0.85
+    },
+    "giowear": {
+      "tip": "yazi",
+      "olcek": 0.85
+    },
+    "glix": {
+      "tip": "yazi",
+      "olcek": 0.9
+    },
+    "god-heals": {
+      "tip": "yazi",
+      "olcek": 0.8
+    },
+    "gotham": {
+      "tip": "sembol",
+      "yazi": "anton",
+      "olcek": 1.05
+    },
+    "guerra-butik": {
+      "tip": "sembol",
+      "yazi": "space",
+      "olcek": 1.1
+    },
+    "gymrey": {
+      "tip": "sembol",
+      "yazi": "anton",
+      "olcek": 1.3
+    },
+    "hermanios-studio": {
+      "tip": "sembol",
+      "yazi": "space",
+      "olcek": 1.3
+    },
+    "hermu-clo": {
+      "tip": "yazi",
+      "olcek": 0.9
+    },
+    "hoghheim": {
+      "tip": "yazi"
+    },
+    "hollow-gallery": {
+      "tip": "yazi",
+      "olcek": 0.95
+    },
+    "hotel-471": {
+      "tip": "sembol",
+      "yazi": "space",
+      "olcek": 1.15
+    },
+    "hype-cult": {
+      "tip": "yazi",
+      "olcek": 1.15
+    },
+    "hype-of-steps": {
+      "tip": "yazi",
+      "olcek": 0.8
+    },
+    "hype-tr": {
+      "tip": "yazi",
+      "olcek": 0.9
+    },
+    "i-am-not-basic": {
+      "tip": "yazi",
+      "olcek": 0.85
+    },
+    "infectious-moda": {
+      "tip": "yazi",
+      "olcek": 0.95
+    },
+    "interim-collective": {
+      "tip": "yazi"
+    },
+    "jumos-wear": {
+      "tip": "yazi",
+      "olcek": 0.85
+    },
+    "junior-crime": {
+      "tip": "yazi",
+      "olcek": 0.85
+    },
+    "kaft": {
+      "tip": "sembol",
+      "yazi": "anton",
+      "olcek": 1.25
+    },
+    "keit": {
+      "tip": "yazi",
+      "olcek": 1.2
+    },
+    "kevclo": {
+      "tip": "yazi",
+      "olcek": 0.85
+    },
+    "kostebek": {
+      "tip": "yazi",
+      "olcek": 0.95
+    },
+    "kozmosize": {
+      "tip": "yazi",
+      "olcek": 1.15
+    },
+    "la-mort-studios": {
+      "tip": "sembol",
+      "yazi": "anton",
+      "olcek": 1.15
+    },
+    "le-tual": {
+      "tip": "yazi",
+      "olcek": 1.05
+    },
+    "leontiere": {
+      "tip": "sembol",
+      "yazi": "plex",
+      "olcek": 1.25
+    },
+    "lethe-studios": {
+      "tip": "yazi",
+      "olcek": 1.25
+    },
+    "loftpace": {
+      "tip": "sembol",
+      "yazi": "plex",
+      "olcek": 1.05
+    },
+    "looza-style": {
+      "tip": "yazi",
+      "olcek": 1.25
+    },
+    "lorinfo": {
+      "tip": "yazi"
+    },
+    "lost-mind-studios": {
+      "tip": "yazi",
+      "olcek": 1.05
+    },
+    "luvion": {
+      "tip": "yazi",
+      "olcek": 0.9
+    },
+    "machinist": {
+      "tip": "yazi",
+      "olcek": 0.9
+    },
+    "mahalle-boy": {
+      "tip": "sembol",
+      "yazi": "anton",
+      "olcek": 1.1
+    },
+    "mahluque": {
+      "tip": "yazi",
+      "olcek": 1.05
+    },
+    "manic-sellout": {
+      "tip": "yazi",
+      "olcek": 1.15
+    },
+    "matt-wear": {
+      "tip": "yazi",
+      "olcek": 0.8
+    },
+    "metafang": {
+      "tip": "yazi",
+      "olcek": 0.85
+    },
+    "modax-wear": {
+      "tip": "yazi",
+      "olcek": 0.95
+    },
+    "monday-kick": {
+      "tip": "sembol",
+      "yazi": "anton"
+    },
+    "noble-mess": {
+      "tip": "sembol",
+      "yazi": "space",
+      "olcek": 1.05
+    },
+    "nomarc": {
+      "tip": "yazi"
+    },
+    "norv": {
+      "tip": "yazi",
+      "olcek": 1.05
+    },
+    "nuugg": {
+      "tip": "yazi"
+    },
+    "oath-istanbul": {
+      "tip": "yazi",
+      "olcek": 1.35
+    },
+    "od-sportswear": {
+      "tip": "sembol",
+      "yazi": "space",
+      "olcek": 1.1
+    },
+    "offender": {
+      "tip": "yazi"
+    },
+    "only-trend-wear": {
+      "tip": "sembol",
+      "yazi": "space",
+      "olcek": 1.2
+    },
+    "orient-x": {
+      "tip": "sembol",
+      "yazi": "space",
+      "olcek": 1.05
+    },
+    "overdrive-rock": {
+      "tip": "yazi",
+      "olcek": 0.95
+    },
+    "pale-archive": {
+      "tip": "sembol",
+      "yazi": "space",
+      "olcek": 1.4
+    },
+    "peace-hunter": {
+      "tip": "yazi"
+    },
+    "podyem": {
+      "tip": "yazi",
+      "olcek": 1.05
+    },
+    "point-2124": {
+      "tip": "yazi",
+      "olcek": 1.05
+    },
+    "poison-fashion": {
+      "tip": "yazi",
+      "olcek": 1.05
+    },
+    "pretend-it": {
+      "tip": "sembol",
+      "yazi": "space",
+      "olcek": 1.1
+    },
+    "prev": {
+      "tip": "yazi",
+      "olcek": 1.05
+    },
+    "punk-design": {
+      "tip": "yazi"
+    },
+    "quite-often": {
+      "tip": "yazi",
+      "olcek": 0.9
+    },
+    "reflect-studio": {
+      "tip": "yazi",
+      "olcek": 0.9
+    },
+    "respire": {
+      "tip": "yazi",
+      "olcek": 0.9
+    },
+    "restruct": {
+      "tip": "yazi",
+      "olcek": 0.9
+    },
+    "revion-savera": {
+      "tip": "yazi",
+      "olcek": 1.3
+    },
+    "rpg-studio": {
+      "tip": "yazi",
+      "olcek": 1.2
+    },
+    "rybe": {
+      "tip": "yazi",
+      "olcek": 1.4
+    },
+    "rzg-moda": {
+      "tip": "yazi",
+      "olcek": 0.9
+    },
+    "saintora-atelier": {
+      "tip": "yazi",
+      "olcek": 0.8
+    },
+    "saram": {
+      "tip": "yazi",
+      "olcek": 1.4
+    },
+    "seize-society": {
+      "tip": "yazi",
+      "olcek": 1.05
+    },
+    "serline": {
+      "tip": "yazi",
+      "olcek": 0.85
+    },
+    "shout": {
+      "tip": "sembol",
+      "yazi": "space",
+      "olcek": 1.2
+    },
+    "slatra": {
+      "tip": "yazi",
+      "olcek": 0.95
+    },
+    "snowshade": {
+      "tip": "sembol",
+      "yazi": "space",
+      "olcek": 1.2
+    },
+    "sokak-butik": {
+      "tip": "yazi",
+      "olcek": 1.15
+    },
+    "solane": {
+      "tip": "sembol",
+      "yazi": "plex",
+      "olcek": 1.15
+    },
+    "sold-out-clo": {
+      "tip": "yazi",
+      "olcek": 0.85
+    },
+    "solid-bruises": {
+      "tip": "sembol",
+      "yazi": "anton"
+    },
+    "songs-and-the-spirits": {
+      "tip": "sembol",
+      "yazi": "plex",
+      "olcek": 1.05
+    },
+    "soon-to-be-announced": {
+      "tip": "yazi",
+      "olcek": 0.8
+    },
+    "soonpiera": {
+      "tip": "sembol",
+      "yazi": "space"
+    },
+    "spook-project": {
+      "tip": "sembol",
+      "yazi": "anton",
+      "olcek": 1.15
+    },
+    "starlight": {
+      "tip": "sembol",
+      "yazi": "space",
+      "olcek": 1.1
+    },
+    "stray-dogs": {
+      "tip": "sembol",
+      "yazi": "anton"
+    },
+    "stray-united": {
+      "tip": "yazi",
+      "olcek": 0.9
+    },
+    "stren-clo": {
+      "tip": "yazi",
+      "olcek": 0.9
+    },
+    "svamp-studios": {
+      "tip": "sembol",
+      "yazi": "anton",
+      "olcek": 1.1
+    },
+    "tarmac-studios": {
+      "tip": "yazi",
+      "olcek": 0.95
+    },
+    "tato-wear": {
+      "tip": "yazi",
+      "olcek": 0.9
+    },
+    "taxim-man-fashion": {
+      "tip": "yazi",
+      "olcek": 1.1
+    },
+    "that-way": {
+      "tip": "yazi",
+      "olcek": 1.1
+    },
+    "the-dad": {
+      "tip": "yazi",
+      "olcek": 0.95
+    },
+    "the-lood": {
+      "tip": "yazi",
+      "olcek": 0.8
+    },
+    "the-loyka": {
+      "tip": "sembol",
+      "yazi": "anton",
+      "olcek": 1.1
+    },
+    "the-lucid-lab": {
+      "tip": "yazi"
+    },
+    "the-mets-co": {
+      "tip": "sembol",
+      "yazi": "space",
+      "olcek": 1.05
+    },
+    "touz-moda": {
+      "tip": "yazi",
+      "olcek": 0.95
+    },
+    "under-bros": {
+      "tip": "yazi",
+      "olcek": 0.85
+    },
+    "vamos-clo": {
+      "tip": "yazi",
+      "olcek": 0.9
+    },
+    "void": {
+      "tip": "yazi",
+      "olcek": 0.85
+    },
+    "voyant": {
+      "tip": "yazi",
+      "olcek": 0.95
+    },
+    "wes-wear": {
+      "tip": "yazi",
+      "olcek": 0.95
+    },
+    "wezzy-wear": {
+      "tip": "sembol",
+      "yazi": "anton",
+      "olcek": 0.95
+    },
+    "wheraver": {
+      "tip": "yazi"
+    },
+    "wise-wear": {
+      "tip": "yazi",
+      "olcek": 1.05
+    },
+    "zaee-giyim": {
+      "tip": "yazi",
+      "olcek": 0.9
+    },
+    "zeph-culture": {
+      "tip": "yazi",
+      "olcek": 1.25
+    },
+    "zero-wear": {
+      "tip": "sembol",
+      "yazi": "space",
+      "olcek": 1.4
+    },
+    "zincir-wear": {
+      "tip": "yazi",
+      "olcek": 0.95
+    }
+  }
+}

@@ -1,0 +1,592 @@
+{
+  "_aciklama": "MARKA TARZI — her marka bir veya birkaç tarz kovasına düşer. Filtre paneli ve ana sayfadaki TARZ şeridi bu dosyayı okur. Elle düzenlenir; scraper DOKUNMAZ.",
+  "_tarzlar": [
+    "streetwear",
+    "basic",
+    "techwear",
+    "ravewear",
+    "spor",
+    "old-money",
+    "minimalist"
+  ],
+  "_nasil_verildi": "Marka puanları gibi (bkz. brand-scores.json) bu da EDİTORYAL bir sınıflandırma: doğrulanmış bir tarz verisi yok. Üç gözlenebilir sinyalden türetildi — (1) markanın kendini konumlandırdığı sahne/dil, (2) katalogun kategori dağılımı (tayt+atlet ağırlıklı bir katalog spor, gömlek+triko+pantolon ağırlıklı bir katalog old-money'e yakın), (3) medyan TRY fiyatı. Bir marka birden çok tarza düşebilir; hiçbir tarza yazılmayan marka tarz filtrelerinde ÇIKMAZ, ama tarz seçili değilken her yerde görünür.",
+  "_bakim": "Yeni marka eklendiğinde buraya bir satır yaz. Slug, brands.generated.ts'teki slug ile birebir aynı olmalı — scripts/check-brand-styles.mjs bunu doğrular.",
+  "tarzlar": {
+    "reflect-studio": [
+      "streetwear",
+      "techwear",
+      "minimalist"
+    ],
+    "void": [
+      "streetwear"
+    ],
+    "kaft": [
+      "basic",
+      "streetwear",
+      "minimalist"
+    ],
+    "i-am-not-basic": [
+      "ravewear"
+    ],
+    "oath-istanbul": [
+      "streetwear",
+      "old-money"
+    ],
+    "from-cult": [
+      "streetwear",
+      "techwear"
+    ],
+    "restruct": [
+      "techwear"
+    ],
+    "aperith": [
+      "old-money",
+      "streetwear",
+      "minimalist"
+    ],
+    "quite-often": [
+      "streetwear",
+      "basic",
+      "minimalist"
+    ],
+    "canned-clothing-studio": [
+      "streetwear"
+    ],
+    "black-sample-jewellery": [
+      "ravewear",
+      "streetwear"
+    ],
+    "solid-bruises": [
+      "streetwear",
+      "techwear"
+    ],
+    "pretend-it": [
+      "streetwear",
+      "ravewear"
+    ],
+    "amuse-bouche": [
+      "old-money",
+      "basic"
+    ],
+    "voyant": [
+      "techwear",
+      "old-money"
+    ],
+    "spook-project": [
+      "techwear",
+      "ravewear"
+    ],
+    "damned-cult": [
+      "ravewear",
+      "streetwear"
+    ],
+    "mahluque": [
+      "streetwear"
+    ],
+    "snowshade": [
+      "streetwear",
+      "techwear"
+    ],
+    "fake-mood": [
+      "streetwear",
+      "ravewear"
+    ],
+    "seize-society": [
+      "streetwear"
+    ],
+    "hotel-471": [
+      "streetwear"
+    ],
+    "machinist": [
+      "techwear",
+      "streetwear"
+    ],
+    "hollow-gallery": [
+      "techwear",
+      "streetwear"
+    ],
+    "hermanios-studio": [
+      "streetwear"
+    ],
+    "kostebek": [
+      "streetwear",
+      "basic"
+    ],
+    "point-2124": [
+      "techwear"
+    ],
+    "expose-sports": [
+      "spor",
+      "streetwear"
+    ],
+    "hermu-clo": [
+      "spor",
+      "streetwear"
+    ],
+    "soonpiera": [
+      "streetwear",
+      "techwear"
+    ],
+    "gatso": [
+      "old-money",
+      "streetwear"
+    ],
+    "catch": [
+      "streetwear"
+    ],
+    "offender": [
+      "streetwear"
+    ],
+    "shout": [
+      "streetwear"
+    ],
+    "cucire": [
+      "old-money",
+      "basic",
+      "minimalist"
+    ],
+    "stray-dogs": [
+      "streetwear"
+    ],
+    "god-heals": [
+      "streetwear"
+    ],
+    "the-dad": [
+      "basic",
+      "old-money"
+    ],
+    "estatico-design": [
+      "streetwear"
+    ],
+    "ate-studio": [
+      "basic",
+      "streetwear",
+      "y2k"
+    ],
+    "lethe-studios": [
+      "basic",
+      "old-money"
+    ],
+    "wheraver": [
+      "streetwear"
+    ],
+    "metafang": [
+      "techwear",
+      "streetwear"
+    ],
+    "orient-x": [
+      "spor"
+    ],
+    "glix": [
+      "streetwear"
+    ],
+    "starlight": [
+      "streetwear",
+      "ravewear"
+    ],
+    "wes-wear": [
+      "streetwear",
+      "spor",
+      "y2k"
+    ],
+    "so-high": [
+      "streetwear",
+      "ravewear"
+    ],
+    "hoghheim": [
+      "streetwear"
+    ],
+    "tato-wear": [
+      "streetwear"
+    ],
+    "interim-collective": [
+      "streetwear",
+      "minimalist"
+    ],
+    "that-way": [
+      "streetwear",
+      "basic",
+      "y2k"
+    ],
+    "deer-wear": [
+      "streetwear",
+      "basic"
+    ],
+    "monday-kick": [
+      "basic",
+      "old-money"
+    ],
+    "fleak": [
+      "spor",
+      "streetwear",
+      "y2k"
+    ],
+    "sold-out-clo": [
+      "streetwear"
+    ],
+    "crupt-studio": [
+      "ravewear",
+      "streetwear"
+    ],
+    "overdrive-rock": [
+      "streetwear"
+    ],
+    "stren-clo": [
+      "streetwear",
+      "basic"
+    ],
+    "slatra": [
+      "streetwear"
+    ],
+    "junior-crime": [
+      "streetwear"
+    ],
+    "the-lucid-lab": [
+      "streetwear",
+      "basic"
+    ],
+    "abluka": [
+      "streetwear",
+      "basic"
+    ],
+    "after-6": [
+      "streetwear",
+      "basic"
+    ],
+    "the-lood": [
+      "streetwear",
+      "basic"
+    ],
+    "kozmosize": [
+      "techwear"
+    ],
+    "fless-wear": [
+      "streetwear"
+    ],
+    "forza-core": [
+      "spor"
+    ],
+    "dantelions": [
+      "streetwear"
+    ],
+    "gang-own": [
+      "streetwear"
+    ],
+    "giesto": [
+      "old-money",
+      "basic"
+    ],
+    "the-loyka": [
+      "streetwear"
+    ],
+    "wezzy-wear": [
+      "streetwear"
+    ],
+    "cervus-wear": [
+      "spor"
+    ],
+    "for-fun-wear": [
+      "streetwear",
+      "basic"
+    ],
+    "zincir-wear": [
+      "streetwear"
+    ],
+    "noble-mess": [
+      "streetwear"
+    ],
+    "efex-wear": [
+      "streetwear",
+      "basic"
+    ],
+    "stray-united": [
+      "streetwear"
+    ],
+    "emorpi": [
+      "streetwear",
+      "basic"
+    ],
+    "nomarc": [
+      "streetwear",
+      "basic"
+    ],
+    "flaw-wears": [
+      "streetwear",
+      "basic"
+    ],
+    "gotham": [
+      "streetwear",
+      "techwear"
+    ],
+    "fo4rbs": [
+      "old-money",
+      "basic"
+    ],
+    "punk-design": [
+      "ravewear",
+      "streetwear"
+    ],
+    "hype-tr": [
+      "streetwear"
+    ],
+    "guerra-butik": [
+      "streetwear",
+      "spor"
+    ],
+    "under-bros": [
+      "basic"
+    ],
+    "modax-wear": [
+      "basic",
+      "spor"
+    ],
+    "the-mets-co": [
+      "streetwear",
+      "basic"
+    ],
+    "jumos-wear": [
+      "streetwear",
+      "y2k"
+    ],
+    "x-puppet-wear": [
+      "streetwear",
+      "y2k"
+    ],
+    "gymrey": [
+      "spor"
+    ],
+    "wise-wear": [
+      "basic",
+      "streetwear"
+    ],
+    "vamos-clo": [
+      "basic",
+      "streetwear"
+    ],
+    "diddy-studios": [
+      "spor",
+      "streetwear"
+    ],
+    "matt-wear": [
+      "streetwear",
+      "basic",
+      "y2k"
+    ],
+    "nuugg": [
+      "streetwear",
+      "basic"
+    ],
+    "zaee-giyim": [
+      "streetwear",
+      "spor"
+    ],
+    "sokak-butik": [
+      "streetwear"
+    ],
+    "keit": [
+      "basic",
+      "minimalist"
+    ],
+    "poison-fashion": [
+      "basic",
+      "streetwear"
+    ],
+    "hype-of-steps": [
+      "spor",
+      "basic"
+    ],
+    "only-trend-wear": [
+      "spor",
+      "basic"
+    ],
+    "touz-moda": [
+      "basic",
+      "streetwear"
+    ],
+    "aksesuarix": [
+      "streetwear"
+    ],
+    "balina-butik": [
+      "basic"
+    ],
+    "cravers": [
+      "streetwear"
+    ],
+    "drip-house": [
+      "streetwear"
+    ],
+    "le-tual": [
+      "streetwear"
+    ],
+    "prev": [
+      "minimalist"
+    ],
+    "zeph-culture": [
+      "streetwear",
+      "y2k"
+    ],
+    "serline": [
+      "streetwear"
+    ],
+    "revion-savera": [
+      "streetwear"
+    ],
+    "mahalle-boy": [
+      "streetwear"
+    ],
+    "oniki-studio": [
+      "streetwear"
+    ],
+    "rpg-studio": [
+      "streetwear"
+    ],
+    "norv": [
+      "streetwear"
+    ],
+    "cherry-kitten": [
+      "ravewear",
+      "streetwear",
+      "y2k"
+    ],
+    "fam1997": [
+      "streetwear"
+    ],
+    "peace-hunter": [
+      "streetwear",
+      "y2k"
+    ],
+    "looza-style": [
+      "basic"
+    ],
+    "dharma-studios": [
+      "streetwear"
+    ],
+    "by-london-butik": [
+      "basic"
+    ],
+    "cordelia-butik": [
+      "streetwear"
+    ],
+    "alt-kultur-store": [
+      "streetwear"
+    ],
+    "fly-flaners": [
+      "streetwear"
+    ],
+    "songs-and-the-spirits": [
+      "streetwear"
+    ],
+    "rybe": [
+      "streetwear"
+    ],
+    "la-mort-studios": [
+      "streetwear"
+    ],
+    "kevclo": [
+      "streetwear"
+    ],
+    "soon-to-be-announced": [
+      "streetwear"
+    ],
+    "luvion": [
+      "streetwear"
+    ],
+    "od-sportswear": [
+      "spor"
+    ],
+    "212-atelier": [
+      "streetwear"
+    ],
+    "hype-cult": [
+      "streetwear"
+    ],
+    "lorinfo": [
+      "streetwear"
+    ],
+    "tarmac-studios": [
+      "streetwear"
+    ],
+    "rzg-moda": [
+      "basic"
+    ],
+    "respire": [
+      "basic"
+    ],
+    "lost-mind-studios": [
+      "streetwear"
+    ],
+    "cayren": [
+      "basic"
+    ],
+    "taxim-man-fashion": [
+      "basic"
+    ],
+    "saintora-atelier": [
+      "streetwear"
+    ],
+    "barikat": [
+      "streetwear"
+    ],
+    "infectious-moda": [
+      "basic",
+      "y2k"
+    ],
+    "fer-valiant": [
+      "streetwear",
+      "y2k"
+    ],
+    "saram": [
+      "streetwear"
+    ],
+    "2downstreet": [
+      "streetwear"
+    ],
+    "loftpace": [
+      "streetwear"
+    ],
+    "podyem": [
+      "streetwear",
+      "basic"
+    ],
+    "cartel-wind": [
+      "streetwear"
+    ],
+    "cos-weirdos": [
+      "streetwear"
+    ],
+    "eilul-archives": [
+      "streetwear"
+    ],
+    "svamp-studios": [
+      "streetwear"
+    ],
+    "aspera-clo": [
+      "streetwear"
+    ],
+    "d-verge-studio": [
+      "streetwear"
+    ],
+    "solane": [
+      "streetwear"
+    ],
+    "pale-archive": [
+      "streetwear"
+    ],
+    "zero-wear": [
+      "streetwear"
+    ],
+    "giowear": [
+      "streetwear"
+    ],
+    "leontiere": [
+      "streetwear"
+    ],
+    "fadeback-studio": [
+      "streetwear",
+      "y2k"
+    ],
+    "manic-sellout": [
+      "streetwear"
+    ]
+  }
+}

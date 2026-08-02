@@ -1,0 +1,357 @@
+/* ==========================================================================
+   altr — KARŞILAMA (misyon) modalı.
+
+   Kaynağı `altr-landing` projesinin kapı/landing ekranı; oradan alınıp DAVET KODU +
+   BEKLEME LİSTESİ (referans) katmanı çıkarıldı, yerine DİL SEÇİMİ kondu. Ekran artık
+   bir kapı değil: siteyi engellemiyor, bir kez karşılıyor ve okla geçiliyor.
+
+   Renk/font/animasyon TOKEN'I BURADA TANIMLANMIYOR — hepsi globals.css'ten geliyor
+   (--grn, --bg, --fg, --line2, .live, .panel-anim, .brand-logo, .cta-btn). Modalın
+   siteyle aynı hissi vermesi bu yüzden.
+
+   HAREKET KURALI (sitenin kendi kuralı): arayüz sert, ödül yumuşak. Buradaki tek
+   animasyon duvarın `steps(1)` titremesi.
+   ========================================================================== */
+
+.intro-veil {
+  position: fixed;
+  inset: 0;
+  z-index: 90; /* giriş (80) ve ürün modalinin (70) üstünde: ilk karşılama en öndedir */
+  background: var(--bg);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.intro {
+  position: relative;
+  min-height: 100vh;
+  /* dvh: mobil tarayıcı çubuğu açılıp kapanırken sayfa zıplamasın */
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 56px 40px;
+  overflow: hidden; /* logo duvarı kenarlardan taşmasın */
+}
+
+/* --- arka plan: marka logosu duvarı -------------------------------------- */
+
+.intro-wall {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(124px, 1fr));
+  align-content: center;
+  justify-items: center;
+  gap: 30px 26px;
+  padding: 24px;
+
+  /* Ortası boşaltılmış maske: duvar KENARLARDA görünür, metnin durduğu ortada
+     tamamen kaybolur. Zemin rengi hiç değişmiyor — sitenin saf siyahı korunuyor. */
+  -webkit-mask-image: radial-gradient(ellipse at center, transparent 30%, #000 78%);
+  mask-image: radial-gradient(ellipse at center, transparent 30%, #000 78%);
+}
+
+.intro-wall-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 42px;
+}
+
+/* Aşırı geniş wordmark'lar iki kolon kaplar — yoksa hücre genişliğine sıkışıp
+   okunmayan bir çizgiye dönüyorlar (bkz. IntroModal data-wide). */
+.intro-wall-cell[data-wide="1"] {
+  grid-column: span 2;
+}
+
+/* .brand-logo (globals.css) grayscale + temaya göre invert işini zaten yapıyor;
+   burada yalnız ölçü ve sönüklük ayarlanıyor. */
+.intro-wall-logo {
+  --wall-op: 0.26;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  opacity: var(--wall-op);
+  animation: intro-wall-flick 13s steps(1) infinite;
+}
+:root[data-theme="light"] .intro-wall-logo {
+  /* açık zeminde koyu işaretler daha çok "bağırıyor" — biraz daha sönük */
+  --wall-op: 0.18;
+}
+
+/* Seyrek dijital titreşim: her logo ~13 saniyede bir kez, hepsi farklı gecikmeyle.
+   Tepe çarpanları TABANA GÖRE ayarlı — taban yükseltilirse tepe strobe'a döner. */
+@keyframes intro-wall-flick {
+  0%,
+  93% {
+    opacity: var(--wall-op);
+  }
+  94% {
+    opacity: calc(var(--wall-op) * 2);
+  }
+  96% {
+    opacity: calc(var(--wall-op) * 0.25);
+  }
+  98% {
+    opacity: calc(var(--wall-op) * 1.45);
+  }
+  100% {
+    opacity: var(--wall-op);
+  }
+}
+
+/* --- içerik -------------------------------------------------------------- */
+
+.intro-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Logo boyu: --logo-fs TEK KOL, Logo3D'nin yazı + derinlik + bakış mesafesi üçlüsünü
+   birlikte ölçekliyor. `!important` ŞART: Logo3D `--logo-fs`'i INLINE basıyor. */
+.intro-logo .logo3d {
+  --logo-fs: clamp(58px, 12vw, 112px) !important;
+}
+
+.intro-tagline {
+  margin: 22px 0 0;
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-size: clamp(17px, 3.2vw, 31px);
+  line-height: 1.22;
+  letter-spacing: 0.13em;
+  color: var(--fg-bright);
+}
+
+.intro-stats {
+  margin: 16px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-family: "Space Mono", monospace;
+  font-size: clamp(10px, 1.5vw, 12px);
+  letter-spacing: 0.2em;
+  color: var(--muted);
+}
+
+.intro-dot {
+  color: var(--grn);
+  font-size: 8px;
+  line-height: 1;
+}
+
+/* Sidebar'daki DOTLINE ile aynı desen — bölüm ayracı sitede bu. */
+.intro-dotline {
+  width: 100%;
+  height: 1px;
+  margin: 34px 0;
+  background: repeating-linear-gradient(90deg, var(--line2) 0 6px, transparent 6px 12px);
+}
+
+/* --- misyon -------------------------------------------------------------- */
+
+.intro-mission {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  width: 100%;
+  text-align: left;
+}
+
+.intro-mission-title {
+  margin: 0 0 10px;
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--grn);
+}
+
+.intro-mission-body {
+  margin: 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12.5px;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+/* --- dil seçimi ---------------------------------------------------------- */
+
+.intro-langlabel {
+  font-family: "Space Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--muted2);
+}
+
+.intro-langs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+/* Gerçek <button>: dil seçimi klavyeyle de yapılabilmeli. Tarayıcı varsayılanları
+   sıfırlanıyor, `font: inherit` şart. */
+.intro-flag {
+  appearance: none;
+  background: none;
+  margin: 0;
+  font: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 15px;
+  border: 1px solid var(--line);
+  color: var(--muted2);
+  font-family: "Space Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  cursor: pointer;
+  /* arayüz sert: geçiş yok */
+  transition: none;
+}
+
+/* Seçilmemiş bayrak sönük ve renksiz durur — seçili olan tek renkli öğedir. */
+.intro-flag svg {
+  display: block;
+  filter: grayscale(1);
+  opacity: 0.55;
+}
+
+.intro-flag:hover svg,
+.intro-flag[aria-pressed="true"] svg {
+  filter: none;
+  opacity: 1;
+}
+
+.intro-flag[aria-pressed="true"] {
+  border-color: var(--grn);
+  color: var(--grn);
+}
+
+.intro-flag:focus-visible {
+  outline: 1px solid var(--grn);
+  outline-offset: 3px;
+}
+
+/* --- devam oku ----------------------------------------------------------- */
+
+.intro-go {
+  appearance: none;
+  background: none;
+  margin: 34px 0 0;
+  font: inherit;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  padding: 0;
+  border: none;
+  color: var(--grn);
+  cursor: pointer;
+}
+
+.intro-go-ring {
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--grn);
+  border-radius: 50%;
+  transition: none;
+}
+
+.intro-go:hover .intro-go-ring {
+  background: var(--grn);
+  color: var(--on-accent);
+}
+
+.intro-go-text {
+  font-family: "Space Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--muted2);
+}
+
+.intro-go:focus-visible .intro-go-ring {
+  outline: 1px solid var(--grn);
+  outline-offset: 4px;
+}
+
+.intro-footer {
+  margin-top: 34px;
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--faint);
+}
+
+/* Modal sol menüden yeniden açıldığında sağ üstte bir kapatma rozeti olur — ilk
+   karşılamada YOKTUR, orada tek çıkış oktur. */
+.intro-close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  z-index: 2;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--fg-bright);
+  border-radius: 50%;
+  background: var(--bg2);
+  color: var(--fg-bright);
+  cursor: pointer;
+}
+
+/* --- mobil (sitenin kendi eşiği: 820px) --------------------------------- */
+
+@media (max-width: 820px) {
+  .intro {
+    padding: 40px 22px;
+    align-items: flex-start;
+  }
+
+  .intro-mission {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .intro-dotline {
+    margin: 26px 0;
+  }
+
+  /* Duvar mobilde daha seyrek ve daha sönük: dar ekranda logolar metnin hemen
+     arkasına düşüyor, maskenin boşalttığı orta alan oransal olarak küçük kalıyor. */
+  .intro-wall {
+    grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+    gap: 22px 18px;
+  }
+  .intro-wall-logo {
+    --wall-op: 0.18;
+  }
+  :root[data-theme="light"] .intro-wall-logo {
+    --wall-op: 0.13;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-wall-logo {
+    animation: none;
+  }
+}

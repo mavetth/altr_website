@@ -1,0 +1,634 @@
+{
+  "_aciklama": "MARKA AVANTAJLARI — markanın KENDİ sitesindeki duyurudan alınmış cümleler. scripts/fetch-brand-perks.mjs üretir; elle de düzenlenebilir. Cümle markanın kendi ifadesidir, özetlenmez (kampanya koşulu markaya göre değişiyor).",
+  "at": "2026-07-30T11:43:14.319Z",
+  "markalar": {
+    "abluka": [
+      {
+        "tip": "kargo",
+        "metin": "3000₺ Üzeri Ücretsiz Kargo"
+      },
+      {
+        "tip": "kapida",
+        "metin": "Kapıda Ödeme"
+      },
+      {
+        "tip": "indirim",
+        "metin": "Yeni üyelere özel ilk siparişte %10 indirim"
+      }
+    ],
+    "after-6": [
+      {
+        "tip": "kargo",
+        "metin": "1500₺ ve üzeri siparişlerinizde ücretsiz kargo"
+      },
+      {
+        "tip": "iade",
+        "metin": "14 gün içinde sorunsuz iade"
+      }
+    ],
+    "alt-kultur-store": [
+      {
+        "tip": "taksit",
+        "metin": "12 Taksit Seçeneğiyle Alışverişe Başla"
+      }
+    ],
+    "ate-studio": [
+      {
+        "tip": "hizli",
+        "metin": "aynı gün kargo"
+      },
+      {
+        "tip": "iade",
+        "metin": "14 iş günü içerisinde iade koşullarına uygun olması"
+      }
+    ],
+    "balina-butik": [
+      {
+        "tip": "kargo",
+        "metin": "1500 TL ve Üzeri Siparişlerde Ücretsiz Kargo"
+      }
+    ],
+    "barikat": [
+      {
+        "tip": "kargo",
+        "metin": "Ücretsiz Kargo"
+      }
+    ],
+    "cartel-wind": [
+      {
+        "tip": "hizli",
+        "metin": "aynı gün kargo"
+      }
+    ],
+    "cordelia-butik": [
+      {
+        "tip": "kargo",
+        "metin": "3000 TL üzeri ücretsiz kargo"
+      }
+    ],
+    "crupt-studio": [
+      {
+        "tip": "kargo",
+        "metin": "Kargo Bedava"
+      }
+    ],
+    "cucire": [
+      {
+        "tip": "kargo",
+        "metin": "1500 TL ve Üzeri Siparişlerde Ücretsiz Kargo"
+      }
+    ],
+    "deer-wear": [
+      {
+        "tip": "kargo",
+        "metin": "KARGO BEDAVA"
+      },
+      {
+        "tip": "iade",
+        "metin": "14 iş günü içerisinde iade ve değişim"
+      }
+    ],
+    "diddy-studios": [
+      {
+        "tip": "kargo",
+        "metin": "Ücretsiz Kargo"
+      },
+      {
+        "tip": "taksit",
+        "metin": "3 Taksit"
+      },
+      {
+        "tip": "kapida",
+        "metin": "Kapıda Ödeme Seçeneği"
+      },
+      {
+        "tip": "iade",
+        "metin": "30 gün içinde iade"
+      }
+    ],
+    "drip-house": [
+      {
+        "tip": "hizli",
+        "metin": "aynı gün kargo"
+      },
+      {
+        "tip": "kapida",
+        "metin": "Kapıda ödeme sistemi"
+      }
+    ],
+    "efex-wear": [
+      {
+        "tip": "kargo",
+        "metin": "BedavaKargo"
+      }
+    ],
+    "estatico-design": [
+      {
+        "tip": "kargo",
+        "metin": "Ücretsiz Kargo"
+      },
+      {
+        "tip": "iade",
+        "metin": "14 Gün İçinde Değişim ve İade"
+      }
+    ],
+    "expose-sports": [
+      {
+        "tip": "kargo",
+        "metin": "2000₺ üzeri alışverişlerde ücretsiz kargo"
+      },
+      {
+        "tip": "taksit",
+        "metin": "taksit seçenekleriyle kolayca ödeyin"
+      }
+    ],
+    "fake-mood": [
+      {
+        "tip": "kargo",
+        "metin": "2.000₺ Üzeri Ücretsiz Kargo"
+      }
+    ],
+    "fam1997": [
+      {
+        "tip": "kargo",
+        "metin": "2.000 TL ve üzeri siparişlerde ücretsiz kargo"
+      },
+      {
+        "tip": "iade",
+        "metin": "Kolay iade · ✔ Hızlı"
+      }
+    ],
+    "fleak": [
+      {
+        "tip": "iade",
+        "metin": "14 Gün İçerisinde Değişim ve İade"
+      }
+    ],
+    "fless-wear": [
+      {
+        "tip": "kargo",
+        "metin": "2000 TL üzeri ücretsiz kargo"
+      },
+      {
+        "tip": "taksit",
+        "metin": "taksit seçenekleri"
+      },
+      {
+        "tip": "iade",
+        "metin": "3 iş günü içerisinde değişim"
+      }
+    ],
+    "fo4rbs": [
+      {
+        "tip": "iade",
+        "metin": "14 iş günü içerisinde iade"
+      }
+    ],
+    "for-fun-wear": [
+      {
+        "tip": "kargo",
+        "metin": "Ücretsiz kargo"
+      }
+    ],
+    "forza-core": [
+      {
+        "tip": "kargo",
+        "metin": "3500₺ Üzeri Ücretsiz Kargo"
+      }
+    ],
+    "from-cult": [
+      {
+        "tip": "kargo",
+        "metin": "3999tl Üzeri Ücretsiz Kargo"
+      }
+    ],
+    "gang-own": [
+      {
+        "tip": "kargo",
+        "metin": "KARGO BEDAVA"
+      },
+      {
+        "tip": "kapida",
+        "metin": "Kapıda ödeme seçeneği"
+      }
+    ],
+    "glix": [
+      {
+        "tip": "kargo",
+        "metin": "Ücretsiz Kargo"
+      }
+    ],
+    "gotham": [
+      {
+        "tip": "kargo",
+        "metin": "ücretsiz kargo"
+      },
+      {
+        "tip": "taksit",
+        "metin": "Taksit imkanları ile herkese"
+      }
+    ],
+    "guerra-butik": [
+      {
+        "tip": "kargo",
+        "metin": "Kargo Ücretsiz"
+      }
+    ],
+    "hermu-clo": [
+      {
+        "tip": "kargo",
+        "metin": "kargo bedava"
+      },
+      {
+        "tip": "iade",
+        "metin": "15 iş günü içerisinde iade"
+      }
+    ],
+    "hotel-471": [
+      {
+        "tip": "kargo",
+        "metin": "kargo bedava"
+      },
+      {
+        "tip": "iade",
+        "metin": "15 iş günü içerisinde iade"
+      }
+    ],
+    "hype-cult": [
+      {
+        "tip": "kapida",
+        "metin": "Kapıda Ödeme"
+      }
+    ],
+    "hype-tr": [
+      {
+        "tip": "kargo",
+        "metin": "Ücretsiz Kargo"
+      },
+      {
+        "tip": "iade",
+        "metin": "14 Gün İçerisinde İade & Değişim"
+      }
+    ],
+    "i-am-not-basic": [
+      {
+        "tip": "kargo",
+        "metin": "1500 TL ve üzerine ücretsiz kargo"
+      },
+      {
+        "tip": "iade",
+        "metin": "21 gün içinde ücretsiz iade"
+      }
+    ],
+    "jumos-wear": [
+      {
+        "tip": "kargo",
+        "metin": "4000₺ ve üzeri siparişlerde ücretsiz kargo"
+      },
+      {
+        "tip": "hizli",
+        "metin": "aynı gün kargo"
+      },
+      {
+        "tip": "iade",
+        "metin": "3 gün içinde iade edebilirsiniz"
+      }
+    ],
+    "kaft": [
+      {
+        "tip": "kargo",
+        "metin": "1.500 TL ve üzeri ücretsiz kargo"
+      },
+      {
+        "tip": "iade",
+        "metin": "30 gün içerisinde iade edebilir"
+      }
+    ],
+    "kozmosize": [
+      {
+        "tip": "kargo",
+        "metin": "KARGO BEDAVA"
+      }
+    ],
+    "leontiere": [
+      {
+        "tip": "kargo",
+        "metin": "Ücretsiz kargo"
+      }
+    ],
+    "loftpace": [
+      {
+        "tip": "kargo",
+        "metin": "2500TL Üzeri Ücretsiz Kargo"
+      }
+    ],
+    "looza-style": [
+      {
+        "tip": "kargo",
+        "metin": "Ücretsiz Kargo"
+      }
+    ],
+    "lorinfo": [
+      {
+        "tip": "kargo",
+        "metin": "Ücretsiz Kargo"
+      },
+      {
+        "tip": "iade",
+        "metin": "14 gün içerisinde sorunsuz iade ve değişim yapabilirsiniz"
+      }
+    ],
+    "lost-mind-studios": [
+      {
+        "tip": "kargo",
+        "metin": "2000 ₺ ve üzeri Siparişlerde Ücretsiz Kargo"
+      }
+    ],
+    "luvion": [
+      {
+        "tip": "kargo",
+        "metin": "ücretsiz kargo"
+      },
+      {
+        "tip": "iade",
+        "metin": "14 iş günü içerisinde iade ve değişim"
+      }
+    ],
+    "machinist": [
+      {
+        "tip": "kargo",
+        "metin": "3000₺ Üzeri Ücretsiz Kargo"
+      }
+    ],
+    "monday-kick": [
+      {
+        "tip": "kargo",
+        "metin": "Kargo Bedava"
+      }
+    ],
+    "norv": [
+      {
+        "tip": "kargo",
+        "metin": "kargo bedava"
+      },
+      {
+        "tip": "iade",
+        "metin": "7 iş günü içerisinde iade"
+      }
+    ],
+    "offender": [
+      {
+        "tip": "kargo",
+        "metin": "1200 TL üzeri ücretsiz kargo"
+      }
+    ],
+    "overdrive-rock": [
+      {
+        "tip": "kargo",
+        "metin": "1000 TL Üzeri Tüm siparişlerde Ücretsiz Kargo"
+      },
+      {
+        "tip": "iade",
+        "metin": "30 Gün Değişim"
+      }
+    ],
+    "podyem": [
+      {
+        "tip": "kargo",
+        "metin": "1500₺ üzeri ücretsiz kargo"
+      },
+      {
+        "tip": "taksit",
+        "metin": "12 Taksit"
+      },
+      {
+        "tip": "iade",
+        "metin": "14 gün içerisinde iade edebilirsiniz"
+      }
+    ],
+    "rybe": [
+      {
+        "tip": "kargo",
+        "metin": "kargo ücretsiz"
+      }
+    ],
+    "seize-society": [
+      {
+        "tip": "kargo",
+        "metin": "Kargo Bedava"
+      },
+      {
+        "tip": "iade",
+        "metin": "14 gün içerisinde iade hakkı"
+      }
+    ],
+    "shout": [
+      {
+        "tip": "kargo",
+        "metin": "Kargo Ücretsiz"
+      }
+    ],
+    "stren-clo": [
+      {
+        "tip": "kargo",
+        "metin": "2000 TL ve Üzeri Ücretsiz Kargo"
+      }
+    ],
+    "that-way": [
+      {
+        "tip": "kargo",
+        "metin": "3500₺ ve üzeri tüm siparişlerde ücretsiz kargo"
+      },
+      {
+        "tip": "iade",
+        "metin": "15 iş günü içerisinde iade"
+      }
+    ],
+    "the-loyka": [
+      {
+        "tip": "kargo",
+        "metin": "kargo Ücretsiz"
+      }
+    ],
+    "wezzy-wear": [
+      {
+        "tip": "kargo",
+        "metin": "kargo ücretsiz"
+      },
+      {
+        "tip": "iade",
+        "metin": "7 gün içerisinde iade"
+      }
+    ],
+    "wise-wear": [
+      {
+        "tip": "kargo",
+        "metin": "Ücretsiz Kargo"
+      },
+      {
+        "tip": "hizli",
+        "metin": "aynı gün kargo"
+      },
+      {
+        "tip": "iade",
+        "metin": "14 gün içerisinde değişim ve iade yapabilirsiniz"
+      }
+    ],
+    "cayren": [
+      {
+        "tip": "kargo",
+        "metin": "Ücretsiz Kargo"
+      }
+    ],
+    "gymrey": [
+      {
+        "tip": "kargo",
+        "metin": "1000₺ ve Üzeri Ücretsiz Kargo"
+      },
+      {
+        "tip": "iade",
+        "metin": "10 gün içinde değişim veya iade mevcuttur"
+      }
+    ],
+    "hype-of-steps": [
+      {
+        "tip": "kargo",
+        "metin": "599₺ ve Üzeri Siparişlerde Ücretsiz Kargo"
+      }
+    ],
+    "infectious-moda": [
+      {
+        "tip": "kargo",
+        "metin": "2000 TL ve üzeri siparişlerde ücretsiz kargo"
+      }
+    ],
+    "interim-collective": [
+      {
+        "tip": "iade",
+        "metin": "14 gün içinde iade ve değişim yapılabilir"
+      }
+    ],
+    "keit": [
+      {
+        "tip": "hizli",
+        "metin": "Ertesi Gün Kargo"
+      },
+      {
+        "tip": "iade",
+        "metin": "14 gün içinde kolay iade"
+      }
+    ],
+    "noble-mess": [
+      {
+        "tip": "kargo",
+        "metin": "1000₺ üzeri tüm ürünlerimizde ücretsiz kargo"
+      }
+    ],
+    "od-sportswear": [
+      {
+        "tip": "kargo",
+        "metin": "35.00TL üzeri tüm siparişlerde Ücretsiz Kargo"
+      }
+    ],
+    "orient-x": [
+      {
+        "tip": "kargo",
+        "metin": "Ücretsiz Kargo — 2.998 TL ve ÜzeriKolay"
+      }
+    ],
+    "restruct": [
+      {
+        "tip": "hizli",
+        "metin": "ertesi gün kargo"
+      },
+      {
+        "tip": "taksit",
+        "metin": "6 taksit"
+      }
+    ],
+    "songs-and-the-spirits": [
+      {
+        "tip": "kargo",
+        "metin": "1000₺ ve Üzeri Ücretsiz Kargo"
+      }
+    ],
+    "tarmac-studios": [
+      {
+        "tip": "kargo",
+        "metin": "kargo ücretsiz"
+      }
+    ],
+    "taxim-man-fashion": [
+      {
+        "tip": "kargo",
+        "metin": "3000TL Üzeri Ücretsiz Kargo"
+      }
+    ],
+    "the-lood": [
+      {
+        "tip": "kargo",
+        "metin": "Ücretsiz kargo"
+      }
+    ],
+    "the-lucid-lab": [
+      {
+        "tip": "kargo",
+        "metin": "Ücretsiz kargo için kalan tutar 1,500TL"
+      }
+    ],
+    "eilul-archives": [
+      {
+        "tip": "kargo",
+        "metin": "2.500 TL'lik ürüne ücretsiz kargo"
+      }
+    ],
+    "peace-hunter": [
+      {
+        "tip": "kargo",
+        "metin": "3.000 TL'lik ürüne ücretsiz kargo"
+      }
+    ],
+    "saram": [
+      {
+        "tip": "kargo",
+        "metin": "2.999 TL'lik ürüne ücretsiz kargo"
+      }
+    ],
+    "solane": [
+      {
+        "tip": "kargo",
+        "metin": "2.000 TL'lik ürüne ücretsiz kargo"
+      }
+    ],
+    "svamp-studios": [
+      {
+        "tip": "kargo",
+        "metin": "3.000 TL'lik ürüne ücretsiz kargo"
+      }
+    ],
+    "zeph-culture": [
+      {
+        "tip": "kargo",
+        "metin": "1.800 TL'lik ürüne ücretsiz kargo"
+      }
+    ],
+    "under-bros": [
+      {
+        "tip": "kargo",
+        "metin": "Ücretsiz Kargo"
+      }
+    ],
+    "vamos-clo": [
+      {
+        "tip": "iade",
+        "metin": "14 gün içinde ücretsiz iade"
+      }
+    ],
+    "x-puppet-wear": [
+      {
+        "tip": "kargo",
+        "metin": "2000 TL Üzeri Alışverişlere Ücretsiz Kargo"
+      }
+    ]
+  }
+}

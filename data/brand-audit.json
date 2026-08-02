@@ -1,0 +1,3087 @@
+[
+  {
+    "slug": "abluka",
+    "name": "Abluka",
+    "url": "https://www.ablukaonline.com.tr",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Abluka | Oversize Erkek Giyim, Baggy Sokak Modası",
+    "platformTespit": [
+      "ticimax"
+    ],
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://www.ablukaonline.com.tr/new-york-baskili-oversize-t-shirt-beyaz-74",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "product",
+      "price": "175.00",
+      "currency": "try",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": true,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "after-6",
+    "name": "After 6",
+    "url": "https://after6.co",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "After6",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 250,
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://after6.co/products/basic-oversize-t-shirt",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "product",
+      "price": "549.9",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "aksesuarix",
+    "name": "Aksesuarix",
+    "url": "https://www.aksesuarix.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Aksesuarix - Türkiye´nin En Büyük Online Streetwear Giyim Ve Aksesuar ",
+    "yonlendirme": 1,
+    "platformTespit": [],
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://www.aksesuarix.com/hesap-numaralarimiz",
+    "ornek": {
+      "jsonld": false,
+      "ogType": null,
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "amuse-bouche",
+    "name": "Amuse Bouche",
+    "url": "https://amuse-bouche.store",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "Studio Amuse Bouche",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 41,
+    "sitemapUrunUrl": 43,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://amuse-bouche.store/products/sultans-kitchen-tee",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "product",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "aperith",
+    "name": "Aperith",
+    "url": "https://aperith.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Aperith | Istanbul-Based Elevated Streetwear",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 48,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://aperith.com/baggy-cargo-denim",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "website",
+      "price": "2154.00",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "ate-studio",
+    "name": "Ate Studio",
+    "url": "https://atestudiostr.com",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "ATE STUDIOS",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 67,
+    "sitemapUrunUrl": 69,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://atestudiostr.com/products/alux-siyah-basic-baggy-jean",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "product",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "balina-butik",
+    "name": "Balina Butik",
+    "url": "https://www.balinabutik.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Balina Butik | Türkiyenin Streetwear Mağazası",
+    "platformTespit": [
+      "ticimax"
+    ],
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://balinabutik.com/siyah-raglan-kollu-beyaz-basic-unisex-uzun-kollu",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "product",
+      "price": "399.00",
+      "currency": "try",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": true,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "black-sample-jewellery",
+    "name": "Black Sample Jewellery",
+    "url": "https://www.blacksamplejewellery.com",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "Black Sample Jewellery",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 55,
+    "sitemapUrunUrl": 57,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://www.blacksamplejewellery.com/products/habibi-vintage-nakisli-altin-kaplama-bilezik",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "product",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "canned-clothing-studio",
+    "name": "Canned Clothing Studio",
+    "url": "https://cannedclothingstudio.com",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "CannedClothingStudio\n &ndash; Canned Clothing Studio",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 71,
+    "sitemapUrunUrl": 73,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://cannedclothingstudio.com/products/ocean-conservation-club-tee-1",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "product",
+      "price": "1300",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "catch",
+    "name": "Catch",
+    "url": "https://catch.com.tr",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "Catch | Sokak Modasının Gerçek Sahiplerine Streetwear",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 250,
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://catch.com.tr/products/cizgili-atlet",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "product",
+      "price": "799.95",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "cervus-wear",
+    "name": "Cervus Wear",
+    "url": "https://cervuswear.com",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "Cervus Wear | Güçlü Kadınlar İçin Spor Giyim",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 161,
+    "sitemapUrunUrl": 162,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://cervuswear.com/products/alt-ust-takim-seamless-yuksek-bel-esnek-ve-toparlayici-tayt-ve-askili-bustiyer",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "product",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "crupt-studio",
+    "name": "Crupt Studio",
+    "url": "https://www.cruptstudio.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "CRUPT Studio | Worldwide Tribe. Pure Chaos",
+    "yonlendirme": 1,
+    "platformTespit": [],
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://www.cruptstudio.com/odeme-secenekleri-173",
+    "ornek": {
+      "jsonld": false,
+      "ogType": null,
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "cucire",
+    "name": "Cucire",
+    "url": "https://cucire.tr",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "CUCIRE | Erkek Giyim | Ayakkabı |",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://cucire.tr/antrasit-dikis-detayli-boyfriend-jean",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "website",
+      "price": "999.00",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "damned-cult",
+    "name": "Damned Cult",
+    "url": "https://damnedcult.com",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "DAMNED CULT - NOT FOR EVERYONE.",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 22,
+    "sitemapUrunUrl": 47,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://damnedcult.com/products/damned-cult-badcult-fur-hoodie",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "product",
+      "price": "2725",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "dantelions",
+    "name": "Dantelions",
+    "url": "https://dantelions.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "DANTELIONS",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 121,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://dantelions.com/t-shirts",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "website",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "deer-wear",
+    "name": "Deer Wear",
+    "url": "https://deerweartr.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Deer Wear - Şimdi Podyum Sırası Sende!",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://deerweartr.com/fast-track----oscar-piastri-2025-taraftar-yarim-fermuarli-sweatshirt",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "website",
+      "price": "889.00",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "diddy-studios",
+    "name": "Diddy Studios",
+    "url": "https://diddystudios.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Erkek Giyim Modası – En Trend Parçalar | Diddy",
+    "platformTespit": [
+      "ticimax"
+    ],
+    "sitemapUrunUrl": 230,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://diddystudios.com/nke-biyeli-gri-esofman",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "product",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": true,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "doomster",
+    "name": "Doomster",
+    "url": "https://doomster.me",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "DOOMSTER",
+    "yonlendirme": 1,
+    "platformTespit": [],
+    "sitemapUrunUrl": 16,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://doomster.me/en/product/heres-the-beanie-mustard",
+    "ornek": {
+      "jsonld": false,
+      "ogType": null,
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "efex-wear",
+    "name": "Efex Wear",
+    "url": "https://efexwear.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 99,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://efexwear.com/kendin-tasarla-oversize-sweatshirt",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "website",
+      "price": "890.00",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "emorpi",
+    "name": "Emorpi",
+    "url": "https://emorpi.com.tr",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "Emorpi - En Büyük ve En Çeşitli Motorcu Giyim Markası\n &ndash; EMORPİ",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 250,
+    "sitemapUrunUrl": 327,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://emorpi.com.tr/products/panigale-baskili-regular-fit-motorcu-tisortu",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "product",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "end-clothing",
+    "name": "END Clothing",
+    "url": "https://www.endclothing.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Style. Sneakers. Culture. Community. | END. (TR)",
+    "yonlendirme": 1,
+    "platformTespit": [],
+    "sitemapUrunUrl": 1,
+    "sitemapKokDenendi": 12,
+    "ornekUrun": "https://www.endclothing.com/en-de/",
+    "ornek": {
+      "jsonld": false,
+      "ogType": null,
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": false,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "estatico-design",
+    "name": "Estatico Design",
+    "url": "https://estaticodesign.com",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "Estatico Design",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 250,
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://estaticodesign.com/products/alkolik-morty-sweatshirt-regular",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "product",
+      "price": "989.99",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "expose-sports",
+    "name": "Expose Sports",
+    "url": "https://exposesports.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Expose Sports - Resmi Web Sitesi - Türkiye",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://exposesports.com/new-balance",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "website",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "fadeback-studio",
+    "name": "Fadeback Studio",
+    "url": "https://www.shopier.com/fadebackstudio",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "fadebackstudio | Shopier",
+    "platformTespit": [
+      "shopier"
+    ],
+    "sitemapUrunUrl": 1,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://www.shopier.com/manifesto",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "website",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "fake-mood",
+    "name": "Fake Mood",
+    "url": "https://www.fakemood.com",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "www.fakemood.com",
+    "yonlendirme": 1,
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 204,
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://www.fakemood.com/products/the-borrowed-forever-lighter",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "product",
+      "price": "99.99",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "flaw-wears",
+    "name": "Flaw Wears",
+    "url": "https://www.flawwears.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "FLAW WEAR | NEW SEASON DROP",
+    "platformTespit": [
+      "ticimax"
+    ],
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://www.flawwears.com/beyaz-basic-uzun-corap-5052",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "product",
+      "price": "69.00",
+      "currency": "try",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": true,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "fleak",
+    "name": "Fleak",
+    "url": "https://fleak.tr",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Fleak.tr",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 170,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://fleak.tr/crop-short-takim",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "website",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": false,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "fless-wear",
+    "name": "Fless Wear",
+    "url": "https://flesswear.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Fless Wear",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://flesswear.com/chrome-hearts-bileklik",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "website",
+      "price": "229.99",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "fo4rbs",
+    "name": "Fo4rbs",
+    "url": "https://fo4rbs.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Fo4rbs - Tarzını Konuştur, Farkını Göster",
+    "platformTespit": [
+      "ticimax"
+    ],
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://fo4rbs.com/yikamali-vintage-deri-ceket-493",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "product",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": true,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "for-fun-wear",
+    "name": "For Fun Wear",
+    "url": "https://forfunwear.com",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "For Fun\n&ndash; For Fun",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 250,
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://forfunwear.com/en/products/gift-card",
+    "ornek": {
+      "hata": "HTTP 503"
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "forza-core",
+    "name": "Forza Core",
+    "url": "https://theforzacore.com",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "Forzacore",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 77,
+    "sitemapUrunUrl": 152,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://theforzacore.com/products/nocturne-compression-black-t-shirt",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "product",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "from-cult",
+    "name": "From Cult",
+    "url": "https://fromcult.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "FROMCULT",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 324,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://fromcult.com/chrome-hearts-threecolor-trucker-hat",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "website",
+      "price": "2090.00",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "gang-own",
+    "name": "Gang Own",
+    "url": "https://gangown.com.tr",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Gangown | Online Sokak Giyim Mağazası",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://gangown.com.tr/anatolian-bel-ve-paca-lastikli-pileli-pileli-bol-salvar",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "website",
+      "price": "1299.00",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "gatso",
+    "name": "Gatso",
+    "url": "https://gatso.com.tr",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "Gatso",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 250,
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://gatso.com.tr/products/retroscope-futuristik-i%CC%87nce-cerceve-gunes-gozlugu",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "product",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "giesto",
+    "name": "Giesto",
+    "url": "https://giesto.com",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "GIESTO - Erkek Giyim Modelleri",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 250,
+    "sitemapUrunUrl": 0,
+    "sitemapKokDenendi": 3,
+    "durum": "CANLI"
+  },
+  {
+    "slug": "glix",
+    "name": "Glix",
+    "url": "https://tr.glix.shop",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "GLIX - Kaostan &amp; Dijital Dünyadan İlham Alan Sokak Modası",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 33,
+    "sitemapUrunUrl": 73,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://tr.glix.shop/products/no-knit",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "product",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "god-heals",
+    "name": "God Heals",
+    "url": "https://godheals.ikas.shop",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "GOD HEALS",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 26,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://godheals.ikas.shop/broken-hoodie",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "website",
+      "price": "2400.00",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "gotham",
+    "name": "Gotham",
+    "url": "https://www.gotham.com.tr",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Kadın ve Erkek Oversize Giyim - Gotham.com.tr",
+    "platformTespit": [
+      "ticimax"
+    ],
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://www.gotham.com.tr/erkek-hardal-yagmurluk-p-140",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "product",
+      "price": "349.99",
+      "currency": "try",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": true,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "guerra-butik",
+    "name": "Guerra Butik",
+    "url": "https://www.guerrabutik.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Guerra Wear | Giyim, Oversize Tişört, Basic Tişört Şort Gömlek ve Eşof",
+    "platformTespit": [],
+    "sitemapUrunUrl": 308,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://www.guerrabutik.com/sort",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "product",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": false,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "gymrey",
+    "name": "Gymrey",
+    "url": "https://gymrey.com",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "gymrey.com\n &ndash; Gymrey",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 46,
+    "sitemapUrunUrl": 1,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://gymrey.com/agents.md",
+    "ornek": {
+      "jsonld": false,
+      "ogType": null,
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": false,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "hermanios-studio",
+    "name": "Hermanios Studio",
+    "url": "https://hermaniosstd.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Hermanios Studio",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 65,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://hermaniosstd.com/amancery-washed-zip",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "website",
+      "price": "980.00",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "hermu-clo",
+    "name": "Hermu Clo",
+    "url": "https://hermuclo.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "HERMU | Premium Oversize Streetwear",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 26,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://hermuclo.com/hermu-nakisli",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "website",
+      "price": "2999.00",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "hoghheim",
+    "name": "Hoghheim",
+    "url": "https://hoghheim.com",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "HØGHHEIM: Sıradanlığa razı olmayanlar için!",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 250,
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://hoghheim.com/products/venus-un-dogusu-1485-soket-corap",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "product",
+      "price": "399.9",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "hollow-gallery",
+    "name": "Hollow Gallery",
+    "url": "https://hollowgallery.com",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "HOLLOW GALLERY&nbsp;-&nbsp;Hollow Gallery",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 16,
+    "sitemapUrunUrl": 35,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://hollowgallery.com/products/arco-floor-lamp",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "product",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "hotel-471",
+    "name": "Hotel 471",
+    "url": "https://hotel471.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 79,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://hotel471.com/ceket",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "website",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": false,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "hype-of-steps",
+    "name": "Hype of Steps",
+    "url": "https://hypeofsteps.com",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "Hype of Steps | Renkli ve Eğlenceli Çorap Modelleri",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 125,
+    "sitemapUrunUrl": 127,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://hypeofsteps.com/products/super-cool-yazi-desenli-corap",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "product",
+      "price": "200",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": true,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "hype-tr",
+    "name": "Hype TR",
+    "url": "https://hypetr.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Hypetr - Sokak modası ve daha fazlası..",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 342,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://hypetr.com/sohigh-baggy-skate-short---black-contrast-stitch",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "website",
+      "price": "729.90",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "i-am-not-basic",
+    "name": "I Am Not Basic",
+    "url": "https://iamnotbasic.com.tr",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "IAMNOTBASIC",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 325,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://iamnotbasic.com.tr/klasikler",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "website",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "interim-collective",
+    "name": "Interim Collective",
+    "url": "https://interimcollective.co",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "INTERIM COLLECTIVE",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 1,
+    "sitemapUrunUrl": 3,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://interimcollective.co/products/the-interim-state-tee",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "product",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "jumos-wear",
+    "name": "Jumos Wear",
+    "url": "https://jumoswear.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "JUMOS Wear | Tarzını Sokağa Yansıt, Şimdi Keşfet!",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 219,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://jumoswear.com/33-baskili-siyah-oversize-kapusonlu-sweathsirt",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "website",
+      "price": "499.90",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "junior-crime",
+    "name": "Junior Crime",
+    "url": "https://juniorcrime.com",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "juniorcrime ™ | STREETWEAR",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 250,
+    "sitemapUrunUrl": 374,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://juniorcrime.com/products/siyah-patch-detay-oversize-reimagine-tshirt",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "product",
+      "price": "399.00",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "kaft",
+    "name": "Kaft",
+    "url": "https://www.kaft.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Tişört ve Tasarım Ürünler | KAFT",
+    "platformTespit": [],
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://www.kaft.com/store/okyanus_mavi-unisex-postaci_dik-canta-methone_ocean/640",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "product",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "keit",
+    "name": "Keit",
+    "url": "https://www.keit.com.tr",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "KEİT | Türkiye Online Mağaza | Unisex Oversize Tişörtler\n &ndash; Keit",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 250,
+    "sitemapUrunUrl": 294,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://www.keit.com.tr/products/keit-planet-overisze-t-shirt",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "product",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "kostebek",
+    "name": "Köstebek",
+    "url": "https://www.kostebek.com.tr",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Eğlenceli Alışveriş Adresi",
+    "platformTespit": [
+      "ticimax"
+    ],
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://www.kostebek.com.tr/bulut-gece-lambasi",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "product",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": true,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "kozmosize",
+    "name": "Kozmosize",
+    "url": "https://www.kozmosize.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "KOZMOSIZE - FOREVERUNDERGROUND   Türkiye'nin  ilk ve tek Sokak Modası ",
+    "platformTespit": [],
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://www.kozmosize.com/product-page/kozmoman-astro-sweat-kopyası",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "product",
+      "price": "2490",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "lethe-studios",
+    "name": "Lethe Studios",
+    "url": "https://lethestudios.co",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "Yüksek Kaliteli, Ulaşılabilir Moda | Lethe Studios",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 250,
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://lethestudios.co/products/chaos-t-shirt",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "product",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "machinist",
+    "name": "Machinist",
+    "url": "https://www.machinist.com.tr",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "MACHINIST | Sokak Modasının Gerçek Sahiplerine\n &ndash; Machinist Clot",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 250,
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://www.machinist.com.tr/products/erkek-dikis-detay-oversize-sweatshirt-saks-mavi",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "product",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "mahluque",
+    "name": "Mahluque",
+    "url": "https://mahluque.com",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "www.mahluque.com &ndash; Mahluque",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 129,
+    "sitemapUrunUrl": 131,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://mahluque.com/products/tasarim-kalpli-goz-hoodie",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "product",
+      "price": "999",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "manic-sellout",
+    "name": "Manic Sellout",
+    "url": "https://www.shopier.com/manicsellout",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "manicsellout | Shopier",
+    "platformTespit": [
+      "shopier"
+    ],
+    "sitemapUrunUrl": 1,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://www.shopier.com/manifesto",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "website",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "matt-wear",
+    "name": "Matt Wear",
+    "url": "https://www.mattwear.com.tr",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "",
+    "platformTespit": [
+      "ticimax"
+    ],
+    "sitemapUrunUrl": 378,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://www.mattwear.com.tr/premium-tinted-trucker-denim-jacket",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "product",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": true,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "metafang",
+    "name": "Metafang",
+    "url": "https://metafang.com",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "META FANG",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 118,
+    "sitemapUrunUrl": 237,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://metafang.com/products/sapphire-rhinestone-tee",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "product",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "modax-wear",
+    "name": "Modax Wear",
+    "url": "https://www.modaxwear.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Modaxwear | Sokak Stilinin Yeni Adresi - Oversize Sokak Modası",
+    "platformTespit": [],
+    "sitemapUrunUrl": 315,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://www.modaxwear.com/alt-giyim",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "product",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": false,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "monday-kick",
+    "name": "Monday Kick",
+    "url": "https://mondaykick.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "MONDAY KICK",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 70,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://mondaykick.com/colab",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "website",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "noble-mess",
+    "name": "Noble Mess",
+    "url": "https://noblemess.co",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "Özel Tasarım Trend Tişörtler | Noblemess",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 250,
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://noblemess.co/products/fuck-you-oversize-t-shirt",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "product",
+      "price": "790.0",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": true,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "nomarc",
+    "name": "Nomarc",
+    "url": "https://www.nomarc.com.tr",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "NOMARC | Erkek Giyim Mağazası | Sokak Modası | Erkek Butik&nbsp;",
+    "platformTespit": [
+      "ticimax"
+    ],
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://www.nomarc.com.tr/nomarc-cep-detayli-lacivert-sisme-yelek-99",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "product",
+      "price": "1949.00",
+      "currency": "try",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": true,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "nuugg",
+    "name": "Nuugg",
+    "url": "https://nuugg.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Lofux | Özgün Tasarımlı Tişörtler",
+    "sonUrl": "https://lofux.com/",
+    "yonlendirme": 1,
+    "platformTespit": [],
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://lofux.com/veni-vidi-vici-sweatshirt",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "product",
+      "price": "1199.90",
+      "currency": "TRY",
+      "color": true,
+      "sizeInLd": true,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "oath-istanbul",
+    "name": "Oath Istanbul",
+    "url": "https://oathistanbul.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Oath İstanbul",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 51,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://oathistanbul.com/oath-x-bedir-kilic",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "website",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "offender",
+    "name": "Offender",
+    "url": "https://offender.store",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Offender Studio",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 0,
+    "sitemapKokDenendi": 3,
+    "durum": "CANLI"
+  },
+  {
+    "slug": "only-trend-wear",
+    "name": "Only Trend Wear",
+    "url": "https://onlytrendwear.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Only Trend Wear",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://onlytrendwear.com/2-li-paket-baskili-erkek---kiz-cocuk-rahat-kalip-sweatshirt-3",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "website",
+      "price": "899.90",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "orient-x",
+    "name": "Orient X",
+    "url": "https://orientx.shop",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "Orient X",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 12,
+    "sitemapUrunUrl": 33,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://orientx.shop/products/tsubasa-flames-jersey",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "product",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "overdrive-rock",
+    "name": "Overdrive Rock",
+    "url": "https://overdriverock.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Overdrive Özgün Rock ve Metal Tişörtler - Retro Formalar",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 388,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://overdriverock.com/spirit-of-the-chief-100-gumus-yuzuk",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "website",
+      "price": "799.00",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "point-2124",
+    "name": "Point 2124",
+    "url": "https://point2124.com",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "Point2124",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 14,
+    "sitemapUrunUrl": 16,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://point2124.com/products/oil-washed-double-raglan-hoodie-mor",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "product",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "poison-fashion",
+    "name": "Poison Fashion",
+    "url": "https://poisonfashion.com",
+    "platformKayitli": "woocommerce",
+    "http": 200,
+    "baslik": "Poison Fashion",
+    "platformTespit": [
+      "woocommerce"
+    ],
+    "wooApi": 28,
+    "sitemapUrunUrl": 32,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://poisonfashion.com/siparis-takibi/",
+    "ornek": {
+      "jsonld": false,
+      "ogType": null,
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": false,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "pretend-it",
+    "name": "Pretend It",
+    "url": "https://www.pretend-it.com",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "PRETEND",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 84,
+    "sitemapUrunUrl": 86,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://www.pretend-it.com/products/white-ribbed-tank-top",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "product",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "punk-design",
+    "name": "Punk Design",
+    "url": "https://tr.punkdesign.shop",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "Gotik Giyim,Grunge Giyim,Punk Giyim ve Alternatif Giyim – Punk Design",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 250,
+    "sitemapUrunUrl": 0,
+    "sitemapKokDenendi": 3,
+    "durum": "CANLI"
+  },
+  {
+    "slug": "quite-often",
+    "name": "Quite Often",
+    "url": "https://quiteoften.store",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "QUITEOFTEN",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 125,
+    "sitemapUrunUrl": 253,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://quiteoften.store/products/trauma-knit-sweater",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "product",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": true,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "reflect-studio",
+    "name": "Reflect Studio",
+    "url": "https://reflectstudio.com",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "Reflect Studio",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 250,
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://reflectstudio.com/products/logo-embroidered-trackpants-1",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "product",
+      "price": "1999",
+      "currency": "TRY",
+      "color": true,
+      "sizeInLd": true,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "restruct",
+    "name": "Restruct",
+    "url": "https://restruct.co",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "Restruct",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 37,
+    "sitemapUrunUrl": 39,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://restruct.co/products/basic-tee-vintage-black",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "product",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "seize-society",
+    "name": "Seize Society",
+    "url": "https://seizesociety.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Seize Society: Ortak Anıların Coşkusundan İlham Alan Ürünler",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 145,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://seizesociety.com/psycho",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "website",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "shout",
+    "name": "Shout",
+    "url": "https://shout.com.tr",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "SHOUT – Oversize Giyim, Unisex Stil ve Sokak Modası",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://shout.com.tr/shout-oversize-get-along-unisex-t-shirt",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "website",
+      "price": "1199.00",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "slatra",
+    "name": "Slatra",
+    "url": "https://slatra.com.tr",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "SLATRA - ERKEK GİYİM MARKASI",
+    "platformTespit": [
+      "ticimax"
+    ],
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://www.slatra.com.tr/beyaz-simpson-baski-corap",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "product",
+      "price": "80.00",
+      "currency": "try",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": true,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "snowshade",
+    "name": "Snowshade",
+    "url": "https://snowshade.co",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Snow Shade - Anasayfa",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 187,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://snowshade.co/all-legends-die-young-shirt",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "website",
+      "price": "900.00",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "so-high",
+    "name": "So High",
+    "url": "https://sohigh.com.tr",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Sohigh Skateboard Apparel ® Online Mağaza",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 339,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://sohigh.com.tr/300-tl",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "website",
+      "price": "300.00",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "sokak-butik",
+    "name": "Sokak Butik",
+    "url": "https://www.sokakbutik.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Sokak Butik - Sokağın Kalbi Burada Atıyor !",
+    "platformTespit": [],
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://www.sokakbutik.com/markalar",
+    "ornek": {
+      "jsonld": false,
+      "ogType": null,
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": false,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "sold-out-clo",
+    "name": "Sold Out Clo",
+    "url": "https://www.soldoutclo.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "SOLDOUT | Trust The Journey",
+    "platformTespit": [
+      "tsoft"
+    ],
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://www.soldoutclo.com/boxy-fit-ve-oversize-arasindaki-fark-nedir",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "article",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "solid-bruises",
+    "name": "Solid Bruises",
+    "url": "https://sloidbruises.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "SLOID BRUISES ®",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 158,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://sloidbruises.com/black-waffle-longsleeve",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "website",
+      "price": "1195.00",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "soonpiera",
+    "name": "Soonpiera",
+    "url": "https://soonpiera.store",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Soon Piera",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 42,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://soonpiera.store/us003-white-inked-flag-longsleeve",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "website",
+      "price": "1490.00",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "spook-project",
+    "name": "Spook Project",
+    "url": "https://spookproject.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Anasayfa | Spook Project",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 35,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://spookproject.com/-camor--hoodie",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "website",
+      "price": "1940.00",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "starlight",
+    "name": "Starlight",
+    "url": "https://starlightww.com",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "Starlight Worldwide | Official Streetwear Store",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 44,
+    "sitemapUrunUrl": 46,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://starlightww.com/products/montana-sweatpant",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "product",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "stray-dogs",
+    "name": "Stray Dogs",
+    "url": "https://straydogs.com.tr",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "StrayDogs | İstanbul&#x27;da Dünya için tasarlandı.",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 101,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://straydogs.com.tr/antrasit-basic-hoodie",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "website",
+      "price": "498.00",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "stray-united",
+    "name": "Stray United",
+    "url": "https://strayunited.com",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "Stray United",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 10,
+    "sitemapUrunUrl": 12,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://strayunited.com/products/strategic-partnership",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "product",
+      "price": "700.00",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "stren-clo",
+    "name": "Stren Clo",
+    "url": "https://strenclo.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Stren | Istanbul-Based Streetwear Essentials",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 57,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://strenclo.com/basic-boxy-t-shirt",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "website",
+      "price": "699.00",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "tato-wear",
+    "name": "Tato Wear",
+    "url": "https://tatowear.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "TATO WEAR",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://tatowear.com/adidas-climacool-polo-yaka-uc03",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "website",
+      "price": "379.90",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "that-way",
+    "name": "That Way",
+    "url": "https://thatwaytr.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Thatway | Yeni Sezon Kadın, Erkek Giyim ve Aksesuar",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 168,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://thatwaytr.com/ekose-gri-lastikli-unisex-pijama",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "website",
+      "price": "449.00",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "the-dad",
+    "name": "The Dad",
+    "url": "https://thedad.com.tr",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "The Dad",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 241,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://thedad.com.tr/ketenler",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "website",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "the-lood",
+    "name": "The Lood",
+    "url": "https://www.thelood.com.tr",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "thelood",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 69,
+    "sitemapUrunUrl": 71,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://www.thelood.com.tr/products/12li-spor-corap-beyaz",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "product",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "the-loyka",
+    "name": "The Loyka",
+    "url": "https://theloyka.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Loyka// Spor giyim ile sokak stilinizin buluştuğu nokta.",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 14,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://theloyka.com/loyka-basic-compression-t-shirt-orta-gogus-logolu",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "website",
+      "price": "530.00",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "the-lucid-lab",
+    "name": "The Lucid Lab",
+    "url": "https://thelucidlab.com.tr",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "thelucidlab | In Art We Trust – Giyim, Duvar Dekoru ve Ev Tekstili",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 250,
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://thelucidlab.com.tr/products/kalpli-love-yazili-metal-fotograf-cercevesi",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "product",
+      "price": "2080.99",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "the-mets-co",
+    "name": "The Mets Co",
+    "url": "https://www.themetsco.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "THEMETSCO ANIME &amp; MANGA GİYİM MAĞAZASI | anime tişört",
+    "platformTespit": [],
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://www.themetsco.com/ürün-sayfası/alucard-hellsing-oversize-tshirt",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "product",
+      "price": "850",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "touz-moda",
+    "name": "Touz Moda",
+    "url": "https://touzmoda.com",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "Türkiye&#39;nin En Sevilen Sokak Giyim Markası - Touz Moda\n &ndash; to",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 250,
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://touzmoda.com/products/cinnamoroll-figurlu-kartli-silikon-anahtarlik",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "product",
+      "price": "119.99",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "under-bros",
+    "name": "Under Bros",
+    "url": "https://underbros.co",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "underbros",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 5,
+    "sitemapUrunUrl": 7,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://underbros.co/products/bambu-corap",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "product",
+      "price": "149.99",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "vamos-clo",
+    "name": "Vamos Clo",
+    "url": "https://vamosclo.com",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "Vamos Clo - Streetwear Tarzıyla Kendi Stilini Yarat!",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 250,
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://vamosclo.com/products/baskili-socket-corap-beyaz",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "product",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "void",
+    "name": "Void",
+    "url": "https://voidtr.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "VOIDTR | STREETWEAR TUTKUNLARI İÇİN",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://voidtr.com/full-zip-scuba-ceket",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "website",
+      "price": "149.00",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "voyant",
+    "name": "Voyant",
+    "url": "https://shopvoyant.com",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "Voyant Apparel Co. - wearable art from Istanbul 📍\n &ndash; VOYANT APP",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 100,
+    "sitemapUrunUrl": 120,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://shopvoyant.com/products/criminal-oversize-t-shirt",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "product",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "wes-wear",
+    "name": "Wes Wear",
+    "url": "https://weswearshop.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "weswearshop",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://weswearshop.com/pages/kullanim-kosullari",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "website",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "wezzy-wear",
+    "name": "Wezzy Wear",
+    "url": "https://wezzywear.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Wezzy Wear",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 104,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://wezzywear.com/sam-hoodie",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "website",
+      "price": "699.00",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "wheraver",
+    "name": "Wheraver",
+    "url": "https://wheraver.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Wheraver | Türkiye&#x27;nin Rave &amp; Techno Streetwear Markası",
+    "platformTespit": [],
+    "sitemapUrunUrl": 13,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://wheraver.com/returns",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "website",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "wise-wear",
+    "name": "Wise Wear",
+    "url": "https://wisewear.com.tr",
+    "platformKayitli": "woocommerce",
+    "http": 200,
+    "baslik": "WISE WEAR &#8211; BEYOND CULTURE",
+    "platformTespit": [
+      "woocommerce"
+    ],
+    "wooApi": 62,
+    "sitemapUrunUrl": 61,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://wisewear.com.tr/siparis-ve-odeme/",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "article",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "x-puppet-wear",
+    "name": "X Puppet Wear",
+    "url": "https://xpuppetwear.com",
+    "platformKayitli": "shopify",
+    "http": 200,
+    "baslik": "XPUPPETWEAR.COM",
+    "platformTespit": [
+      "shopify"
+    ],
+    "shopifyApi": 149,
+    "sitemapUrunUrl": 151,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://xpuppetwear.com/products/siyah-basic-boyfriend",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "product",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "zaee-giyim",
+    "name": "Zaee Giyim",
+    "url": "https://zaeegiyim.com.tr",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "ZAEE GİYİM",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://zaeegiyim.com.tr/baskili-oversize-full-zipp-hoodie-1",
+    "ornek": {
+      "jsonld": true,
+      "ogType": "website",
+      "price": "879.99",
+      "currency": "TRY",
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": true,
+      "image": true,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  },
+  {
+    "slug": "zincir-wear",
+    "name": "Zincir Wear",
+    "url": "https://zincirwear.com",
+    "platformKayitli": "jsonld",
+    "http": 200,
+    "baslik": "Sokak Modasında Öncü Tasarımlar - Zincir Wear",
+    "platformTespit": [
+      "ikas"
+    ],
+    "sitemapUrunUrl": 400,
+    "sitemapKokDenendi": 1,
+    "ornekUrun": "https://zincirwear.com/ust-giyim",
+    "ornek": {
+      "jsonld": false,
+      "ogType": "website",
+      "price": null,
+      "currency": null,
+      "color": false,
+      "sizeInLd": false,
+      "sizeSelect": false,
+      "sizeButton": false,
+      "image": false,
+      "ticimaxModel": false,
+      "ikasState": false
+    },
+    "durum": "CANLI"
+  }
+]

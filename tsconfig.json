@@ -1,0 +1,50 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    // scripts/*.ts Node'un tip-soyma özelliğiyle doğrudan çalışıyor; Node ESM uzantı
+    // istediği için src/lib içindeki paylaşılan modüller ".ts" uzantısıyla import edilir.
+    "allowImportingTsExtensions": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    ".next-3005/types/**/*.ts",
+    ".next-3006/types/**/*.ts",
+    ".next-build-test/types/**/*.ts",
+    ".next-build/types/**/*.ts",
+    ".next-f/types/**/*.ts",
+    ".next-son/types/**/*.ts",
+    ".next/types/**/*.ts",
+    "next-env.d.ts",
+    ".next-3007/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

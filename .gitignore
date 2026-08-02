@@ -1,0 +1,13 @@
+/node_modules
+/.next
+# NEXT_DIST_DIR ile açılan ikinci dev server'ın derleme klasörü (bkz. next.config.ts)
+/.next-*
+/.data
+/out
+/build
+next-env.d.ts
+*.tsbuildinfo
+.env
+.env.local
+.DS_Store
+npm-debug.log*

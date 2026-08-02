@@ -1,0 +1,54 @@
+{
+  "name": "altr",
+  "version": "0.1.0",
+  "private": true,
+  "description": "altr — alternatif giyim aggregator: alt markaların ürünlerini canlı yan yana gösteren vitrin",
+  "scripts": {
+    "dev": "node scripts/next-with-heap.mjs dev",
+    "build": "node scripts/next-with-heap.mjs build",
+    "start": "node scripts/next-with-heap.mjs start",
+    "dev:hafif": "node scripts/next-with-heap.mjs dev --katalog .data/catalog.sample.json",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "import-catalog": "node --no-warnings=MODULE_TYPELESS_PACKAGE_JSON scripts/import-catalog.mjs",
+    "make-sample": "node --no-warnings=MODULE_TYPELESS_PACKAGE_JSON --max-old-space-size=4096 scripts/make-sample.mjs",
+    "fetch-logos": "node --no-warnings=MODULE_TYPELESS_PACKAGE_JSON scripts/fetch-brand-logos.mjs",
+    "fetch-perks": "node --no-warnings=MODULE_TYPELESS_PACKAGE_JSON scripts/fetch-brand-perks.mjs",
+    "add-brands": "node --no-warnings=MODULE_TYPELESS_PACKAGE_JSON scripts/add-brands.mjs",
+    "admin-hash": "node --no-warnings=MODULE_TYPELESS_PACKAGE_JSON scripts/admin-hash.mjs",
+    "tag-colors": "node --no-warnings=MODULE_TYPELESS_PACKAGE_JSON --max-old-space-size=3072 scripts/tag-colors.mjs",
+    "discover": "node scripts/discover-brands.mjs",
+    "scrape": "node --no-warnings=MODULE_TYPELESS_PACKAGE_JSON scripts/scrape/run.mjs",
+    "refresh": "node --no-warnings=MODULE_TYPELESS_PACKAGE_JSON scripts/refresh.mjs",
+    "audit-brands": "node --no-warnings=MODULE_TYPELESS_PACKAGE_JSON scripts/audit-brands.mjs",
+    "check-categorize": "node --no-warnings=MODULE_TYPELESS_PACKAGE_JSON scripts/check-categorize.mjs",
+    "check-brand-styles": "node --no-warnings=MODULE_TYPELESS_PACKAGE_JSON scripts/check-brand-styles.mjs",
+    "check-sizes": "node --no-warnings=MODULE_TYPELESS_PACKAGE_JSON scripts/check-sizes.mjs",
+    "check-cat-groups": "node --no-warnings=MODULE_TYPELESS_PACKAGE_JSON scripts/check-cat-groups.mjs",
+    "check-archive": "node --no-warnings=MODULE_TYPELESS_PACKAGE_JSON scripts/check-archive.mjs",
+    "check-product-styles": "node --no-warnings=MODULE_TYPELESS_PACKAGE_JSON scripts/check-product-styles.mjs",
+    "check-gender": "node --no-warnings=MODULE_TYPELESS_PACKAGE_JSON scripts/check-gender.mjs",
+    "check-prices": "node --no-warnings=MODULE_TYPELESS_PACKAGE_JSON scripts/check-prices.mjs",
+    "check-colors": "node --no-warnings=MODULE_TYPELESS_PACKAGE_JSON scripts/check-colors.mjs",
+    "check-discovery": "node --no-warnings=MODULE_TYPELESS_PACKAGE_JSON scripts/check-discovery.mjs",
+    "check": "npm run typecheck && npm run check-categorize && npm run check-brand-styles && npm run check-sizes && npm run check-cat-groups && npm run check-archive && npm run check-product-styles && npm run check-gender && npm run check-prices && npm run check-colors && npm run check-discovery"
+  },
+  "dependencies": {
+    "next": "^15.5.20",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "zustand": "5.0.3"
+  },
+  "optionalDependencies": {
+    "sharp": "0.33.5"
+  },
+  "devDependencies": {
+    "@types/node": "20.17.12",
+    "@types/react": "19.0.7",
+    "@types/react-dom": "19.0.3",
+    "typescript": "5.7.3"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  }
+}
