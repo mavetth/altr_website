@@ -2,7 +2,6 @@
 /.next
 # NEXT_DIST_DIR ile açılan ikinci dev server'ın derleme klasörü (bkz. next.config.ts)
 /.next-*
-/.data
 /out
 /build
 next-env.d.ts
@@ -11,3 +10,30 @@ next-env.d.ts
 .env.local
 .DS_Store
 npm-debug.log*
+
+# --- .data ---
+# .data ESKİDEN toptan yok sayılıyordu; sonuç: ürünler ve markalar depoya hiç
+# girmiyor, klonlanan kopya boş vitrinle açılıyordu. Artık katalog ve marka
+# kaynakları DEPOYA GİRER; sadece aşağıdakiler dışarıda kalır.
+
+# Gerçek kullanıcı hesapları, oturumları ve gezinme kayıtları — kişisel veri,
+# depoya asla girmez.
+/.data/auth/
+/.data/events/
+/.data/feedback.json
+/.data/feedback-files/
+
+# Görsel proxy'sinin disk önbelleği (18k dosya, ~220 MB). Ürün fotoğrafları
+# markanın kendi CDN'inde durur ve katalogdaki URL'lerden yeniden doldurulur;
+# bu klasör yalnızca hızlandırma amaçlı, kaybı veri kaybı değildir.
+/.data/img-cache/
+
+# Çalışma günlükleri ve tek seferlik kabuk betikleri.
+/.data/*.log
+/.data/*.sh
+
+# 73.178 ürünlük gerçek katalog HAM hâliyle ~120 MB — GitHub'ın 100 MB dosya
+# sınırını aşıyor. Depoda sıkıştırılmış hâli durur (catalog.new-full.json.gz,
+# ~13 MB); `npm install` sonrası postinstall (scripts/decompress-catalog.mjs)
+# onu otomatik geri açar. Veri kaybı yok, yalnızca depolama biçimi.
+/.data/catalog.new-full.json

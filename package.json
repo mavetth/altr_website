@@ -4,6 +4,7 @@
   "private": true,
   "description": "altr — alternatif giyim aggregator: alt markaların ürünlerini canlı yan yana gösteren vitrin",
   "scripts": {
+    "postinstall": "node scripts/decompress-catalog.mjs",
     "dev": "node scripts/next-with-heap.mjs dev",
     "build": "node scripts/next-with-heap.mjs build",
     "start": "node scripts/next-with-heap.mjs start",

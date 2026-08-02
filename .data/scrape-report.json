@@ -1,0 +1,19 @@
+{
+  "at": "2026-07-30T02:48:16.436Z",
+  "results": [
+    {
+      "slug": "fadeback-studio",
+      "platform": "shopier",
+      "records": 45,
+      "onceHad": 0,
+      "keptPrevious": false,
+      "keptReason": null,
+      "withPrice": 45,
+      "withSize": 45,
+      "currency": "TRY",
+      "note": "shopier 45 ürün / vitrinde 45",
+      "err": null,
+      "ms": 61062
+    }
+  ]
+}
