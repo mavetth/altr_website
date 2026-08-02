@@ -18,6 +18,23 @@ const nextConfig: NextConfig = {
    * `NEXT_DIST_DIR=.next-b` ile başlatmak sorunu bitiriyor.
    */
   distDir: process.env.NEXT_DIST_DIR || ".next",
+  /**
+   * Katalog `fs.readFile(path.join(process.cwd(), ...))` ile çalışma zamanında
+   * okunuyor — Next'in otomatik dosya izleme (file tracing) aracı bunu statik
+   * bir `import`/`require` gibi göremediği için Vercel'e giden serverless
+   * fonksiyon paketine dahil ETMEYEBİLİR. Sonuç: kod hatasız çalışır ama
+   * ENOENT ile karşılaşır, katalog boş döner, vitrin sessizce boşalır. Bu
+   * yüzden kataloğu okuyan rotalar için dosyaları elle dahil ediyoruz.
+   */
+  outputFileTracingIncludes: {
+    "/": [".data/catalog*.json"],
+    "/[marka]": [".data/catalog*.json"],
+    "/markalar": [".data/catalog*.json"],
+    "/api/products": [".data/catalog*.json"],
+    "/api/teshis": [".data/catalog*.json"],
+    "/api/lists": [".data/catalog*.json"],
+    "/api/me/data": [".data/catalog*.json"],
+  },
 };
 
 export default nextConfig;
