@@ -26,14 +26,20 @@ const nextConfig: NextConfig = {
    * ENOENT ile karşılaşır, katalog boş döner, vitrin sessizce boşalır. Bu
    * yüzden kataloğu okuyan rotalar için dosyaları elle dahil ediyoruz.
    */
+  // Yalnız ÇALIŞMA ZAMANINDA gerçekten okunabilen iki dosya: `catalog.json`
+  // (ALTR_CATALOG boşken düşülen varsayılan) ve `catalog.new-full.json`
+  // (ALTR_CATALOG ile seçilen gerçek katalog). `catalog.sample.json` ve
+  // `catalog.archived.json` yalnız script'lerden okunur, src/ hiç dokunmaz —
+  // bunları da eklemek her fonksiyonun paketine gereksiz ~6 MB daha bindirip
+  // Vercel'in fonksiyon boyutu tavanına yaklaştırırdı, kaldırıldı.
   outputFileTracingIncludes: {
-    "/": [".data/catalog*.json"],
-    "/[marka]": [".data/catalog*.json"],
-    "/markalar": [".data/catalog*.json"],
-    "/api/products": [".data/catalog*.json"],
-    "/api/teshis": [".data/catalog*.json"],
-    "/api/lists": [".data/catalog*.json"],
-    "/api/me/data": [".data/catalog*.json"],
+    "/": [".data/catalog.json", ".data/catalog.new-full.json"],
+    "/[marka]": [".data/catalog.json", ".data/catalog.new-full.json"],
+    "/markalar": [".data/catalog.json", ".data/catalog.new-full.json"],
+    "/api/products": [".data/catalog.json", ".data/catalog.new-full.json"],
+    "/api/teshis": [".data/catalog.json", ".data/catalog.new-full.json"],
+    "/api/lists": [".data/catalog.json", ".data/catalog.new-full.json"],
+    "/api/me/data": [".data/catalog.json", ".data/catalog.new-full.json"],
   },
 };
 
