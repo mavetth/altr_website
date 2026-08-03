@@ -6,6 +6,9 @@ import { DEFAULT_QUERY } from "@/lib/query";
 import { useStore } from "@/store";
 import { BrandIndex } from "./BrandIndex";
 import { BrandPage } from "./BrandPage";
+import { LoadingOverlay } from "./LoadingOverlay";
+import { LoadingSpinner } from "./LoadingSpinner";
+import { useDelayedFlag } from "@/lib/use-delayed-flag";
 import { useT } from "@/lib/lang";
 
 /**
@@ -25,9 +28,24 @@ const pageCache = new Map<string, BrandPageData>();
 
 const Loading = () => {
   const t = useT();
+  // `fixed` + `inset:0`: bu an ekranda başka içerik YOK (markanın/rehberin eskisi
+  // henüz sökülmüş, yenisi gelmedi) — halka, sol menünün genişliğinden ya da
+  // sayfanın nerede olduğundan bağımsız, EKRANIN tam ortasında dursun istiyoruz.
+  // Aynı kural mobilde de geçerli: viewport'un ortası, sidebar'ın olup olmamasından
+  // etkilenmez.
   return (
-    <div style={{ padding: "80px 20px", textAlign: "center", fontFamily: "'IBM Plex Mono', monospace", fontSize: 13, color: "var(--faint)" }}>
-      {t("yükleniyor…")}
+    <div
+      style={{
+        position: "fixed",
+        inset: 0,
+        zIndex: 45,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        pointerEvents: "none",
+      }}
+    >
+      <LoadingSpinner size={40} label={t("yükleniyor…")} />
     </div>
   );
 };
@@ -53,6 +71,10 @@ function Crumb({ children }: { children: React.ReactNode }) {
 export function BrandIndexView() {
   const openMarka = useStore((s) => s.openMarka);
   const [rows, setRows] = useState<BrandIndexRow[] | null>(indexCache);
+  // Yüklenme YARIM SANİYEDEN KISA sürerse halka hiç görünmez — çoğu zaman
+  // önbellekten ya da yerel ağdan anında gelen veri için boş bir göz kırpması
+  // yerine, gerçekten beklenecek bir şey varsa (>500ms) devreye girer.
+  const showLoading = useDelayedFlag(!rows);
 
   useEffect(() => {
     if (indexCache) return;
@@ -72,7 +94,7 @@ export function BrandIndexView() {
     };
   }, []);
 
-  if (!rows) return <Loading />;
+  if (!rows) return showLoading ? <Loading /> : null;
   if (!rows.length) return <Empty text="marka listesi alınamadı." />;
 
   return (
@@ -88,10 +110,13 @@ export function BrandPageView({ slug }: { slug: string }) {
   const setView = useStore((s) => s.setView);
   const setQuery = useStore((s) => s.setQuery);
   const openDetail = useStore((s) => s.openDetail);
+  const t = useT();
 
   const [page, setPage] = useState(1);
   const key = `${slug}|${page}`;
   const [data, setData] = useState<BrandPageData | null | "yok">(pageCache.get(key) ?? null);
+  // Yeni sayfa/marka ağdan gelirken true — bkz. aşağıdaki `shown` mantığı.
+  const [pending, setPending] = useState(false);
 
   // Başka bir markaya geçildiğinde sayfa 1'e dönmeli, yoksa 3. sayfada duran biri
   // yeni markanın 3. sayfasında açılır.
@@ -103,22 +128,32 @@ export function BrandPageView({ slug }: { slug: string }) {
     const cached = pageCache.get(key);
     if (cached) {
       setData(cached);
+      setPending(false);
       return;
     }
     let alive = true;
-    setData(null);
+    setPending(true);
     void (async () => {
       try {
         const res = await fetch(`/api/marka?slug=${encodeURIComponent(slug)}&sayfa=${page}`);
         if (!res.ok) {
-          if (alive) setData("yok");
+          if (alive) {
+            setData("yok");
+            setPending(false);
+          }
           return;
         }
         const d = (await res.json()) as BrandPageData;
         pageCache.set(key, d);
-        if (alive) setData(d);
+        if (alive) {
+          setData(d);
+          setPending(false);
+        }
       } catch {
-        if (alive) setData("yok");
+        if (alive) {
+          setData("yok");
+          setPending(false);
+        }
       }
     })();
     return () => {
@@ -126,14 +161,24 @@ export function BrandPageView({ slug }: { slug: string }) {
     };
   }, [key, slug, page]);
 
+  // `data` HÂLÂ ÖNCEKİ MARKAYA aitse (marka değişti, yenisi henüz gelmedi) gösterecek
+  // eski bir ızgara yok — tam ekran yükleniyor durumu gerekir. Aynı markanın başka
+  // bir SAYFASI yükleniyorsa (`pending`) elimizdeki veri hâlâ geçerli: hero, kategori
+  // çipleri ve ızgara YERİNDE KALIR, üstüne yalnız ince bir overlay biner (aşağıda).
+  const shown = data && typeof data === "object" && data.brand.slug === slug ? data : null;
+  // "yok" (bulunamadı) kesin bir sonuç — o zaman gecikmesiz Empty gösterilir, halka
+  // hiç devreye girmez. Halka yalnız GERÇEKTEN beklenen (>500ms) durumlarda çıksın.
+  const showFullLoading = useDelayedFlag(data !== "yok" && !shown);
+  const showPageOverlay = useDelayedFlag(pending);
+
   if (data === "yok") return <Empty text="bu marka vitrinde bulunamadı." />;
-  if (!data) return <Loading />;
+  if (!shown) return showFullLoading ? <Loading /> : null;
 
   /** Vitrine dönüp markayı filtre olarak uygula. */
   const filter = (cat?: string) => {
     setView("grid");
     setQuery({
-      brands: [data.brand.name],
+      brands: [shown.brand.name],
       cat: (cat as NavCat) ?? DEFAULT_QUERY.cat,
     });
     window.scrollTo({ top: 0, behavior: "auto" });
@@ -146,10 +191,11 @@ export function BrandPageView({ slug }: { slug: string }) {
           ALTR / MARKALAR
         </span>
         {/* Marka adlarında DÜZ büyütme: Türkçe kural "Studio"yu "STUDİO" yapıyor. */}
-        {` / ${data.brand.name.toUpperCase()}`}
+        {` / ${shown.brand.name.toUpperCase()}`}
       </Crumb>
+      {showPageOverlay && <LoadingOverlay label={t("yükleniyor…")} />}
       <BrandPage
-        data={data}
+        data={shown}
         page={page}
         handlers={{
           onIndex: openMarkalar,

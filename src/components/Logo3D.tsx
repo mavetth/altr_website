@@ -36,8 +36,11 @@ import { useEffect, useRef, type CSSProperties } from "react";
 // (globals.css ≤820px bloğu) — masaüstü büyürken mobil piksel piksel aynı kalır.
 const BASE_FS = 50;
 const STEP = 0.45; // katmanlar arası Z adımı (px, BASE_FS boyunda) — küçük = dolu blok
-// Doğal duruş: yalnız X ekseninde hafif eğik (3B derinlik görünsün); Y ekseninde düz (çapraz durmaz).
-const REST_RX = -7;
+// Doğal duruş: TAMAMEN DÜZ (kullanıcı kararı) — sürükleyince hâlâ her eksende döner,
+// bırakınca yine buraya (0,0) süzülerek geri döner. Eskiden X ekseninde hafif eğikti
+// (3B derinlik göstersin diye); artık düz durup derinliği yalnızca etkileşim sırasında
+// gösteriyor.
+const REST_RX = 0;
 const REST_RY = 0;
 // Bırakınca geri dönüş süresi (ms) — en az 10 saniye sürsün.
 const RETURN_MS = 10000;

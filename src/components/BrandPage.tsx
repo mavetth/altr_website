@@ -2,6 +2,7 @@
 import type { Product } from "@/lib/types";
 import { BRAND_PAGE_SIZE, type BrandPageData } from "@/lib/brand-page-shared";
 import { catSlug, formatPrice } from "@/lib/query";
+import { pageList } from "@/lib/pagination";
 import { STYLES, type StyleKey } from "@/lib/brand-styles";
 import { PERK_LABEL } from "@/lib/brand-perks";
 import { BrandLogo } from "./BrandLogo";
@@ -93,6 +94,11 @@ export function BrandPage({
             maxW={230}
             /* Künye kutusu 170px: amblem çarpanla birlikte kutuyu uzatmasın. */
             maxH={118}
+            /* Sembol logolarda (amblem, ad okunmuyor) BrandLogo adı normalde logonun
+               YANINA da yazar — ama burada adı zaten hemen sağda kocaman bir <h1>
+               taşıyor. İkisi bu dar kutuda (230px) yan yana sığmayınca (ör. ZERO WEAR)
+               ikili grup kutunun dışına taşıyordu. Ad zaten h1'de var, tekrar gerekmiyor. */
+            showName={false}
             fallback={
               <span style={{ fontFamily: "'Anton', sans-serif", fontSize: 38, lineHeight: 1.05, textAlign: "center", color: "var(--fg-bright)", textTransform: "uppercase" }}>
                 {brand.name}
@@ -235,41 +241,115 @@ export function BrandPage({
 
       <BrandProductGrid items={items} onOpen={onOpenProduct} />
 
-      {/* ---- sayfalama: gerçek <a>, arama motoru derinliğe inebilsin ---- */}
+      {/* ---- sayfalama: TÜM ÜRÜNLER ızgarasıyla (bkz. GridView) BİREBİR aynı görünüm —
+           ok düğmeleri + alt çizgili aktif sayfa. Linkler yine gerçek <a>: arama
+           motoru markanın sayfalarına buradan inebilsin (bkz. `intercept`). */}
       {pageCount > 1 && (
         <nav
           style={{
             display: "flex",
+            alignItems: "center",
             justifyContent: "center",
-            flexWrap: "wrap",
-            gap: 8,
+            gap: 16,
             marginTop: 46,
             fontFamily: "'Space Mono', monospace",
-            fontSize: 14,
+            fontSize: 17,
+            letterSpacing: ".1em",
           }}
         >
-          {Array.from({ length: pageCount }, (_, i) => i + 1)
-            .filter((n) => n === 1 || n === pageCount || Math.abs(n - page) <= 2)
-            .map((n, i, arr) => (
-              <span key={n} style={{ display: "inline-flex", gap: 8 }}>
-                {i > 0 && arr[i - 1] !== n - 1 && <span style={{ color: "var(--faint)", padding: "8px 4px" }}>…</span>}
-                <a
-                  href={n === 1 ? `/${brand.slug}` : `/${brand.slug}?sayfa=${n}`}
-                  onClick={intercept(onPage && (() => onPage(n)))}
-                  className="fbox"
-                  style={{
-                    minWidth: 38,
-                    textAlign: "center",
-                    padding: "8px 0",
-                    border: `1px solid ${n === page ? "var(--grn)" : "var(--line)"}`,
-                    color: n === page ? "var(--grn)" : "var(--muted)",
-                    textDecoration: "none",
-                  }}
-                >
-                  {n}
-                </a>
+          {page > 1 ? (
+            <a
+              href={page - 1 === 1 ? `/${brand.slug}` : `/${brand.slug}?sayfa=${page - 1}`}
+              onClick={intercept(onPage && (() => onPage(page - 1)))}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                minWidth: 36,
+                minHeight: 36,
+                color: "var(--muted)",
+                fontSize: 14,
+                textDecoration: "none",
+              }}
+            >
+              ‹
+            </a>
+          ) : (
+            <span
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                minWidth: 36,
+                minHeight: 36,
+                color: "var(--faint2)",
+                fontSize: 14,
+              }}
+            >
+              ‹
+            </span>
+          )}
+          {pageList(page, pageCount).map((n, i) =>
+            n === "…" ? (
+              <span key={`gap${i}`} style={{ color: "var(--faint)", minWidth: 36, textAlign: "center" }}>
+                …
               </span>
-            ))}
+            ) : (
+              <a
+                key={n}
+                href={n === 1 ? `/${brand.slug}` : `/${brand.slug}?sayfa=${n}`}
+                onClick={intercept(onPage && (() => onPage(n)))}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  minWidth: 36,
+                  minHeight: 36,
+                  textAlign: "center",
+                  // bkz. GridView aynı satır: tek karakterli span'lerde miras kalan
+                  // letter-spacing altı çizgiyi rakamdan kaydırıyordu.
+                  letterSpacing: 0,
+                  color: n === page ? "var(--grn)" : "var(--muted)",
+                  borderBottom: `2px solid ${n === page ? "var(--grn)" : "transparent"}`,
+                  textDecoration: "none",
+                }}
+              >
+                {n}
+              </a>
+            ),
+          )}
+          {page < pageCount ? (
+            <a
+              href={`/${brand.slug}?sayfa=${page + 1}`}
+              onClick={intercept(onPage && (() => onPage(page + 1)))}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                minWidth: 36,
+                minHeight: 36,
+                color: "var(--muted)",
+                fontSize: 14,
+                textDecoration: "none",
+              }}
+            >
+              ›
+            </a>
+          ) : (
+            <span
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                minWidth: 36,
+                minHeight: 36,
+                color: "var(--faint2)",
+                fontSize: 14,
+              }}
+            >
+              ›
+            </span>
+          )}
         </nav>
       )}
     </>

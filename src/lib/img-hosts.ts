@@ -60,8 +60,13 @@ export function isAllowedImageHost(hostname: string): boolean {
   if (host === "localhost" || host.endsWith(".local") || host.endsWith(".internal")) return false;
   if (!host.includes(".")) return false;
 
-  if (ALLOWED_SUFFIXES.some((suf) => host === suf || host.endsWith(`.${suf}`) || host.endsWith(suf)))
-    return true;
+  // `.${suf}` ile NOKTA SINIRI şart: eskiden üçüncü bir dal olarak noktasız
+  // `host.endsWith(suf)` de vardı — "totallynotshopify.com" ya da "xcloudfront.net"
+  // gibi shopify.com/cloudfront.net'le HİÇBİR ilgisi olmayan, herkesin satın
+  // alabileceği bağımsız alan adları da "shopify.com" ile bitiyor diye izin
+  // listesinden geçiyordu. Bu proxy'yi (SSRF koruması bilerek var) anonim bir görsel
+  // vekiline çeviren gerçek bir açıktı — kaldırıldı.
+  if (ALLOWED_SUFFIXES.some((suf) => host === suf || host.endsWith(`.${suf}`))) return true;
 
   cachedHosts ??= brandHostSet();
   if (cachedHosts.has(host)) return true;

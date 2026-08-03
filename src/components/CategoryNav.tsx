@@ -34,11 +34,12 @@ export function CategoryNav({
   /**
    * MARKALAR sekmesi listenin sonunda çizilsin mi?
    *
-   * Masaüstü sidebar'ında ÇİZİLMEZ: orada MARKALAR kategori listesinin kuyruğunda
-   * değil, VİTRİNİM'in hemen üstünde onunla aynı ağırlıkta ayrı bir bölüm olarak
-   * durur (bkz. Sidebar.tsx). İkisi de "ürün filtresi" değil, siteye başka bir
-   * giriş kapısı — kategorilerin arasına karışınca kategori sanılıyordu.
-   * Mobil şeritte VİTRİNİM bölümü olmadığı için orada listede kalır.
+   * Sidebar'ında (masaüstü) VE mobil şeritte de ÇİZİLMEZ: MARKALAR kategori
+   * listesinin kuyruğunda değil, sidebar'ın "ÜÇ KAPI" bölümünde (VİTRİNİM ·
+   * MARKALAR · MİSYON, bkz. Sidebar.tsx) kendi başına duruyor — bu bölüm mobilde
+   * de (kompakt bir şerit olarak) görünür olduğu için MARKALAR'ı burada TEKRAR
+   * çizmek iki kapıyı üst üste bindiriyordu. "Ürün filtresi" değil, siteye başka
+   * bir giriş kapısı — kategorilerin arasına karışınca kategori sanılıyordu.
    */
   withMarkalar?: boolean;
   /**

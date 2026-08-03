@@ -294,18 +294,33 @@ function itemsOf(state: ListsState, cache: Record<string, Product>): Product[] {
   return out;
 }
 
-/** Store'daki query değişikliğini URL'e yaz. Arama kutusu gibi sık tetiklenen (debounce'lu
- * da olsa) değişiklikler için push=false (replaceState) — her tuş vuruşu geçmişe girmesin.
- * Kategori/filtre/sayfa gibi bilinçli tıklamalar için push=true — geri tuşu bir önceki
- * filtre durumuna dönebilsin. */
-function syncUrl(query: QueryParams, push: boolean) {
+/**
+ * Adres çubuğunu TÜM görünüm durumundan (view + markaSlug + query) yeniden kurar.
+ *
+ * TEK ÇIKIŞ NOKTASI: filtre değişikliği (setQuery/setPage) da sekme değişikliği
+ * (setView/openMarka/openMarkalar) da buradan geçer. Eskiden yalnız `query` yazılıyordu
+ * ve `window.location.pathname`i OLDUĞU GİBİ koruyordu — MARKALAR sekmesinden bir
+ * markaya girmek (openMarka) adresi hiç değiştirmiyordu: kullanıcı "ABLUKA" sayfasını
+ * görüyor ama adres çubuğu hâlâ "/" yazıyordu, yani ürünü linkleyemiyor, kopyalayamıyor,
+ * geri tuşu markalar sekmesine değil sitenin dışına çıkıyordu. Adres artık HER İKİ
+ * parçadan (yol + sorgu) birlikte, tek yerden kuruluyor.
+ *
+ * `push=false` (replaceState) sık tetiklenen değişiklikler için (arama kutusu, keşfeti
+ * yenile — tohum URL'de taşınmıyor); `push=true` bilinçli tıklamalar için (kategori,
+ * sayfa, sekme geçişi) — geri tuşu bir önceki duruma dönebilsin.
+ */
+function syncUrl(view: View, markaSlug: string | null, query: QueryParams, push: boolean) {
   if (typeof window === "undefined") return;
+  const path = view === "marka" && markaSlug ? `/${markaSlug}` : view === "markalar" ? "/markalar" : "/";
+  // Filtre sorgusu yalnız GRID görünümünde adrese yazılır: marka/markalar sekmesinde
+  // "hangi ürüne bakıyordun" sorusunun cevabı yol'un kendisinde (markaSlug), grid'in
+  // kendi filtreleri o an ekranda değil.
+  const qs = view === "grid" ? stringifyQuery(query) : "";
   // tohum bilerek yazılmaz: adres çubuğunda kullanıcıya bir şey ifade etmiyor ve
   // paylaşılan link, açan kişinin kendi keşfet penceresiyle gelsin.
-  const qs = stringifyQuery(query);
   // Filtresiz durumda sorgu dizesi BOŞ: yalnız `?` bırakmak (eski hâl) adresi kirletiyor
-  // ve "bir şey seçili" izlenimi veriyordu. Çıplak `/` doğru adres.
-  const url = qs ? `${window.location.pathname}?${qs}` : window.location.pathname;
+  // ve "bir şey seçili" izlenimi veriyordu. Çıplak yol doğru adres.
+  const url = qs ? `${path}?${qs}` : path;
   if (push) window.history.pushState(null, "", url);
   else window.history.replaceState(null, "", url);
 }
@@ -392,7 +407,7 @@ export const useStore = create<State>((set, get) => ({
     set({ query });
     // "q" (arama kutusu) hariç her değişiklik geçmişe bir adım eklesin — geri tuşu
     // bir önceki filtre/kategori durumuna dönebilsin.
-    syncUrl(query, !("q" in patch));
+    syncUrl(get().view, get().markaSlug, query, !("q" in patch));
     void get().refetch();
   },
 
@@ -403,7 +418,7 @@ export const useStore = create<State>((set, get) => ({
   setPage: (n) => {
     const query = { ...get().query, page: n };
     set({ query });
-    syncUrl(query, true);
+    syncUrl(get().view, get().markaSlug, query, true);
     void get().refetch();
     if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "auto" });
   },
@@ -438,7 +453,7 @@ export const useStore = create<State>((set, get) => ({
   reshuffleFeed: () => {
     const query = { ...get().query, seed: manualSeed(), page: 1 };
     set({ query });
-    syncUrl(query, false);
+    syncUrl(get().view, get().markaSlug, query, false);
     void get().refetch();
     if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "auto" });
     get().showToast("Keşfet yenilendi.");
@@ -447,20 +462,29 @@ export const useStore = create<State>((set, get) => ({
   resetAll: () => {
     // tohum korunur: "sıfırla" filtreleri temizler, vitrini baştan karıştırmaz
     const query = { ...DEFAULT_QUERY, seed: get().query.seed };
-    set({ query, filterOpen: false, view: "grid" });
-    syncUrl(query, true);
+    set({ query, filterOpen: false, view: "grid", markaSlug: null });
+    syncUrl("grid", null, query, true);
     void get().refetch();
   },
 
-  setView: (v) => set({ view: v }),
+  setView: (v) => {
+    // "marka" DIŞINDAKİ bir görünüme geçince markaSlug de temizlenir — yoksa
+    // eskiden açık kalan bir marka, sonradan tekrar "marka" görünümüne dönülünce
+    // (ör. tarayıcı geçmişinden değil, başka bir yoldan) hayalet gibi geri gelirdi.
+    const markaSlug = v === "marka" ? get().markaSlug : null;
+    set({ view: v, markaSlug });
+    syncUrl(v, markaSlug, get().query, true);
+  },
 
   openMarkalar: () => {
     set({ view: "markalar", markaSlug: null });
+    syncUrl("markalar", null, get().query, true);
     if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "auto" });
   },
 
   openMarka: (slug) => {
     set({ view: "marka", markaSlug: slug });
+    syncUrl("marka", slug, get().query, true);
     if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "auto" });
   },
 
@@ -595,10 +619,10 @@ export const useStore = create<State>((set, get) => ({
     const cache = { ...get().listCache };
     for (const p of shared.items) cache[p.id] = p;
     get().commitLists([...get().lists, list], list.id, cache);
-    set({ view: "vitrin" });
+    set({ view: "vitrin", markaSlug: null });
     // Liste artık kullanıcının kendisinde: adresteki `?liste=` düşsün, yoksa sayfa
     // yenilendiğinde yine başkasının salt okunur listesi açılıyordu.
-    syncUrl(get().query, false);
+    syncUrl("vitrin", null, get().query, false);
     get().showToast("Liste kopyalandı.");
   },
 

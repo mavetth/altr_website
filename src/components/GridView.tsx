@@ -1,6 +1,7 @@
 "use client";
 import { LAYOUTS, useStore, type Layout } from "@/store";
 import { SORTS, cycleSort } from "@/lib/query";
+import { pageList } from "@/lib/pagination";
 import { useLang } from "@/lib/lang";
 import { ProductCard } from "./ProductCard";
 import { BrandChips, type BrandChip } from "./BrandChips";
@@ -42,18 +43,6 @@ function RestartIcon({ size = 15 }: { size?: number }) {
       <path d="M20 4v4.5h-4.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
-}
-
-/** Sayfalama penceresi: 1 … (aktifin çevresi) … son. */
-function pageList(page: number, count: number): Array<number | "…"> {
-  if (count <= 7) return Array.from({ length: count }, (_, i) => i + 1);
-  const around = [page - 1, page, page + 1].filter((n) => n > 1 && n < count);
-  const out: Array<number | "…"> = [1];
-  if (around[0] > 2) out.push("…");
-  out.push(...around);
-  if ((around[around.length - 1] ?? 1) < count - 1) out.push("…");
-  out.push(count);
-  return out;
 }
 
 export function GridView({ brands }: { brands: BrandChip[] }) {
@@ -236,7 +225,16 @@ export function GridView({ brands }: { brands: BrandChip[] }) {
       <div
         className="grid-inner"
         data-layout={layout}
-        style={{ display: "grid", gridTemplateColumns: GRID[layout].cols, gap: GRID[layout].gap }}
+        style={{
+          display: "grid",
+          gridTemplateColumns: GRID[layout].cols,
+          gap: GRID[layout].gap,
+          // Sayfa/filtre/sıralama değişince (üstteki üst çubuk zaten dönüyor — bkz.
+          // TopProgressBar) ızgara ANINDA değişmiyor: yeni veri gelene kadar eski
+          // kartlar hafifçe soluklaşır, "tazeleniyor" olduğu göz ucuyla anlaşılır.
+          opacity: loading ? 0.5 : 1,
+          transition: "opacity .15s ease",
+        }}
       >
         {items.map((p, i) => (
           <ProductCard key={p.id} p={p} context={items} index={i} layout={layout} />

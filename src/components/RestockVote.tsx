@@ -106,7 +106,7 @@ export function RestockVote({
 
   return (
     <span
-      className={`fbox ${className ?? ""}`}
+      className={`fbox restock-vote${voted ? " is-voted" : ""} ${className ?? ""}`}
       onClick={vote}
       title={
         voted
@@ -138,9 +138,19 @@ export function RestockVote({
       {count > 0 && (
         <span
           style={{
+            // inline bir span'de rakam, kutunun geometrik ortasına değil font
+            // metriklerinin bıraktığı boşluğa göre oturuyordu — tek haneli sayılarda
+            // yuvarlağın merkezinden gözle görülür sapıyordu. flex + sabit
+            // minWidth/height ile rakam her zaman dairenin TAM ortasına oturur.
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            minWidth: lg ? 20 : 16,
+            height: lg ? 20 : 16,
+            lineHeight: 1,
             fontFamily: "'IBM Plex Mono', monospace",
             fontSize: lg ? 13 : 11,
-            padding: lg ? "2px 8px" : "1px 6px",
+            padding: "0 6px",
             borderRadius: 999,
             border: `1px solid ${voted ? "var(--on-accent)" : "var(--line)"}`,
             opacity: 0.85,

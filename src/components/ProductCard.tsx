@@ -206,14 +206,15 @@ export function ProductCard({
 
       {/* vitrine ekle — görsel kutusunun içinde, köşe kavisine göre içeride */}
       <span
-        className="add-btn"
+        className={`add-btn${inShow ? " is-in" : ""}`}
         onClick={(e) => {
           stop(e);
           // eklerken (çıkarırken değil) ürünü yumuşakça VİTRİNİM'e uçur
           const adding = !inShow;
           const box = (e.currentTarget as HTMLElement).closest(".prod-img");
+          const imgEl = box?.querySelector("img") ?? null;
           toggleShowcase(p);
-          if (adding) flyToVitrin(box, image);
+          if (adding) flyToVitrin(box, imgEl, image);
         }}
         title={inShow ? t("Vitrinden çıkar") : t("Vitrinime ekle")}
         style={{

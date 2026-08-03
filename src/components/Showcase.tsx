@@ -109,12 +109,23 @@ export function Showcase() {
                           onClick={() => openDetail(items, idx, defaultVariantIndex(items[idx]))}
                           style={{ position: "relative", aspectRatio: "4/5", background: "var(--tex)", border: "2px solid var(--fg-bright)", borderRadius: 20, overflow: "hidden", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}
                         >
+                          {/*
+                            `w`/`sizes` GERÇEK kart genişliğine göre kalibre edildi (bkz.
+                            ProductCard.tsx SPEC'teki aynı ders, 2026-07-30). Eskiden
+                            `w:480` + `sizes:"300px"` yazıyordu; 1920px'te ÖLÇÜLEN gerçek
+                            kart genişliği 512px'ti (3 sütun, sabit-px sidebar payı vw'ye
+                            orantısız düşüyor) — tarayıcı 300px'lik bir yuvaya 480'in
+                            altını indirip BÜYÜTEREK yerleştiriyordu, "İri" ızgaradan
+                            (imgW 1200) belirgin daha bulanık duruyordu. `sizes` artık
+                            sidebar KAPALIYKEN bile (kart payı büyür) güvenli kalsın diye
+                            biraz yukarı yuvarlanmış vw; `w` tavanı İri ile aynı 1200.
+                          */}
                           <ProductImage
                             src={it.image}
                             fallbacks={it.images}
                             label={t("[ GÖRSEL ]")}
-                            w={480}
-                            sizes="(max-width: 600px) 74vw, 300px"
+                            w={1200}
+                            sizes="(max-width: 600px) 74vw, 32vw"
                           />
                           <span
                             className="vit-rm"

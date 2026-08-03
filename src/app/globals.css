@@ -150,8 +150,16 @@ a { color: inherit; }
 .logo-chip:hover { border-color: var(--grn) !important; color: var(--grn) !important; }
 .fbox { transition: none; cursor: pointer; }
 .fbox:hover { border-color: var(--grn) !important; color: var(--grn) !important; }
+/* RestockVote "İSTEDİN" durumu: zemin ZATEN --grn, üstteki genel .fbox:hover kuralı
+   metni de --grn'e boyayınca yazı zeminle aynı renkte kaybolıyordu (bkz.
+   components/RestockVote.tsx). İki sınıf birden burada .fbox:hover'ı özgüllükle geçer. */
+.restock-vote.is-voted:hover { color: var(--on-accent) !important; border-color: var(--on-accent) !important; }
 .add-btn { transition: none; cursor: pointer; }
 .add-btn:hover { border-color: var(--grn) !important; color: var(--grn) !important; }
+/* Ürün zaten vitrindeyken (.is-in) zemin ZATEN --grn — yukarıdaki genel hover kuralı
+   simgeyi de --grn yapınca askı ikonu zeminle aynı renkte kayboluyordu (bkz.
+   ProductCard.tsx add-btn, .restock-vote.is-voted:hover ile aynı düzeltme). */
+.add-btn.is-in:hover { color: var(--on-accent) !important; border-color: var(--on-accent) !important; }
 .det-nav { transition: none; }
 .det-nav:hover { border-color: var(--grn) !important; color: var(--grn) !important; }
 .modal-close { transition: none; cursor: pointer; }

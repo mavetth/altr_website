@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useMemo } from "react";
-import { useStore, type SharedList, type Theme } from "@/store";
+import { useStore, type SharedList, type Theme, type View } from "@/store";
 import { parseQuery, type QueryParams, type QueryResult } from "@/lib/query";
 import { Sidebar } from "./Sidebar";
 import { TopBar } from "./TopBar";
@@ -16,6 +16,7 @@ import { ContactModal } from "./ContactModal";
 import { ContactButton } from "./ContactButton";
 import { IntroModal } from "./IntroModal";
 import { Toast } from "./Toast";
+import { TopProgressBar } from "./TopProgressBar";
 import { VitrinReminder } from "./VitrinReminder";
 import { CategoryNav } from "./CategoryNav";
 import { GenderRow } from "./GenderRow";
@@ -97,13 +98,23 @@ export function App({
   useEffect(() => {
     // tarayıcı geri/ileri tuşu: URL'i store'a senkronize et, ama tekrar history'ye
     // yazma (zaten popstate'in kendisi bir geçmiş adımı) — sadece state'i güncelle.
+    //
+    // Sekme (view/markaSlug) de YOLDAN okunuyor, yalnız sorgu değil: eskiden yalnız
+    // `search` (filtre kısmı) okunuyordu, MARKALAR'dan bir markaya girip geri basınca
+    // adres "/" e dönse bile view "marka" olarak takılı kalıyordu (bkz. syncUrl —
+    // artık yolu da o yazıyor, burası aynı yolu geri okuyor).
     const onPopState = () => {
       const parsed = parseQuery(new URLSearchParams(window.location.search));
       // tohum URL'de taşınmıyor: geri/ileri tuşu vitrini baştan karıştırmasın diye
       // oturumun tohumu korunur.
       const query = { ...parsed, seed: useStore.getState().query.seed };
-      useStore.setState({ query });
-      void useStore.getState().refetch();
+      const path = window.location.pathname;
+      const view: View = path === "/markalar" ? "markalar" : path === "/" ? "grid" : "marka";
+      const markaSlug = view === "marka" ? decodeURIComponent(path.slice(1)) : null;
+      useStore.setState({ query, view, markaSlug });
+      // marka/markalar sekmesi kendi verisini slug/sayfa değişince kendi useEffect'inde
+      // çeker (bkz. BrandViews.tsx) — burada yalnız GRID görünümü yeniden sorgulanır.
+      if (view === "grid") void useStore.getState().refetch();
     };
     window.addEventListener("popstate", onPopState);
     return () => window.removeEventListener("popstate", onPopState);
@@ -152,6 +163,7 @@ export function App({
     // `--anchor-offset` burada tanımlanır (bkz. globals.css). Kalıcı sayfalarda
     // (PageChrome) başlık sticky olmadığı için orada varsayılan küçük değer geçerli.
     <div className="app-shell" style={{ minHeight: "100vh", background: "var(--bg)", color: "var(--fg)", fontFamily: "'IBM Plex Mono', monospace" }}>
+      <TopProgressBar />
       {/* mobilde: sayfanın tamamı boyunca gerçekten sabit kalan bağımsız arama çubuğu.
           .topbar'ın İÇİNDE olsaydı, o kısa kutunun sınırına hapsolup birkaç saniyelik
           kaydırmadan sonra kaybolurdu (position:sticky'nin "containing block" kısıtı) —
@@ -199,6 +211,10 @@ export function App({
           counts={catCounts}
           /* iki satır: üstte çatılar, altta açık çatının kalemleri (bkz. CategoryNav) */
           ikiSatir
+          /* MARKALAR burada TEKRAR ETMESİN: sidebar'ın "ÜÇ KAPI" bölümü (VİTRİNİM ·
+             MARKALAR · MİSYON) mobilde de kompakt bir şerit olarak gösteriliyor —
+             MARKALAR'a giden kapı zaten orada duruyor. */
+          withMarkalar={false}
           style={{ fontFamily: "'Space Mono', monospace", fontSize: 14, letterSpacing: ".14em" }}
         />
         {/* mobilde: kadın/erkek satırının kategori şeridinin ALTINDA duran kopyası

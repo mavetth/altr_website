@@ -6,6 +6,8 @@
 
 const IMG_W = 640;
 const DURATION = 640;
+/** Görsel hazır değilse en fazla bu kadar beklenir; sonrasında uçuş atlanır (yalnız pop). */
+const MAX_WAIT = 400;
 
 /** Ekranda görünür olan VİTRİNİM hedefini seç; mobil yüzen reminder varsa onu tercih et. */
 function pickTarget(): HTMLElement | null {
@@ -39,10 +41,17 @@ function firePulse(el: HTMLElement) {
 
 /**
  * @param fromEl  Uçuşun başlayacağı kaynak eleman (ürün görsel paneli).
- * @param src     Ürün görselinin (proxy'lenecek) kaynak URL'i.
+ * @param imgEl   Kartta ZATEN duran <img> — varsa onun `currentSrc`'i kullanılır, böylece
+ *                kart ile uçuş aynı ağ isteğini/önbelleği paylaşır (bkz. aşağıdaki not).
+ * @param fallbackSrc  `imgEl` yoksa (ör. görsel henüz DOM'a girmedi) kullanılacak ham URL;
+ *                bundan `w=${IMG_W}` ile ayrı bir proxy isteği kurulur.
  */
-export function flyToVitrin(fromEl: Element | null, src: string | null): void {
-  if (typeof window === "undefined" || !fromEl || !src) return;
+export function flyToVitrin(
+  fromEl: Element | null,
+  imgEl: HTMLImageElement | null,
+  fallbackSrc: string | null,
+): void {
+  if (typeof window === "undefined" || !fromEl) return;
 
   const target = pickTarget();
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -54,6 +63,44 @@ export function flyToVitrin(fromEl: Element | null, src: string | null): void {
   }
 
   const from = fromEl.getBoundingClientRect();
+
+  // Uçuş URL'i: kartın <img>'i varsa `currentSrc`'i (aynı istek/önbellek), yoksa
+  // ham kaynaktan yeni bir proxy URL'i kurulur.
+  const url =
+    (imgEl && (imgEl.currentSrc || imgEl.src)) ||
+    (fallbackSrc ? `/api/img?url=${encodeURIComponent(fallbackSrc)}&w=${IMG_W}` : null);
+
+  if (!url) {
+    firePulse(target);
+    return;
+  }
+
+  // GÖRSEL SAYFA/KATEGORİ DEĞİŞİMİNİN HEMEN ARDINDAN YÜKLENİYOR OLABİLİR: o anda
+  // onlarca kart görseli aynı anda ağdan geliyor, kartın kendi <img>'i henüz
+  // yüklenmemiş olabilir. Eskiden uçuş, görsel gelmeden ANINDA başlıyordu — klon
+  // ekranda BOŞ bir kutu olarak süzülüyordu. Şimdi görsel önce arka planda
+  // (bir `Image()` ile) önyükleniyor; hazır olana kadar (en fazla MAX_WAIT) beklenir,
+  // hâlâ hazır değilse uçuş tamamen ATLANIR — hedefte yalnız "pop" olur. Böylece
+  // ekranda görselsiz bir klon ASLA görünmez.
+  const preload = new Image();
+  let settled = false;
+  const proceed = (ok: boolean) => {
+    if (settled) return;
+    settled = true;
+    window.clearTimeout(timer);
+    preload.onload = null;
+    preload.onerror = null;
+    if (ok) launchFlight(from, target, url);
+    else firePulse(target);
+  };
+  const timer = window.setTimeout(() => proceed(false), MAX_WAIT);
+  preload.onload = () => proceed(true);
+  preload.onerror = () => proceed(false);
+  preload.src = url;
+  if (preload.complete && preload.naturalWidth > 0) proceed(true);
+}
+
+function launchFlight(from: DOMRect, target: HTMLElement, url: string): void {
   const to = target.getBoundingClientRect();
 
   const sx = from.left + from.width / 2;
@@ -80,8 +127,10 @@ export function flyToVitrin(fromEl: Element | null, src: string | null): void {
     "will-change:transform,opacity",
   ].join(";");
 
+  // `url` zaten yukarıda önyüklenip hazır olduğu doğrulandı — burada aynı görsel
+  // önbellekten anında gelir, ekstra bekleme olmaz.
   const img = document.createElement("img");
-  img.src = `/api/img?url=${encodeURIComponent(src)}&w=${IMG_W}`;
+  img.src = url;
   img.alt = "";
   img.style.cssText =
     "position:absolute;inset:0;width:100%;height:100%;object-fit:cover;";
