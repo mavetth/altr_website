@@ -4,8 +4,9 @@ import { loadBrandPage } from "@/lib/brand-page";
 import { formatPrice } from "@/lib/query";
 import { STYLES } from "@/lib/brand-styles";
 import { CAT_LOWER, type ProductCat } from "@/lib/types";
+import { BRANDS } from "@/lib/brands";
 import { PageChrome } from "@/components/PageChrome";
-import { BrandPage } from "@/components/BrandPage";
+import { BrandPageClient } from "@/components/BrandPageClient";
 
 /**
  * MARKA SAYFASI — `/<marka-slug>`.
@@ -73,6 +74,10 @@ export default async function MarkaPage({
   const data = await loadBrandPage(marka, page);
   if (!data) notFound();
 
+  // Ürün modalindeki "AL" / marka çıkışı için — ana sayfayla (app/page.tsx) AYNI kaynak.
+  const urlByName: Record<string, string | null> = {};
+  for (const b of BRANDS) urlByName[b.name] = b.url;
+
   return (
     <PageChrome
       crumb={
@@ -87,8 +92,9 @@ export default async function MarkaPage({
       }
     >
       {/* Ekranın kendisi BrandPage'te — vitrinin marka sekmesi de aynı bileşeni çiziyor.
-          Burada handler verilmiyor: bu sayfada her tıklanabilir gerçek bir bağ. */}
-      <BrandPage data={data} page={page} />
+          Sayfa HTML'i hâlâ her ürün için gerçek `<a>` (SEO/paylaşım); BrandPageClient
+          yalnız JS açıkken üstüne binip tıklamayı ürün modaline yönlendiriyor. */}
+      <BrandPageClient data={data} page={page} urlByName={urlByName} />
     </PageChrome>
   );
 }

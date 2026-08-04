@@ -33,6 +33,10 @@ import { displayPrice, priceRange } from "../src/lib/variant.ts";
 // önce çekilmiş olabiliyor ve sözlük değiştiğinde 3 saatlik bir scrape beklemeden
 // katalogu düzeltebilmek gerekiyor ("XXL" ile "2XL" ayrı filtre kutusuydu).
 import { normalizeSizes, dropAgeSizes } from "../src/lib/sizes.ts";
+// Renk AİLESİ (siyah/gri/mavi…) — mükerrer varyant katlamasında "aynı ad + gözle aynı
+// renk" kararını verir. Arayüzle TEK KAYNAK: nokta rengini de bu sözlük hakemliyor
+// (bkz. src/components/ColorSwatches.tsx noktaRengi).
+import { hexToTag, nameToTags } from "../src/lib/color-tags.ts";
 import { isKidsProduct } from "../src/lib/kids.ts";
 import { productStyles } from "../src/lib/product-styles.ts";
 import { ARCHIVE_CATS, catHasSizes } from "../src/lib/types.ts";
@@ -167,10 +171,79 @@ function cleanName(name) {
 }
 
 /**
+ * AYNI RENGİ İKİ KEZ GÖSTEREN VARYANTLARI TEK VARYANTA KATLAR.
+ *
+ * Sebep, ürünün kendisi değil KAYNAK: markaların çoğu aynı ürünü birden fazla ürün
+ * sayfası olarak yayınlıyor — stok yenilendiğinde yeni sayfa açıyor, bedeni tükeneni
+ * kapatmayıp kopyasını çıkarıyor, ya da tema aynı ürünü numaralı adreslerle çoğaltıyor:
+ *   kostebek  .../tokali-kargo-cepli-mavi-kot-pantolon   ve  .../…-mavi-kot-pantolon2
+ *   2downstreet  .../crosshair-logo-oversize-t-shirt-1 / -2 / -3
+ *   abluka    .../baskili-oversize-t-shirt-siyah-605 / -607 / -599
+ * `mergeGroups` bu sayfaları (doğru biçimde) tek ürüne katlıyor, ama her sayfa kendi
+ * varyantını getirdiği için ürün "Siyah, Siyah, Mavi, Mavi" diye dört renk noktasıyla
+ * çıkıyordu. Ölçüm: 73.178 üründen 3.091'i (çok renklilerin %12'si) mükerrer nokta
+ * gösteriyor, toplam 4.770 fazla varyant.
+ *
+ * İkinci ve daha sinsi sonucu: mükerrer renk ADI `colorSuspect` işaretini tetikliyordu
+ * (bkz. aşağısı) ve arayüz "ad güvenilmez" diyip noktayı FOTOĞRAFTAN ÖLÇMEYE geçiyordu.
+ * Kot pantolonun zemin ağırlıklı fotoğrafı gri ölçülünce mavi ürün "GRİ" olarak
+ * etiketleniyordu — yani kopya kayıt, doğru duran rengi de bozuyordu.
+ *
+ * ANAHTAR. Ad varsa ad + renk AİLESİ, ad yoksa hex. Aile kullanılıyor çünkü aynı siyah
+ * tişört iki sayfada iki farklı hex'le gelebiliyor ("Siyah #0c0202" ve "Siyah #090505",
+ * ya da markanın hiç kod vermediği yerde bizim yer tutucu grimiz #7d7d75) — hex'e birebir
+ * bakan anahtar bunları ayrı sanıp iki özdeş nokta çiziyordu. Ad boşken tek ayırt edici
+ * hex'tir ve ona birebir bakılır: adsız iki varyant ancak aynı hex'teyse aynı noktadır.
+ *
+ * Ad AYNI ama renkler FARKLI AİLEDEYSE katlanmaz — orada gerçekten iki ayrı renk var ve
+ * yalnız adı yanlış girilmiş (orient-x örneği); o vaka `colorSuspect` ile arayüze gider.
+ *
+ * Birleştirmede SATIN ALINABİLİR kopya önceliklidir — tükenmiş bir sayfanın fiyatı,
+ * beden listesi ve linki kartın önüne geçmesin (aynı ilke: adapters/jsonld.mjs offerPrice).
+ */
+function variantKey(v) {
+  const ad = trLower(v.color).trim();
+  if (!ad) return `#${v.hex}`;
+  return `${ad}|${hexToTag(v.hex) ?? v.hex}`;
+}
+
+/**
+ * Katlanan varyantın hex'i: ADIN söylediği aileye düşen aday kazanır. cartel-wind'in
+ * "Tech Fleece Jogger"ında üç "siyah" kaydın hex'leri #111111, #7d7d75 (yer tutucu) ve
+ * #3a463a idi; birincisi seçilmezse siyah varyantın noktası griye/yeşile kayıyordu.
+ */
+function dahaIyiHex(mevcut, yeni, ad) {
+  const aileler = nameToTags(ad);
+  if (!aileler.length) return mevcut;
+  if (aileler.includes(hexToTag(mevcut))) return mevcut;
+  return aileler.includes(hexToTag(yeni)) ? yeni : mevcut;
+}
+function mergeVariant(a, b) {
+  a.hex = dahaIyiHex(a.hex, b.hex, a.color);
+  const bDaha = !a.inStock && b.inStock;
+  const esit = a.inStock === b.inStock;
+  // Görsel havuzu indeksleri sayı; `uniq` 0'ı eleyeceği için Set kullanılıyor.
+  a.imgs = [...new Set(bDaha ? [...b.imgs, ...a.imgs] : [...a.imgs, ...b.imgs])].slice(
+    0,
+    MAX_IMGS_PER_VARIANT,
+  );
+  if (bDaha) {
+    a.sizes = b.sizes;
+    a.price = b.price;
+    a.url = b.url;
+  } else if (esit) {
+    a.sizes = normalizeSizes([...a.sizes, ...b.sizes]);
+    if (b.price != null && (a.price == null || b.price < a.price)) a.price = b.price;
+    a.url ??= b.url;
+  }
+  a.inStock = a.inStock || b.inStock;
+}
+
+/**
  * Bir ProductGroup'un varyantlarını, ortak görsel havuzuna indeksleyen bir listeye çevirir.
  * `images` dizisi çağrı boyunca büyütülür (aynı görsel iki varyantta geçiyorsa tek kopya).
  */
-function pushVariants(g, images, imgIndex, into) {
+function pushVariants(g, images, imgIndex, into, byColor) {
   const variants = Array.isArray(g.variants) ? g.variants : [];
   // g.colorLabel: ad-eki birleştirmesinden gelen renk etiketi ("Mürdüm", "Nefti Yeşili"),
   // sözlükte olmadığı için colorInName'in bulamayacağı marka-uydurması renk adları.
@@ -193,7 +266,7 @@ function pushVariants(g, images, imgIndex, into) {
     if (!idxs.length) continue;
 
     const color = (v.color && v.color !== "-" ? String(v.color) : fallbackColor) || "";
-    into.push({
+    const yeni = {
       color: color.trim(),
       hex: v.hex || "#7d7d75",
       imgs: idxs,
@@ -201,7 +274,19 @@ function pushVariants(g, images, imgIndex, into) {
       inStock: !!v.inStock,
       price: typeof v.price === "number" ? v.price : null,
       url: v.productUrl ?? null,
-    });
+    };
+
+    // Aynı renk zaten geldiyse yeni bir nokta değil, o noktanın zenginleşmesi demektir
+    // (bkz. mergeVariant). `byColor` ÜRÜN düzeyinde tutulur — kopya, çoğu zaman aynı
+    // grubun içinden değil, birleştirilen KOMŞU gruptan (ayrı ürün sayfası) geliyor.
+    const anahtar = variantKey(yeni);
+    const mevcut = byColor.get(anahtar);
+    if (mevcut) {
+      mergeVariant(mevcut, yeni);
+      continue;
+    }
+    byColor.set(anahtar, yeni);
+    into.push(yeni);
   }
 }
 
@@ -210,7 +295,29 @@ function mergeGroups(groups) {
   const images = [];
   const imgIndex = new Map();
   const variants = [];
-  for (const g of groups) pushVariants(g, images, imgIndex, variants);
+  const byColor = new Map();
+  for (const g of groups) pushVariants(g, images, imgIndex, variants, byColor);
+
+  // AYNI ÜRÜNDE TEKRAR EDEN RENK ADI: markanın kendi kaynağında renk yanlış/kopya
+  // girilmişse (ölçüldü — orient-x "Rose Barbed Wire Black Jersey": Shopify'da "Renk"
+  // seçeneği kaynakta da "Beyaz" geliyor, ürün adı "Black" olsa da) iki farklı fotoğraf/
+  // beden/fiyat kümesi aynı ada düşer. Bu durumda isim, ColorSwatches'ın ölçümü
+  // geçersiz kılan hakemi OLAMAZ — aşağıda işaretlenip arayüze taşınıyor.
+  //
+  // Sayım MÜKERRER SAYFA KATLAMASINDAN SONRA yapılır (bkz. mergeVariant): eskiden
+  // markanın aynı ürünü ikinci kez yayınlaması da "aynı ad iki kez" sayılıyor ve ürünü
+  // şüpheli işaretliyordu — yani kopya kayıt, doğru duran rengi de ölçüme kurban
+  // ediyordu ("Mavi" kot pantolon vitrinde GRİ). Katlamadan sonra aynı ad ancak FARKLI
+  // hex'lerle tekrar edebilir; bu da işaretin gerçekten aradığı durumdur.
+  const colorCounts = new Map();
+  for (const v of variants) {
+    const key = trLower(v.color).trim();
+    if (key) colorCounts.set(key, (colorCounts.get(key) ?? 0) + 1);
+  }
+  for (const v of variants) {
+    const key = trLower(v.color).trim();
+    if (key && colorCounts.get(key) > 1) v.colorSuspect = true;
+  }
 
   // Görünen ad: en kısa ad (genelde renksiz olan) temizlenerek kullanılır.
   const base = groups.reduce((a, b) => (b.name.length < a.name.length ? b : a));

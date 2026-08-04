@@ -19,6 +19,14 @@ export function VitrinReminder() {
   const view = useStore((s) => s.view);
   const setView = useStore((s) => s.setView);
   const [visible, setVisible] = useState(false);
+  // Giriş animasyonu (`reminderup`) sürerken true — bitince false'a düşer ve o andan
+  // sonra rozet TAMAMEN statik yerleşiminde (bkz. globals.css `--enter`/settled ayrımı).
+  // Bu ayrım olmadan `.vf-hit` (ekleme varışı) `animation`ı geçici değiştirdiğinde,
+  // varış bitince kısayol (shorthand) `reminderup`a "geri dönüyor" ve tarayıcı bunu
+  // YENİ bir oynatım sayıp baştan başlatıyordu — rozet varıştan hemen sonra bir kez
+  // daha aşağıdan kayıp beliriyordu. Girişi ayrı bir sınıfa taşıyıp bittiğinde
+  // sınıftan düşürmek, "geri dönülecek" bir giriş animasyonu bırakmıyor.
+  const [entering, setEntering] = useState(true);
   const t = useT();
 
   useEffect(() => {
@@ -42,9 +50,19 @@ export function VitrinReminder() {
 
   return (
     <div
-      key={count /* içerik değişince (yeni ürün eklenince) giriş animasyonu tekrar oynasın */}
-      className="vitrin-reminder"
+      // `key={count}` BİLEREK YOK: eskiden buradaydı ve her eklemede rozeti tamamen
+      // yok edip yeniden kuruyordu — kayarak giren `reminderup` animasyonu baştan
+      // oynuyordu. Bunun asıl sorunu: flyToVitrin (vitrin-flight.ts) zaten görseli
+      // karttan buraya uçurup varışta `.vf-hit` ile rozeti canlandırıyor (bkz. globals.css
+      // `.vitrin-reminder.vf-hit`); uçuş ~640ms sürdüğü için `count` değişince ANINDA
+      // yok edilen rozet, uçuş varınca artık DOM'da olmuyordu — iki efekt çakışıyordu.
+      // Rozet artık YALNIZ ilk görünürlük eşiğinde (kaydırma) kendi girişini oynar,
+      // ekleme geri bildirimini tek başına uçuş+varış efekti taşır.
+      className={`vitrin-reminder${entering ? " vitrin-reminder--enter" : ""}`}
       data-vitrin-target="reminder"
+      onAnimationEnd={(e) => {
+        if (e.animationName === "reminderup") setEntering(false);
+      }}
       onClick={() => {
         setView("vitrin");
         window.scrollTo({ top: 0, behavior: "auto" });

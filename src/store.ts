@@ -483,7 +483,10 @@ export const useStore = create<State>((set, get) => ({
   },
 
   openMarka: (slug) => {
-    set({ view: "marka", markaSlug: slug });
+    // `detail` de kapatılır: ürün modali açıkken markanın altr sayfasına geçilince
+    // (bkz. BrandModal onBrandPage) modal z-index'i markanın sayfasını tamamen
+    // örtüyordu — geçiş gerçekte oluyordu ama görünmüyordu.
+    set({ view: "marka", markaSlug: slug, detail: null });
     syncUrl("marka", slug, get().query, true);
     if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "auto" });
   },

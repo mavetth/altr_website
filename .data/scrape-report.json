@@ -1,19 +1,61 @@
 {
-  "at": "2026-07-30T02:48:16.436Z",
+  "at": "2026-08-04T15:09:43.729Z",
   "results": [
     {
-      "slug": "fadeback-studio",
-      "platform": "shopier",
-      "records": 45,
-      "onceHad": 0,
+      "slug": "d-verge-studio",
+      "platform": "jsonld",
+      "records": 27,
+      "onceHad": 27,
       "keptPrevious": false,
       "keptReason": null,
-      "withPrice": 45,
-      "withSize": 45,
+      "withPrice": 27,
+      "withSize": 18,
       "currency": "TRY",
-      "note": "shopier 45 ürün / vitrinde 45",
+      "note": "43 sayfa tarandı · KAYIP 16 sayfa (0 alınamadı, 16 boş)",
       "err": null,
-      "ms": 61062
+      "ms": 9001
+    },
+    {
+      "slug": "kozmosize",
+      "platform": "jsonld",
+      "records": 724,
+      "onceHad": 722,
+      "keptPrevious": false,
+      "keptReason": null,
+      "withPrice": 724,
+      "withSize": 468,
+      "currency": "TRY",
+      "note": "773 sayfa tarandı · KAYIP 49 sayfa (0 alınamadı, 49 boş)",
+      "err": null,
+      "ms": 101031
+    },
+    {
+      "slug": "rpg-studio",
+      "platform": "jsonld",
+      "records": 27,
+      "onceHad": 27,
+      "keptPrevious": false,
+      "keptReason": null,
+      "withPrice": 27,
+      "withSize": 14,
+      "currency": "TRY",
+      "note": "27 sayfa tarandı",
+      "err": null,
+      "ms": 6450
+    },
+    {
+      "slug": "the-mets-co",
+      "platform": "jsonld",
+      "records": 1080,
+      "onceHad": 1078,
+      "keptPrevious": false,
+      "keptReason": null,
+      "withPrice": 1080,
+      "withSize": 1028,
+      "currency": "TRY",
+      "note": "1095 sayfa tarandı · KAYIP 12 sayfa (0 alınamadı, 12 boş)",
+      "err": null,
+      "ms": 142906
     }
   ]
 }

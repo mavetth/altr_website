@@ -37,3 +37,11 @@ npm-debug.log*
 # ~13 MB); `npm install` sonrası postinstall (scripts/decompress-catalog.mjs)
 # onu otomatik geri açar. Veri kaybı yok, yalnızca depolama biçimi.
 /.data/catalog.new-full.json
+
+# Elle alınmış YEDEKLER. Riskli bir işlemden önce katalog/logo klasörü kopyalanıyor
+# ("…-yedek-20260730", "…oncesi-colorsuspect-20260804") ve her biri yüz megabaytı
+# bulabiliyor. Bu kopyalar tek bir makinenin geri alma ağı — depoya girerlerse
+# klonlayan herkes onları da indirir ve depo her turda kalıcı olarak şişer.
+/.data/*yedek*
+/.data/*.oncesi-*
+/.data/*.onceki-*

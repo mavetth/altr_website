@@ -238,6 +238,26 @@ function sizesFrom(node, html) {
 const IN_STOCK_RE = /instock|in_stock|limitedavailability|preorder/i;
 
 /**
+ * JSON-LD alanını BÜYÜK/KÜÇÜK HARF GÖZETMEDEN okur.
+ *
+ * schema.org alan adları sözleşme gereği küçük harfle başlar (`offers`, `availability`)
+ * ve adaptör onları birebir arıyordu. Wix mağazaları bu sözleşmeyi tutmuyor: kozmosize
+ * .com'da blok `"Offers": { …, "Availability": "https://schema.org/OutOfStock" }` diye
+ * geliyor. Sonuç sessizdi — `node.offers` undefined, dolayısıyla stok sinyali "yok"
+ * sayılıp ürün varsayılan olarak STOKTA kabul ediliyordu: markanın 557 ürününün %100'ü,
+ * tükenmişler dahil, satın alınabilir görünüyordu.
+ */
+function alan(obj, ...adlar) {
+  if (!obj || typeof obj !== "object") return undefined;
+  for (const ad of adlar) {
+    if (obj[ad] !== undefined) return obj[ad];
+    const hit = Object.keys(obj).find((k) => k.toLowerCase() === ad.toLowerCase());
+    if (hit) return obj[hit];
+  }
+  return undefined;
+}
+
+/**
  * JSON-LD teklifinden MÜŞTERİNİN ÖDEDİĞİ fiyat.
  *
  * `offers` bir dizi olabiliyor (varyant başına bir teklif). Eskiden körlemesine ilki
@@ -251,11 +271,11 @@ const IN_STOCK_RE = /instock|in_stock|limitedavailability|preorder/i;
 function offerPrice(offers, node) {
   const list = (Array.isArray(offers) ? offers : [offers]).filter(Boolean);
   const pick = (rows) => {
-    const ps = rows.map((o) => num(o?.price ?? o?.lowPrice)).filter((n) => n != null && n > 0);
+    const ps = rows.map((o) => num(alan(o, "price", "lowPrice"))).filter((n) => n != null && n > 0);
     return ps.length ? Math.min(...ps) : null;
   };
-  const live = list.filter((o) => IN_STOCK_RE.test(String(o?.availability ?? "")));
-  return pick(live) ?? pick(list) ?? num(node?.price);
+  const live = list.filter((o) => IN_STOCK_RE.test(String(alan(o, "availability") ?? "")));
+  return pick(live) ?? pick(list) ?? num(alan(node, "price"));
 }
 
 /** Ticimax: `productDetailModel` JSON'undan tam varyant verisi. */
@@ -320,6 +340,40 @@ function ticimaxPrice(model) {
   return null;
 }
 
+/**
+ * Ticimax mağazasının GERÇEK stok durumu.
+ *
+ * Bu ADAPTÖRÜN EN BÜYÜK SESSİZ YANLIŞIYDI (2026-08-04). Stok tek kaynaktan, JSON-LD'nin
+ * ilk teklifindeki `availability` alanından okunuyordu; o alan yoksa `inStock` KÖRLEMESİNE
+ * `true` kabul ediliyordu. Ticimax temalarının bir kısmı hiç JSON-LD basmıyor (ölçüldü:
+ * kostebek.com.tr'de `application/ld+json` bloğu 0) — yani o mağazaların TAMAMI, tükenmiş
+ * ürünler dahil, katalogda "stokta" görünüyordu. Ölçüm: kostebek 7.190, nuugg 2.014,
+ * fo4rbs 1.126, the-mets-co 797, kozmosize 557, matt-wear 305 ürünün %100'ü stoktaydı.
+ * Somut örnek: "Tokalı Kargo Cepli Kot Pantolon" — sayfadaki altı bedenin altısı da
+ * `stokAdedi: 0`, `totalStockAmount: 0`, ama vitrinde satın alınabilir görünüyordu.
+ *
+ * Oysa doğru veri hep oradaydı: `productDetailModel` beden başına GERÇEK stok adedi
+ * (`stokAdedi`) taşıyor ve beden seçenekleri için zaten okunuyordu (bkz. `buyable`) —
+ * yalnız ürün düzeyindeki karara hiç bağlanmamıştı.
+ *
+ * Sıra: kapalı ürün → beden satırları → toplam stok. Model stok hakkında hiçbir şey
+ * söylemiyorsa `null` döner ve karar eskisi gibi JSON-LD'ye kalır.
+ */
+function ticimaxStock(model) {
+  if (!model) return null;
+  if (model.productActive === false) return false;
+  const p = model.product ?? {};
+  if (p.aktif === false) return false;
+
+  const vd = Array.isArray(model.productVariantData) ? model.productVariantData : [];
+  const rows = vd.filter((v) => v && v.stokAdedi != null);
+  if (rows.length) return rows.some((v) => v.aktif !== false && Number(v.stokAdedi) > 0);
+
+  // Varyantsız (tek seçenekli) ürün: stok yalnız ürün düzeyinde duruyor.
+  const total = num(model.totalStockAmount ?? p.stokAdedi);
+  return total == null ? null : total > 0;
+}
+
 function pageRecords(brand, pageUrl, html) {
   const node = productNode(ldBlocks(html));
   const name = (node?.name ?? meta(html, "og:title"))?.toString().trim();
@@ -327,7 +381,7 @@ function pageRecords(brand, pageUrl, html) {
   if (!name || !rawImgs.length) return [];
 
   const model = ticimaxModel(html);
-  const offers = node?.offers;
+  const offers = alan(node, "offers");
   const first = Array.isArray(offers) ? offers[0] : offers;
   const price = offerPrice(offers, node)
     ?? num(meta(html, "product:price:amount"))
@@ -338,9 +392,14 @@ function pageRecords(brand, pageUrl, html) {
   if (!node && ogType !== "product" && ogType !== "product.item" && price == null) return [];
 
   const images = rawImgs.map((u) => abs(pageUrl, u)).slice(0, 5);
-  const currency = String(first?.priceCurrency ?? meta(html, "product:price:currency") ?? "TRY").toUpperCase();
-  const avail = String(first?.availability ?? "").toLowerCase();
-  const inStock = avail ? avail.includes("instock") || avail.includes("in_stock") : true;
+  const currency = String(
+    alan(first, "priceCurrency") ?? meta(html, "product:price:currency") ?? "TRY",
+  ).toUpperCase();
+  // Stok: mağazanın KENDİ verisi (Ticimax `productDetailModel`) her zaman hakemdir;
+  // yoksa JSON-LD teklifi; o da yoksa "stokta" (bkz. ticimaxStock).
+  const avail = String(alan(first, "availability") ?? "").toLowerCase();
+  const inStock =
+    ticimaxStock(model) ?? (avail ? avail.includes("instock") || avail.includes("in_stock") : true);
   const base = {
     brand: brand.name,
     brandSlug: brand.slug,

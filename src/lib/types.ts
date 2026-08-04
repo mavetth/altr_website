@@ -301,6 +301,15 @@ export interface Variant {
   price: number | null;
   /** Bu rengin markadaki kendi ürün sayfası (varsa). */
   url: string | null;
+  /**
+   * İçe aktarma zamanında işaretlenir: bu ürünün 2+ varyantı BİREBİR aynı renk adını
+   * taşıyor. Genelde markanın kaynak verisindeki bir hataya işaret eder — ör. iki ayrı
+   * Shopify ürünü ("...-black-jersey" ve "...-jersey") tek karta katlanmış ama ikisinin
+   * de "Renk" seçeneği kaynakta "Beyaz" girilmiş. Böyle bir üründe renk ADI güvenilmez
+   * olduğu için isim, ölçümü geçersiz kılan hakem OLAMAZ (bkz. ColorSwatches →
+   * noktaRengi) — bu alan true olduğunda ölçüm isme öncelenir.
+   */
+  colorSuspect?: boolean;
 }
 
 export interface Product {

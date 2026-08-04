@@ -115,6 +115,12 @@ body {
   font-family: "IBM Plex Mono", monospace;
   /* tema geçişi: yumuşak değil, ani/sert kimliğe uygun -> kısa kes */
 }
+/* Sitede tıklanabilir her şey (kart, buton, çip, nav öğesi...) kendi hover/basma
+   geri bildirimini tanımlıyor (bkz. aşağıdaki .nav-item/.prod/.add-btn vb. kuralları).
+   Varsayılan mobil dokunma vurgusu kapatılmazsa Android Chrome'da her dokunuşta bunun
+   ÜSTÜNE ayrıca yarı saydam mavi bir katman biniyor — masaüstünde hiç görünmediği için
+   fark edilmiyordu. Tek satırla site genelinde kapatılıyor. */
+html { -webkit-tap-highlight-color: transparent; }
 ::selection { background: var(--grn); color: var(--on-accent); }
 input::placeholder { color: var(--faint); }
 a { color: inherit; }
@@ -188,6 +194,25 @@ a { color: inherit; }
   100% { transform: scale(1); }
 }
 .vf-hit { animation: vitrinpop .5s cubic-bezier(.3,.9,.3,1); transform-origin: center center; }
+
+/* Mobildeki yüzen rozet İÇİN AYRI, DAHA KÜÇÜK bir varış efekti: sidebar'daki
+   VİTRİNİM linkinin büyük zıplaması (`vitrinpop`) küçük bir pilde fazla geliyordu.
+   Hareket küçülünce tek başına göze çarpmayabilir diye kenarlığın etrafında kısa bir
+   "yanma" (glow) eklendi — parlayıp söner, "kaydedildi" hissini pekiştirir.
+   İki sınıflı seçici (`.vitrin-reminder.vf-hit`) `.vf-hit`ten daha özgül, `animation`ı
+   burada eziyor.
+   KEYFRAME'LER `translate(-50%, 0)`Yİ DE İÇERİR (yalnız `scale` değil): rozet
+   `left:50%` + `transform:translateX(-50%)` ile ortalanıyor; bu animasyon devredeyken
+   `transform` tamamen onun keyframe'lerinden geliyor, ortalama payı unutulursa rozet
+   bir anlığına sağa kayıyordu (ölçüldü — bkz. VitrinReminder.tsx `entering` notu). */
+.vitrin-reminder.vf-hit {
+  animation: vitrinpopsoft .32s cubic-bezier(.3,.9,.3,1);
+}
+@keyframes vitrinpopsoft {
+  0%   { transform: translate(-50%, 0) scale(1); box-shadow: 0 6px 18px rgba(0,0,0,.4), 0 0 0 0 var(--grn); }
+  40%  { transform: translate(-50%, 0) scale(1.08); box-shadow: 0 6px 18px rgba(0,0,0,.4), 0 0 16px 5px var(--grn); }
+  100% { transform: translate(-50%, 0) scale(1); box-shadow: 0 6px 18px rgba(0,0,0,.4), 0 0 0 0 var(--grn); }
+}
 
 /* toast */
 @keyframes toastin {
@@ -297,8 +322,14 @@ a { color: inherit; }
 
 /* --- renk seçici ----------------------------------------------------------
    Seçim, noktanın rengini bozmamak için ETRAFINDAKİ halkayla gösterilir
-   (siyah varyantın seçili hâli de siyah kalmalı). Geçiş yok: anlık. */
-.swatch { transition: none; }
+   (siyah varyantın seçili hâli de siyah kalmalı). Geçiş yok: anlık.
+   -webkit-tap-highlight-color kapatılmazsa Android Chrome dokununca noktanın
+   üstüne yarı saydam MAVİ bir katman biniyor (varsayılan dokunma vurgusu) —
+   masaüstünde görünmüyor, yalnız gerçek dokunmatik ekranda ortaya çıkıyor. */
+.swatch {
+  transition: none;
+  -webkit-tap-highlight-color: transparent;
+}
 .swatch:hover { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--muted2) !important; }
 .swatch.is-on:hover { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--grn) !important; }
 
@@ -939,8 +970,15 @@ a { color: inherit; }
     letter-spacing: .08em;
     box-shadow: 0 6px 18px rgba(0,0,0,.4);
     cursor: pointer;
-    animation: reminderup .3s steps(5) forwards;
+    /* YERLEŞMİŞ (settled) durum: giriş bittikten sonra rozetin sürekli hâli budur,
+       STATİK — hiçbir `animation` bağlı değil. Giriş `.vitrin-reminder--enter`de ayrı
+       duruyor ki bittiğinde sınıftan düşünce geriye "dönülecek" bir animasyon kalmasın
+       (bkz. VitrinReminder.tsx `entering` notu — aksi hâlde ekleme varışı bitince
+       `animation` kısayolu reminderup'a geri dönüp onu YENİDEN BAŞLATIYORDU). */
+    transform: translateX(-50%);
+    opacity: 1;
   }
+  .vitrin-reminder--enter { animation: reminderup .3s steps(5) forwards; }
   .vitrin-reminder b { color: var(--grn); font-size: 11px; }
 
   /* Bize Ulaşın: mobilde yazı düşer, sadece zarf kalır — tam metin dokunma hedefini

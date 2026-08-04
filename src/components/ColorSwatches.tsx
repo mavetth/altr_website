@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState, type CSSProperties } from "react";
 import type { Variant } from "@/lib/types";
-import { hexToTag, nameToTags } from "@/lib/color-tags";
+import { colorTagLabel, hexToTag, nameToTags } from "@/lib/color-tags";
 import { colorToHex } from "@/lib/colors";
 import { dominantColor, loadPersisted, olcumUrl } from "@/lib/dominant-color";
 import { useT } from "@/lib/lang";
@@ -59,9 +59,18 @@ function swatchUrl(images: string[], v: Variant): string | null {
  * Hiçbiri geçmezse elde ne varsa çizilir (boş nokta hiç bilgi vermez).
  * Ad hiçbir aileye çözülmüyorsa ("Nefti", "01", "-") sınayacak bilgi yoktur;
  * orada ölçüm eskisi gibi tek başına karar verir.
+ *
+ * ÜÇÜNCÜ İSTİSNA — `colorSuspect` (2026-08-04): import bu ürünün 2+ varyantının
+ * BİREBİR aynı renk adını taşıdığını tespit ettiyse (bkz. scripts/import-catalog.mjs),
+ * adın kendisi güvenilmez demektir — markanın kaynak verisinde renk yanlış/kopya
+ * girilmiş olabilir (ölçüldü: orient-x "Rose Barbed Wire Black Jersey", Shopify'daki
+ * "Renk" seçeneği kaynakta da "Beyaz"; siyah-kırmızı desenli gömlek yeşil/beyaz iki
+ * nokta gösteriyordu). Böyle bir varyantta isim hakemlik YAPAMAZ — aile eşleşmesi
+ * atlanır, ölçüm doğrudan öne alınır.
  */
 function noktaRengi(v: Variant, olcum: string): string {
   const adAileleri = nameToTags(v.color ?? "");
+  if (v.colorSuspect) return olcum || v.hex || "";
   const adaylar = [olcum, v.hex, adAileleri.length ? colorToHex(v.color ?? "") : ""];
   if (!adAileleri.length) return olcum || v.hex || "";
   for (const aday of adaylar) {
@@ -154,11 +163,14 @@ export function ColorSwatches({
         // Fotoğraf bu varyantı komşusundan ayıramıyorsa ölçüm bir şey söylemiyor.
         const olcum = url && !paylasilan.has(url) ? derived[idx] : "";
         const hex = noktaRengi(v, olcum);
+        // Şüpheli varyantta (bkz. types.ts Variant.colorSuspect) ipucu de noktanın
+        // kendi rengiyle çelişmesin: marka adı yerine ölçülen rengin ailesi gösterilir.
+        const ipucu = v.colorSuspect ? colorTagLabel(hexToTag(hex) ?? "") || t("renk") : v.color || t("renk");
         return (
           <span
             key={idx}
             className={`swatch${on ? " is-on" : ""}`}
-            title={v.color || t("renk")}
+            title={ipucu}
             onClick={(e) => {
               // kart tıklaması ürün modalını açıyor; renk seçimi onu tetiklemesin
               e.stopPropagation();

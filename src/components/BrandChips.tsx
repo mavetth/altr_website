@@ -74,7 +74,9 @@ export function BrandChips({ brands }: { brands: BrandChip[] }) {
               setQuery({ brands: [] });
             }}
             title={t("Marka seçimini temizle")}
-            style={{ color: "var(--grn)", letterSpacing: ".14em" }}
+            // `white-space: nowrap`: dar sarmalayıcıda metinle ✕ arasındaki boşluktan
+            // kırılıp ✕ yalnız başına alt satıra düşüyordu — bkz. kullanıcı ekran görüntüsü.
+            style={{ color: "var(--grn)", letterSpacing: ".14em", whiteSpace: "nowrap" }}
           >
             {t(`${selected.length} SEÇİLİ`)} ✕
           </span>

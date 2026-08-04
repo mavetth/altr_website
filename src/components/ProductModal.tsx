@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { hexToRgb, nameToTags } from "@/lib/color-tags";
+import { colorTagLabel, hexToRgb, hexToTag, nameToTags } from "@/lib/color-tags";
 import { colorToHex } from "@/lib/colors";
 import { dominantColor, loadPersisted, olcumUrl } from "@/lib/dominant-color";
 import { genderLabel } from "@/lib/gender";
@@ -83,9 +83,12 @@ export function ProductModal() {
   const paylasimliHavuz =
     !!p && p.variants.length > 1 &&
     new Set(p.variants.map((v) => (v.imgs ?? []).join(","))).size === 1;
+  // Renk adı ŞÜPHELİ üründe (bkz. types.ts Variant.colorSuspect) aynı ölçüm, kare
+  // seçiminin yanında "RENK" etiketini de besliyor — bkz. aşağıdaki renkEtiket.
+  const supheliVaryantVar = !!p && p.variants.some((v) => v.colorSuspect);
   const [kareRengi, setKareRengi] = useState<Record<number, string>>({});
   useEffect(() => {
-    if (!p || !paylasimliHavuz) return;
+    if (!p || !(paylasimliHavuz || supheliVaryantVar)) return;
     let alive = true;
     loadPersisted();
     (async () => {
@@ -101,7 +104,7 @@ export function ProductModal() {
     return () => {
       alive = false;
     };
-  }, [p, paylasimliHavuz]);
+  }, [p, paylasimliHavuz, supheliVaryantVar]);
 
   // Ürün veya renk değişince küçük görsel şeridi başa döner — yoksa yeni rengin
   // 1 görseli varken eski rengin 3. görselinde kalıp boş kare gösterebiliyordu.
@@ -158,6 +161,20 @@ export function ProductModal() {
         ? [p.image]
         : [];
   const shown = imgs[imgIdx] ?? imgs[0] ?? p.image;
+  /**
+   * "RENK" etiketi. Normalde markanın yazdığı ad basılır. ŞÜPHELİ varyantta
+   * (bkz. types.ts Variant.colorSuspect — bu ürünün 2+ varyantı birebir aynı adı
+   * taşıyor, yani ad kaynakta yanlış/kopya girilmiş) ad artık güvenilmez: onun yerine
+   * noktanın kendisinin dayandığı ölçülen rengin AİLESİ basılır (ör. "SİYAH"), böylece
+   * etiket noktayla ÇELİŞMEZ. Ölçüm henüz gelmediyse (kareRengi boş) marka hex'i
+   * denenir; o da yoksa etiket hiç gösterilmez — uydurma bir ad basmaktansa susmak.
+   */
+  const renkEtiket = (() => {
+    if (!v?.colorSuspect) return v?.color ?? "";
+    const olcumHex = v.imgs?.length ? kareRengi[v.imgs[0]] : "";
+    const aile = hexToTag(olcumHex || v.hex);
+    return aile ? colorTagLabel(aile) : "";
+  })();
   const sizes = v?.sizes.length ? v.sizes : p.sizes;
   /**
    * Modaldaki beden kutuları — YALNIZ ÜRETİLEN bedenler.
@@ -324,9 +341,9 @@ export function ProductModal() {
               <div className="pm-colorblock">
                 <div style={{ display: "flex", alignItems: "baseline", gap: 10, marginTop: 22, marginBottom: 9 }}>
                   <span style={{ fontFamily: "'Space Mono', monospace", fontSize: 12, letterSpacing: ".22em", color: "var(--faint)" }}>{t("RENK")}</span>
-                  {v?.color && (
+                  {renkEtiket && (
                     <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 12, letterSpacing: ".06em", color: "var(--muted2)", textTransform: "uppercase" }}>
-                      {v.color}
+                      {renkEtiket}
                     </span>
                   )}
                 </div>

@@ -88,7 +88,19 @@
       "Bash(ls -d \"C:/Users/emirh/OneDrive/Desktop/\"altr-* 2>/dev/null; echo \"---\"; ls \"C:/Users/emirh/OneDrive/Desktop/altr-0.0.8\" | head)",
       "Bash(node \"C:/Users/emirh/AppData/Local/Temp/claude/C--Users-emirh-OneDrive-Desktop-altr-0-0-8/34d7fe69-0439-4e66-84d5-1277ac9ce8cb/scratchpad/i18n-audit.mjs\" \"C:/Users/emirh/OneDrive/Desktop/altr-0.0.8\")",
       "Bash(node \"C:/Users/emirh/AppData/Local/Temp/claude/C--Users-emirh-OneDrive-Desktop-altr-0-0-8/34d7fe69-0439-4e66-84d5-1277ac9ce8cb/scratchpad/i18n-audit2.mjs\" \"C:/Users/emirh/OneDrive/Desktop/altr-0.0.8\")",
-      "Bash(node \"C:/Users/emirh/AppData/Local/Temp/claude/C--Users-emirh-OneDrive-Desktop-altr-0-0-8/34d7fe69-0439-4e66-84d5-1277ac9ce8cb/scratchpad/i18n-audit3.mjs\" \"C:/Users/emirh/OneDrive/Desktop/altr-0.0.8\")"
+      "Bash(node \"C:/Users/emirh/AppData/Local/Temp/claude/C--Users-emirh-OneDrive-Desktop-altr-0-0-8/34d7fe69-0439-4e66-84d5-1277ac9ce8cb/scratchpad/i18n-audit3.mjs\" \"C:/Users/emirh/OneDrive/Desktop/altr-0.0.8\")",
+      "Bash(awk '{s+=$1} END {printf \"son 4 saat: %d dosya, %.1f MB\\\\n\", NR, s/1048576}')",
+      "Bash(awk '{s+=$1} END {printf \"toplam img-cache: %d dosya, %.1f MB\\\\n\", NR, s/1048576}')",
+      "Bash(awk '{printf \"%.0f MB %s\\\\n\", $5/1048576, $9}')",
+      "Bash(awk '{s+=$1} END {printf \"%.1f MB \\(%d dosya\\)\\\\n\", s/1048576, NR}')",
+      "Bash(curl -s \"http://localhost:3005/\" -o /tmp/altr_ssr.html)",
+      "Read(//tmp/**)",
+      "Bash(python3 -c ' *)",
+      "Bash(ls -la \"/c/Users/emirh/OneDrive/Desktop/\" 2>&1 | grep -i altr *)",
+      "WebFetch(domain:orientx.shop)",
+      "Bash(node -e \"require.resolve\\('sharp'\\); console.log\\('sharp OK'\\)\")",
+      "Bash(node --no-warnings=MODULE_TYPELESS_PACKAGE_JSON scripts/_audit-suspect-colors.mjs 300)",
+      "Bash(node --no-warnings=MODULE_TYPELESS_PACKAGE_JSON scripts/_audit-suspect-colors.mjs 400)"
     ]
   }
 }
